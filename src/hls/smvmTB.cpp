@@ -8,6 +8,7 @@ void smvm_unoptimized(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl ], DTYPE val
 void smvm_loop2P(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl], DTYPE values[noZeroEl], DTYPE mulRes[size], DTYPE vector[size]);
 void smvm_loop1P(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl], DTYPE values[noZeroEl], DTYPE mulRes[size], DTYPE vector[size]);
 void smvm_loop1U2(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl], DTYPE values[noZeroEl], DTYPE mulRes[size], DTYPE vector[size]);
+void smvm_loop2PU2(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl], DTYPE values[noZeroEl], DTYPE mulRes[size], DTYPE vector[size]);
 
 int main() {
 
@@ -71,6 +72,20 @@ int main() {
 	}
 
 	smvm_loop1U2(iFirstEl, iNonZeroEl, values, mulRes, vector);
+	cout << endl;
+	cout << "*** Loop 1 Unrolling Factor=2 Design ***" << endl;
+	for(int i=0; i<size; ++i) {
+		cout << "mulResSW=" << mulResSW[i] << ", ";
+		cout << "mulRes=" << mulRes[i] << endl;
+		if(mulResSW[i] != mulRes[i] )
+			fail = 1;
+		if(fail == 1)
+			cout << "i=" << i << " failed." << endl;
+		else
+			cout << "i=" << i << " passed." << endl;
+	}
+
+	smvm_loop2PU2(iFirstEl, iNonZeroEl, values, mulRes, vector);
 	cout << endl;
 	cout << "*** Loop 1 Unrolling Factor=2 Design ***" << endl;
 	for(int i=0; i<size; ++i) {

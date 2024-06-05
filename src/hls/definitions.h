@@ -69,4 +69,14 @@ void smvm_loop1P(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl], DTYPE values[no
  */
 void smvm_loop1U2(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl], DTYPE values[noZeroEl], DTYPE mulRes[size], DTYPE vector[size]);
 
+/**
+ * Sparse Matrix Multiplication Loop 2 Pipeline and Unrolling Factor=2 Design.
+ * @param iFirstEl[rows+1] Indexes First Elements
+ * @param iNonZeroEl[noZeroEl] Indexes Non Zero Elements
+ * @param values[noZeroEl] Input Values
+ * @param mulRes[size] Multiplication Result
+ * @param vector[size] Input Vector
+ */
+void smvm_loop2PU2(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl], DTYPE values[noZeroEl], DTYPE mulRes[size], DTYPE vector[size]);
+
 #endif
