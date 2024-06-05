@@ -1,0 +1,165 @@
+
+
+================================================================
+== Vivado HLS Report for 'smvm_loop1P'
+================================================================
+* Date:           Wed Jun  5 23:34:15 2024
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        smvmProject
+* Solution:       Loop1P
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.510|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- loop1   |    ?|    ?|         ?|          -|          -|     4|    no    |
+        | + loop2  |    ?|    ?|         5|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      3|       0|    137|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|       -|      -|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|     71|
+|Register         |        -|      -|     241|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      3|     241|    208|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      1|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------+----------+-------+---+----+------------+------------+
+    |    Variable Name   | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------+----------+-------+---+----+------------+------------+
+    |tmp_6_fu_202_p2     |     *    |      3|  0|  20|          32|          32|
+    |i_1_fu_164_p2       |     +    |      0|  0|  12|           3|           1|
+    |k_1_fu_191_p2       |     +    |      0|  0|  39|          32|           1|
+    |ytmp_1_fu_206_p2    |     +    |      0|  0|  39|          32|          32|
+    |exitcond_fu_158_p2  |   icmp   |      0|  0|   9|           3|           4|
+    |tmp_3_fu_180_p2     |   icmp   |      0|  0|  18|          32|          32|
+    +--------------------+----------+-------+---+----+------------+------------+
+    |Total               |          |      3|  0| 137|         134|         102|
+    +--------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------+----+-----------+-----+-----------+
+    |     Name     | LUT| Input Size| Bits| Total Bits|
+    +--------------+----+-----------+-----+-----------+
+    |ap_NS_fsm     |  44|          9|    1|          9|
+    |i_reg_125     |   9|          2|    3|          6|
+    |k1_reg_149    |   9|          2|   32|         64|
+    |ytmp_reg_136  |   9|          2|   32|         64|
+    +--------------+----+-----------+-----+-----------+
+    |Total         |  71|         15|   68|        143|
+    +--------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------+----+----+-----+-----------+
+    |          Name         | FF | LUT| Bits| Const Bits|
+    +-----------------------+----+----+-----+-----------+
+    |ap_CS_fsm              |   8|   0|    8|          0|
+    |iFirstEl_load_reg_239  |  32|   0|   32|          0|
+    |i_1_reg_214            |   3|   0|    3|          0|
+    |i_reg_125              |   3|   0|    3|          0|
+    |k1_reg_149             |  32|   0|   32|          0|
+    |k_1_reg_257            |  32|   0|   32|          0|
+    |tmp_6_reg_277          |  32|   0|   32|          0|
+    |tmp_reg_219            |   3|   0|   64|         61|
+    |values_load_reg_262    |  32|   0|   32|          0|
+    |vector_load_reg_272    |  32|   0|   32|          0|
+    |ytmp_reg_136           |  32|   0|   32|          0|
+    +-----------------------+----+----+-----+-----------+
+    |Total                  | 241|   0|  302|         61|
+    +-----------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------+-----+-----+------------+--------------+--------------+
+|      RTL Ports      | Dir | Bits|  Protocol  | Source Object|    C Type    |
++---------------------+-----+-----+------------+--------------+--------------+
+|ap_clk               |  in |    1| ap_ctrl_hs |  smvm_loop1P | return value |
+|ap_rst               |  in |    1| ap_ctrl_hs |  smvm_loop1P | return value |
+|ap_start             |  in |    1| ap_ctrl_hs |  smvm_loop1P | return value |
+|ap_done              | out |    1| ap_ctrl_hs |  smvm_loop1P | return value |
+|ap_idle              | out |    1| ap_ctrl_hs |  smvm_loop1P | return value |
+|ap_ready             | out |    1| ap_ctrl_hs |  smvm_loop1P | return value |
+|iFirstEl_address0    | out |    3|  ap_memory |   iFirstEl   |     array    |
+|iFirstEl_ce0         | out |    1|  ap_memory |   iFirstEl   |     array    |
+|iFirstEl_q0          |  in |   32|  ap_memory |   iFirstEl   |     array    |
+|iFirstEl_address1    | out |    3|  ap_memory |   iFirstEl   |     array    |
+|iFirstEl_ce1         | out |    1|  ap_memory |   iFirstEl   |     array    |
+|iFirstEl_q1          |  in |   32|  ap_memory |   iFirstEl   |     array    |
+|iNonZeroEl_address0  | out |    4|  ap_memory |  iNonZeroEl  |     array    |
+|iNonZeroEl_ce0       | out |    1|  ap_memory |  iNonZeroEl  |     array    |
+|iNonZeroEl_q0        |  in |   32|  ap_memory |  iNonZeroEl  |     array    |
+|values_address0      | out |    4|  ap_memory |    values    |     array    |
+|values_ce0           | out |    1|  ap_memory |    values    |     array    |
+|values_q0            |  in |   32|  ap_memory |    values    |     array    |
+|mulRes_address0      | out |    2|  ap_memory |    mulRes    |     array    |
+|mulRes_ce0           | out |    1|  ap_memory |    mulRes    |     array    |
+|mulRes_we0           | out |    1|  ap_memory |    mulRes    |     array    |
+|mulRes_d0            | out |   32|  ap_memory |    mulRes    |     array    |
+|vector_address0      | out |    2|  ap_memory |    vector    |     array    |
+|vector_ce0           | out |    1|  ap_memory |    vector    |     array    |
+|vector_q0            |  in |   32|  ap_memory |    vector    |     array    |
++---------------------+-----+-----+------------+--------------+--------------+
+
