@@ -1,0 +1,128 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  8 JUN 2024 23:11
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./main.tex
+(main.tex
+LaTeX2e <2024-06-01>
+L3 programming layer <2024-05-08>
+(D:\MikTex\tex/latex/base\article.cls
+Document Class: article 2024/02/08 v1.4n Standard LaTeX document class
+(D:\MikTex\tex/latex/base\size10.clo
+File: size10.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count194
+\c@section=\count195
+\c@subsection=\count196
+\c@subsubsection=\count197
+\c@paragraph=\count198
+\c@subparagraph=\count199
+\c@figure=\count266
+\c@table=\count267
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (D:\MikTex\tex/generic/babel\babel.sty
+Package: babel 2024/05/18 v24.5 The Babel package
+\babel@savecnt=\count268
+\U@D=\dimen142
+\l@unhyphenated=\language79
+
+(D:\MikTex\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count269
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(D:\MikTex\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(D:\MikTex\tex/latex/babel-english\english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 108.
+))
+(D:\MikTex\tex/generic/babel/locale/en\babel-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+)
+(D:\MikTex\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(D:\MikTex\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(D:\MikTex\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (D:\MikTex\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count270
+\Gm@cntv=\count271
+\c@Gm@tempcnt=\count272
+\Gm@bindingoffset=\dimen143
+\Gm@wd@mp=\dimen144
+\Gm@odd@mp=\dimen145
+\Gm@even@mp=\dimen146
+\Gm@layoutwidth=\dimen147
+\Gm@layoutheight=\dimen148
+\Gm@layouthoffset=\dimen149
+\Gm@layoutvoffset=\dimen150
+\Gm@dimlist=\toks18
+ (D:\MikTex\tex/latex/geometry\geometry.cfg))
+(D:\MikTex\tex/latex/tools\array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen151
+\ar@mcellbox=\box52
+\extrarowheight=\dimen152
+\NC@list=\toks19
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box53
+) (D:\MikTex\tex/latex/tocloft\tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has section divisions on input line 51.
+\cftparskip=\skip53
+\cftbeforetoctitleskip=\skip54
+\cftaftertoctitleskip=\skip55
+\cftbeforepartskip=\skip56
+\cftpartnumwidth=\skip57
+\cftpartindent=\skip58
+\cftbeforesecskip=\skip59
+\cftsecindent=\skip60
+\cftsecnumwidth=\skip61
+\cftbeforesubsecskip=\skip62
+\cftsubsecindent=\skip63
+\cftsubsecnumwidth=\skip64
+\cftbeforesubsubsecskip=\skip65
+\cftsubsubsecindent=\skip66
+\cftsubsubsecnumwidth=\skip67
+\cftbeforeparaskip=\skip68
+\cftparaindent=\skip69
+\cftparanumwidth=\skip70
+\cftbeforesubparaskip=\skip71
+\cftsubparaindent=\skip72
+\cftsubparanumwidth=\skip73
+\cftbeforeloftitleskip=\skip74
+\cftafterloftitleskip=\skip75
+\cftbeforefigskip=\skip76
+\cftfigindent=\skip77
+\cftfignumwidth=\skip78
+\c@lofdepth=\count273
+\c@lotdepth=\count274
+\cftbeforelottitleskip=\skip79
+\cftafterlottitleskip=\skip80
+\cftbeforetabskip=\skip81
+\cfttabindent=\skip82
+\cfttabnumwidth=\skip83
+) (D:\MikTex\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
+
+(D:\MikTex\tex/latex/kvsetk

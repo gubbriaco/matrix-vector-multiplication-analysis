@@ -1,0 +1,9 @@
+Il formato \textbf{Compressed Row Storage (CRS)} permette la rappresentazione di una matrice tramite tre array unidimensionali consentendo un accesso veloce alle righe e una moltiplicazione matrice-vettore efficiente. In particolare, i tre array utilizzati sono i seguenti:
+\begin{itemize}
+	\item values\\
+	È un array contenente tutti gli elementi della matrice non nulli.
+	\item iFirstEl\\
+	È un array contenente gli indici, relativi all'array values, corrispondenti ai primi elementi non nulli di ogni riga. Nella letteratura questo array è conosciuto anche con la denominazione di \textit{rowPtr}.
+	\item iNonZeroEl\\
+	È un array contenente gli indici di colonna degli elementi non nulli. Nella letteratura questo array è conosciuto anche con la denominazione di \textit{columnIndex}.
+\end{itemize}
