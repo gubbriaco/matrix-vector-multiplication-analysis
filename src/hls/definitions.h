@@ -7,15 +7,15 @@
 //4
 //8
 //16
-const static int size = 8;
+const static int size = 16;
 
 /**
  * Number of Non-Zero Elements.
  */
 //9
 //13
-//21
-const static int noZeroEl  = 13;
+//16
+const static int noZeroEl  = 16;
 
 /**
  * Number of Rows.
@@ -23,7 +23,7 @@ const static int noZeroEl  = 13;
 //4
 //8
 //16
-const static int rows = 8;
+const static int rows = 16;
 
 /**
  * Data Type.
