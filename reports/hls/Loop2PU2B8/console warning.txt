@@ -1,0 +1,8 @@
+CONSIDERANDO block=8:
+
+WARNING: [XFORM 203-105] Cannot partition array 'iNonZeroEl' (smvmProject/smvm.cpp:11): indivisible factor 8 on dimension 1, which has 13 elements.
+WARNING: [XFORM 203-105] Cannot partition array 'values' (smvmProject/smvm.cpp:11): indivisible factor 8 on dimension 1, which has 13 elements.
+
+
+
+QUINDI SI CONSIDERA BLOCK=16, TRIPCOUNT=16 E SI MODIFICA IL CODICE PER 16
