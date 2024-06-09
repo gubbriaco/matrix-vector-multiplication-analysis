@@ -1,1 +1,11 @@
 \babel@toc {english}{}\relax 
+\contentsline {table}{\numberline {1}{\ignorespaces SMVM Solutions To Be Performed}}{5}{table.1}%
+\contentsline {table}{\numberline {2}{\ignorespaces SMVM Solutions Summary}}{9}{table.2}%
+\contentsline {table}{\numberline {3}{\ignorespaces SMVM Detailed Solutions}}{10}{table.3}%
+\contentsline {table}{\numberline {4}{\ignorespaces HLS Solution 1 Timing Summary (ns)}}{12}{table.4}%
+\contentsline {table}{\numberline {5}{\ignorespaces HLS Unoptimized Solution Latency Summary (clock cycles)}}{12}{table.5}%
+\contentsline {table}{\numberline {6}{\ignorespaces HLS Solution 1 Latency Loops Summary }}{12}{table.6}%
+\contentsline {table}{\numberline {7}{\ignorespaces HLS Solution 1 Utilization Estimates Summary}}{12}{table.7}%
+\contentsline {table}{\numberline {8}{\ignorespaces HLS Solution 1 C/RTL Cosimulation Summary }}{12}{table.8}%
+\contentsline {table}{\numberline {9}{\ignorespaces HLS Solution 1 Export RTL Resource Usage}}{12}{table.9}%
+\contentsline {table}{\numberline {10}{\ignorespaces HLS Solution Export RTL Final Timing}}{12}{table.10}%
