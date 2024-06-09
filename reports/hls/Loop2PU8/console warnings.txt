@@ -1,0 +1,58 @@
+Solo pipelining e unrolling=8 nel loop2:
+
+II=4
+
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'add' operation ('ytmp_1_7', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'add' operation ('ytmp_1_5', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1_2', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'add' operation ('ytmp_1_6', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1_2', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('iNonZeroEl_load_6', smvmProject/smvm.cpp:30) on array 'iNonZeroEl' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'iNonZeroEl'.
+
+
+
+Solo pipelining, unrolling=8 e partitioning=8 su iNonZeroEl nel loop2:
+
+II=4
+
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'add' operation ('ytmp_1_7', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'add' operation ('ytmp_1_5', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1_2', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'add' operation ('ytmp_1_6', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1_2', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('values_load_6', smvmProject/smvm.cpp:30) on array 'values' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'values'.
+
+
+
+Solo pipelining, unrolling=8, partitioning=8 su iNonZeroEl e partitioning=8 su values nel loop2:
+
+II=4
+
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'add' operation ('ytmp_1_7', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'add' operation ('ytmp_1_5', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1_2', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'add' operation ('ytmp_1_6', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1_2', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('vector_load_6', smvmProject/smvm.cpp:30) on array 'vector' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'vector'.
+
+
+
+Solo pipelining, unrolling=8, partitioning=8 su iNonZeroEl, partitioning=8 su values e partitioning=8 su vector nel loop2:
+
+II=3
+
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'add' operation ('ytmp_1_7', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'add' operation ('ytmp_1_5', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1_2', smvmProject/smvm.cpp:30).
+WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'add' operation ('ytmp_1_6', smvmProject/smvm.cpp:30) and 'add' operation ('ytmp_1_2', smvmProject/smvm.cpp:30).
+
+
+
+quindi:
+
+SI PUÒ RISOLVERE CONSIDERANDO SOLO PIPELINING E UNROLLING=4 NEL LOOP2 E IL PIPELINING NEL LOOP1

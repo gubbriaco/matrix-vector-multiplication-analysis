@@ -1,0 +1,34 @@
+Solo pipelining e unrolling=4 nel loop2:
+
+II=2
+
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('iNonZeroEl_load_2', smvmProject/smvm.cpp:30) on array 'iNonZeroEl' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'iNonZeroEl'.
+
+
+
+
+Solo pipelining, unrolling=4 e partitioning su iNonZeroEl nel loop2:
+
+II=2
+
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('values_load_2', smvmProject/smvm.cpp:30) on array 'values' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'values'.
+
+
+
+
+Solo pipelining, unrolling=4, partitioning su iNonZeroEl e partitioning su values nel loop2:
+
+II=2
+
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('vector_load_2', smvmProject/smvm.cpp:30) on array 'vector' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'vector'.
+
+
+
+
+Solo pipelining, unrolling=4, partitioning su iNonZeroEl, partitioning su values e partitioning su vector nel loop2:
+
+II=1
+
+RISOLTO -> GUARDARE CARTELLA partitioning4loop2 (PERÒ MAGGIORI RISORSE E TIMING DI CLOCK NON RISPETTATO)
+quindi: 
+SI PUÒ RISOLVERE ANCHE SENZA CONSIDERARE I 3 PARTITIONING E CONSIDERANDO SOLO PIPELINING E UNROLLING=4 NEL LOOP2 E IL PIPELINING NEL LOOP1
