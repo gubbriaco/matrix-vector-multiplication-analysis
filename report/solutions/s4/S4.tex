@@ -1,8 +1,8 @@
-Qui, di seguito, viene riportata l'architettura relativa alla seconda solution.
+Qui, di seguito, viene riportata l'architettura relativa alla quarta solution.
 
 \lstinputlisting[language=C++]{solutions/s4/s4.cpp}
 
-In particolare, nella soluzione hardware in questione, rispetto alla solution 1, è stata aggiunto la direttiva di unrolling con fattore pari a 2 all'interno del loop1.
+In particolare, nella soluzione hardware in questione, rispetto alla solution 1, è stata aggiunta la direttiva di unrolling con fattore pari a 2 all'interno del loop1.
 
 \begin{figure}[H]
 	\centering
@@ -100,9 +100,11 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 		VHDL & Pass & 56 & 56 & 56 & NA & NA & NA \\
 		\hline
 	\end{tabular}
-	\caption{HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }
-	\label{tab:hls-solution-1-cosimulation-summary}
+	\caption{HLS Solution 4 C/RTL Cosimulation Summary }
+	\label{tab:hls-solution-4-cosimulation-summary}
 \end{table}
+
+In particolare, rispetto alla solution 1 si ha un aumento del $100\%$ e di circa l'$81\%$ rispettivamente dell'utilizzazione delle LUT e dei FF dal momento che è stato introdotto un parallelismo all'interno dell'architettura.
 
 \begin{table}[H]
 	\centering
@@ -125,8 +127,8 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 			SRL & 0 \\
 			\hline
 		\end{tabular}
-		\caption{HLS Solution 2t Export RTL Resource Usage}
-		\label{tab:hls-solution-2-export-rtl-resoruce-usage}
+		\caption{HLS Solution 4 Export RTL Resource Usage}
+		\label{tab:hls-solution-4-export-rtl-resoruce-usage}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.45\linewidth}
@@ -142,7 +144,7 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 			CP achieved post-implementation & 5.692 \\
 			\hline
 		\end{tabular}
-		\caption{HLS Solution 2 Export RTL Final Timing}
-		\label{tab:hls-solution-2-export-rtl-final-timing}
+		\caption{HLS Solution 4 Export RTL Final Timing}
+		\label{tab:hls-solution-4-export-rtl-final-timing}
 	\end{minipage}
 \end{table}
