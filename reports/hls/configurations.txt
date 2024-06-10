@@ -16,6 +16,11 @@ rows=4
 	loop2:
 	#pragma HLS loop_tripcount min=0 max=4 avg=2
 
+	PROBLEMI:
+	non riesce ad applicare il pipeline al primo loop -> è come se lo ignorasse
+		COME RISOLVERE?
+		aaggiungere pipeline al loop2 per vedere se ora lo considera.
+
 
 
 - Loop2 Pipeline
