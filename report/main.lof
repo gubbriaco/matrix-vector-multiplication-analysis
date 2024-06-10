@@ -1,3 +1,7 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces HLS Array Partitioning}}{4}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces HLS Loop Pipelining}}{12}{figure.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces HLS Solution 1 Analysis}}{11}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces HLS Loop Pipelining}}{13}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces HLS Solution 3 Analysis}}{16}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces HLS Loop Unrolling}}{18}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces HLS Solution 4 Analysis}}{19}{figure.6}%

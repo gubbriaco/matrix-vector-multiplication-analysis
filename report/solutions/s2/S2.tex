@@ -2,11 +2,11 @@ Qui, di seguito, viene riportata l'architettura relativa alla seconda solution.
 
 \lstinputlisting[language=C++]{solutions/s2/s2.cpp}
 
-In particolare, nella soluzione hardware in questione è stato aggiunto la direttiva di pipeline all'interno del loop2. Pertanto, ci si dovrebbe aspettare una minore latenza totale dal momento che il pipelining permette di scindere le operazioni complesse in più operazioni semplici. In questo modo si può far lavorare l’architettura con dati temporalmente differenti. 
+In particolare, nella soluzione hardware in questione, rispetto alla solution 1, è stato aggiunto la direttiva di pipeline all'interno del loop2. Pertanto, ci si dovrebbe aspettare una minore latenza totale dal momento che il pipelining permette di scindere le operazioni complesse in più operazioni semplici. In questo modo si può far lavorare l’architettura con dati temporalmente differenti. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{solutions/s2/looppipelining.png}
+	\includegraphics[width=0.5\textwidth]{solutions/s2/looppipelining.png}
 	\caption{HLS Loop Pipelining}
 \end{figure}
 
@@ -37,7 +37,7 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 			17 & 45 & 17 & 45 \\
 			\hline
 		\end{tabular}
-		\caption{HLS Solution 2 without Trip Count Latency Summary (clock cycles)}
+		\caption{HLS Solution 2 Latency Summary (clock cycles)}
 		\label{tab:hls-solution-2-latency-summary}
 	\end{minipage}
 \end{table}
@@ -53,7 +53,7 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 		+ loop2 & 0 & 7 & 5 & 1 & 1 & 0$\sim$4 \\
 		\hline
 	\end{tabular}
-	\caption{HLS Solution 2 without Trip Count Latency Loops Summary}
+	\caption{HLS Solution 2 Latency Loops Summary}
 	\label{tab:hls-solution-2-loop-summary}
 \end{table}
 
@@ -76,8 +76,8 @@ Qui di seguito, viene allegato l'utilizzazione delle risorse stimata dal process
 		\textbf{Available} & 280               & 220             & 106400      & 53200        \\ \hline
 		\textbf{Utilization (\%)} & 0            & 1               & $\sim$0     & $\sim$0      \\ \hline
 	\end{tabular}
-	\caption{HLS Solution 1 with Trip Count Utilization Estimates Summary}
-	\label{tab:hls-solution-1-utilization-estimates-summary}
+	\caption{HLS Solution 2 Utilization Estimates Summary}
+	\label{tab:hls-solution-2-utilization-estimates-summary}
 \end{table}
 
 Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile evidenziare i seguenti report.
