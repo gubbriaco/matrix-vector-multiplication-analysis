@@ -1,34 +1,33 @@
 #include "definitions.h"
 
 /**
- * Sparse Matrix Multiplication Design.
- * @param iFirstEl[rows+1] Indexes First Elements
- * @param iNonZeroEl[noZeroEl] Indexes Non Zero Elements
- * @param values[noZeroEl] Input Values
- * @param mulRes[size] Multiplication Result
- * @param vector[size] Input Vector
+ * Sparse Matrix Vector Multiplication Design (CRS format).
+ * @param rowPtr[rows+1] Indexes First Elements
+ * @param columnIndex[nnz] Indexes Non Zero Elements
+ * @param values[nnz] Input Values
+ * @param y[size] Multiplication Result
+ * @param x[size] Input Vector
  */
-void smvm(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl], DTYPE values[noZeroEl], DTYPE mulRes[size], DTYPE vector[size]) {
+void smvm(int rowPtr[rows+1], int columnIndex[nnz], DTYPE values[nnz], DTYPE y[size], DTYPE x[size]) {
 	loop1: for (int i=0; i<rows; i++) {
 		//#pragma HLS pipeline
 		//#pragma HLS unroll factor=2
 		DTYPE ytmp = 0;
-		loop2: for (int k=iFirstEl[i]; k<iFirstEl[i+1]; k++) {
+		loop2: for (int k=rowPtr[i]; k<rowPtr[i+1]; k++) {
 
-			#pragma HLS pipeline
+			//#pragma HLS pipeline
 
-			#pragma HLS unroll factor=2
+			//#pragma HLS unroll factor=2
 
 			//#pragma HLS loop_tripcount min=0 max=4 avg=2
 			//#pragma HLS loop_tripcount min=0 max=8 avg=4
-			#pragma HLS loop_tripcount min=0 max=16 avg=8
 
-			#pragma HLS array_partition variable=iNonZeroEl block factor=16
-			#pragma HLS array_partition variable=values block factor=16
-			#pragma HLS array_partition variable=vector block factor=16
+			//#pragma HLS array_partition variable=columnIndex cyclic factor=2
+			//#pragma HLS array_partition variable=values cyclic factor=2
+			//#pragma HLS array_partition variable=x cyclic factor=2
 
-			ytmp += values[k] * vector[iNonZeroEl[k]];
+			ytmp += values[k] * x[columnIndex[k]];
 		}
-		mulRes[i] = ytmp;
+		y[i] = ytmp;
 	}
 }

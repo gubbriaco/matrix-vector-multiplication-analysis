@@ -5,25 +5,22 @@
  * Square Matrix Size.
  */
 //4
-//8
-//16
-const static int size = 16;
+//8 -- solo per cyclic=8 e block=8
+const static int size = 4;
 
 /**
  * Number of Non-Zero Elements.
  */
 //9
-//13
-//16
-const static int noZeroEl  = 16;
+//16 -- solo per block=8
+const static int nnz = 9;
 
 /**
  * Number of Rows.
  */
 //4
-//8
-//16
-const static int rows = 16;
+//8 -- solo per cyclic=8 e block=8
+const static int rows = 4;
 
 /**
  * Data Type.
@@ -31,21 +28,21 @@ const static int rows = 16;
 typedef int DTYPE;
 
 /**
- * Standard Matrix Multiplication Design.
+ * Matrix Vector Standard Multiplication Design.
  * @param matrix[size][size] Input matrix
- * @param resMul Multiplication Result
- * @param vector Input Vector
+ * @param y Multiplication Result
+ * @param x Input Vector
  */
-void std_multiplication(int iFirstEl[rows+1], int iNonZeroEl[noZeroEl], DTYPE values[noZeroEl], DTYPE mulRes[size], DTYPE vector[size]);
+void std_multiplication(DTYPE matrix[size][size], DTYPE *y, DTYPE *x);
 
 /**
- * Sparse Matrix Multiplication Design.
- * @param iFirstEl[rows+1] Indexes First Elements
- * @param iNonZeroEl[noZeroEl] Indexes Non Zero Elements
- * @param values[noZeroEl] Input Values
- * @param mulRes[size] Multiplication Result
- * @param vector[size] Input Vector
+ * Sparse Matrix Vector Multiplication Design (CRS format).
+ * @param rowPtr[rows+1] Indexes First Elements
+ * @param columnIndex[nnz] Indexes Non Zero Elements
+ * @param values[nnz] Input Values
+ * @param y[size] Multiplication Result
+ * @param x[size] Input Vector
  */
-void smvm(DTYPE matrix[size][size], DTYPE *mulRes, DTYPE *vector);
+void smvm(int rowPtr[rows+1], int columnIndex[nnz], DTYPE values[nnz], DTYPE y[size], DTYPE x[size]);
 
 #endif
