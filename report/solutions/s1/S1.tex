@@ -30,8 +30,8 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 			? & ? & ? & ? \\
 			\hline
 		\end{tabular}
-		\caption{HLS Unoptimized Solution without Trip Count Latency Summary (clock cycles)}
-		\label{tab:hls-unoptimized-solution-latency-summary}
+		\caption{HLS Solution 1 without Trip Count Latency Summary (clock cycles)}
+		\label{tab:hls-solution-1-latency-summary}
 	\end{minipage}
 \end{table}
 
@@ -39,20 +39,18 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 		\hline
-		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
-		Name & min & max & min & max & achieved & target &  \\
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & ? & ? & ? & ? & - & - & 4 \\
-		+ loop2 & ? & ? & 5 & 5 & - & - & ? \\
+		- loop1 & ? & ? & ? & - & - & 4 \\
+		+ loop2 & ? & ? & 5 & - & - & ? \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 1 without Trip Count Latency Loops Summary}
 	\label{tab:hls-solution-1-loop-summary}
 \end{table}
 
-Si può notare come la latenza associata a questa architettura risulta essere "?", cioè non definita. In particolare tale non definizione è dovuta al loop2 del quale non è definito il trip count associato essendo il numero di iterazioni corrispondente non noto a priori. Nello specifico, il ciclo 2 dipende dai valori presenti all'interno dell'array \textit{iFirstEl} che non sono incogniti poiché dipendono dai valori in input all'architettura. Viceversa, la latenza per ogni iterazione (IL), essendo che dipende dalla tipologia di operazioni, risulta essere definita. Per quanto riguarda, invece, il loop1, esso presenta un'iteration latency non definita poiché dipendente direttamente dal loop2 di cui non si è a conoscenza della latenza totale come spiegato precedentemente. Pertanto, la latenza totale del loop1 e, di conseguenza, la latenza totale associata all'architettura risulta essere non nota a priori. Quindi, per poter risolvere si specifica all'interno dell'implementazione la direttiva trip\_count. 
-
-\input{solutions/s1/TripCount}
+Si può notare come la latenza associata a questa architettura risulta essere "?", cioè non definita. In particolare tale non definizione è dovuta al loop2 del quale non è definito il trip count associato essendo il numero di iterazioni corrispondente non noto a priori. Nello specifico, il ciclo 2 dipende dai valori presenti all'interno dell'array \textit{columnIndex} che non sono incogniti poiché dipendono dai valori in input all'architettura. Viceversa, la latenza per ogni iterazione (IL), essendo che dipende dalla tipologia di operazioni, risulta essere definita. Per quanto riguarda, invece, il loop1, esso presenta un'iteration latency non definita poiché dipendente direttamente dal loop2 di cui non si è a conoscenza della latenza totale come spiegato precedentemente. Pertanto, la latenza totale del loop1 e, di conseguenza, la latenza totale associata all'architettura risulta essere non nota a priori. Quindi, per poter risolvere si specifica all'interno dell'implementazione la direttiva trip\_count. In particolare, si possono specificare tre valori all'interno di tale pragma: min, max e avg. Tali valori fanno riferimento rispettivamente al numero minimo, massimo e medio di iterazioni del loop di riferimento. Pertanto, tale direttiva permette al tool di analizare come la latenza del loop contribuisce alla latenza totale dell'architettura così permettendo al progettista di effettuare ulteriori ottimizzazioni al design.
 
 Pertanto, si allega l'architettura risultante.
 \lstinputlisting[language=C++]{solutions/s1/s1tripcount.cpp}
@@ -83,8 +81,8 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 			13 & 93 & 13 & 93 \\
 			\hline
 		\end{tabular}
-		\caption{HLS Unoptimized Solution with Trip Count Latency Summary (clock cycles)}
-		\label{tab:hls-unoptimized-solution-latency-summary}
+		\caption{HLS Solution 1 with Trip Count Latency Summary (clock cycles)}
+		\label{tab:hls-solution-1-latency-summary}
 	\end{minipage}
 \end{table}
 
@@ -92,17 +90,19 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 		\hline
-		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
-		Name & min & max & min & max & achieved & target &  \\
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max & & achieved & target &  \\
 		\hline
-		- loop1 & 12 & 92 & 3 & 23 & - & - & 4 \\
-		+ loop2 & 0 & 20 & 5 & 5 & - & - & 0$\sim$4 \\
+		- loop1 & 12 & 92 & 3$\sim$23 & - & - & 4 \\
+		+ loop2 & 0 & 20 & 5 & - & - & 0$\sim$4 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 1 Latency with Trip Count Loops Summary }
 	\label{tab:hls-solution-1-loop-summary}
 \end{table}
 
+Si può notare come, dopo aver applicato la direttiva di trip\_count, i valori di latenza risultano essere definiti numericamente. In particolare, il loop2 presenta un numero di iterazioni compresa tra 0 e 4, cioè rispettivamente il valore minimo e massimo specificati nel pragma di trip\_count. Bisogna ricordare che tale direttiva non ha impatto sull'architettura ma ha solo impatto sui cicli di latenza.
+\\
 Qui di seguito, viene allegato l'utilizzazione delle risorse stimata dal processo di sintesi.
 \begin{table}[h]
 	\centering
@@ -132,7 +132,7 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 		\multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
 		&  & min & avg & max & min & avg & max \\
 		\hline
-		VHDL & Pass & 58 & 58 & 58 & 58 & 58 & 58 \\
+		VHDL & Pass & 58 & 58 & 58 & NA & NA & NA \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }
@@ -147,7 +147,7 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 			\hline
 			\textbf{Resource} & \textbf{VHDL} \\
 			\hline
-			SLICE & 45 \\
+			SLICE & 48 \\
 			\hline
 			LUT & 93 \\
 			\hline
@@ -177,7 +177,7 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 			CP achieved post-implementation & 5.692 \\
 			\hline
 		\end{tabular}
-		\caption{HLS Solution with Trip Count Export RTL Final Timing}
+		\caption{HLS Solution 1 with Trip Count Export RTL Final Timing}
 		\label{tab:hls-solution-1-export-rtl-final-timing}
 	\end{minipage}
 \end{table}

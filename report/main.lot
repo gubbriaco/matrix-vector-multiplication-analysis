@@ -2,12 +2,19 @@
 \contentsline {table}{\numberline {1}{\ignorespaces SMVM Solutions To Be Performed}}{5}{table.1}%
 \contentsline {table}{\numberline {2}{\ignorespaces SMVM Solutions To Be Performed}}{9}{table.2}%
 \contentsline {table}{\numberline {3}{\ignorespaces HLS Solution 1 without Trip Count Timing Summary (ns)}}{10}{table.3}%
-\contentsline {table}{\numberline {4}{\ignorespaces HLS Unoptimized Solution without Trip Count Latency Summary (clock cycles)}}{10}{table.4}%
+\contentsline {table}{\numberline {4}{\ignorespaces HLS Solution 1 without Trip Count Latency Summary (clock cycles)}}{10}{table.4}%
 \contentsline {table}{\numberline {5}{\ignorespaces HLS Solution 1 without Trip Count Latency Loops Summary}}{10}{table.5}%
-\contentsline {table}{\numberline {6}{\ignorespaces HLS Solution 1 with Trip Count Timing Summary (ns)}}{10}{table.6}%
-\contentsline {table}{\numberline {7}{\ignorespaces HLS Unoptimized Solution with Trip Count Latency Summary (clock cycles)}}{10}{table.7}%
+\contentsline {table}{\numberline {6}{\ignorespaces HLS Solution 1 with Trip Count Timing Summary (ns)}}{11}{table.6}%
+\contentsline {table}{\numberline {7}{\ignorespaces HLS Solution 1 with Trip Count Latency Summary (clock cycles)}}{11}{table.7}%
 \contentsline {table}{\numberline {8}{\ignorespaces HLS Solution 1 Latency with Trip Count Loops Summary }}{11}{table.8}%
 \contentsline {table}{\numberline {9}{\ignorespaces HLS Solution 1 with Trip Count Utilization Estimates Summary}}{11}{table.9}%
 \contentsline {table}{\numberline {10}{\ignorespaces HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }}{11}{table.10}%
 \contentsline {table}{\numberline {11}{\ignorespaces HLS Solution 1 with Trip Count Export RTL Resource Usage}}{11}{table.11}%
-\contentsline {table}{\numberline {12}{\ignorespaces HLS Solution with Trip Count Export RTL Final Timing}}{11}{table.12}%
+\contentsline {table}{\numberline {12}{\ignorespaces HLS Solution 1 with Trip Count Export RTL Final Timing}}{11}{table.12}%
+\contentsline {table}{\numberline {13}{\ignorespaces HLS Solution 2 Timing Summary (ns)}}{12}{table.13}%
+\contentsline {table}{\numberline {14}{\ignorespaces HLS Solution 2 without Trip Count Latency Summary (clock cycles)}}{12}{table.14}%
+\contentsline {table}{\numberline {15}{\ignorespaces HLS Solution 2 without Trip Count Latency Loops Summary}}{13}{table.15}%
+\contentsline {table}{\numberline {16}{\ignorespaces HLS Solution 1 with Trip Count Utilization Estimates Summary}}{13}{table.16}%
+\contentsline {table}{\numberline {17}{\ignorespaces HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }}{13}{table.17}%
+\contentsline {table}{\numberline {18}{\ignorespaces HLS Solution 2t Export RTL Resource Usage}}{13}{table.18}%
+\contentsline {table}{\numberline {19}{\ignorespaces HLS Solution 2 Export RTL Final Timing}}{13}{table.19}%

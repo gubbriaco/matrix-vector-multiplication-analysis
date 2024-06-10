@@ -4,3 +4,4 @@
 \contentsline {lstlisting}{c\textunderscore simulations/stdm.cpp}{8}{lstlisting.-4}%
 \contentsline {lstlisting}{solutions/s1/s1.cpp}{9}{lstlisting.-5}%
 \contentsline {lstlisting}{solutions/s1/s1tripcount.cpp}{10}{lstlisting.-6}%
+\contentsline {lstlisting}{solutions/s2/s2.cpp}{12}{lstlisting.-7}%
