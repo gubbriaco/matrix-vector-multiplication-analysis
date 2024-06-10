@@ -4,11 +4,11 @@ Implementation tool: Xilinx Vivado v.2018.3
 Project:             smvmProject
 Solution:            UnoptimizedSolution
 Device target:       xc7z020clg484-1
-Report date:         Thu Jun 06 22:06:50 +0200 2024
+Report date:         Mon Jun 10 18:40:58 +0200 2024
 
 #=== Post-Implementation Resource usage ===
-SLICE:           45
-LUT:             93
+SLICE:           48
+LUT:             94
 FF:             161
 DSP:              3
 BRAM:             0
