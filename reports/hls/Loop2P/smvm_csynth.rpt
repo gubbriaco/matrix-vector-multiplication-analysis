@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'smvm'
 ================================================================
-* Date:           Thu Jun  6 22:09:49 2024
+* Date:           Mon Jun 10 18:48:52 2024
 
 * Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
 * Project:        smvmProject
@@ -122,16 +122,16 @@
     |ap_enable_reg_pp0_iter2  |   1|   0|    1|          0|
     |ap_enable_reg_pp0_iter3  |   1|   0|    1|          0|
     |ap_enable_reg_pp0_iter4  |   1|   0|    1|          0|
-    |iFirstEl_load_reg_242    |  32|   0|   32|          0|
     |i_1_reg_217              |   3|   0|    3|          0|
     |i_reg_129                |   3|   0|    3|          0|
     |k1_reg_153               |  32|   0|   32|          0|
+    |rowPtr_load_reg_242      |  32|   0|   32|          0|
     |tmp_3_reg_247            |   1|   0|    1|          0|
     |tmp_4_reg_251            |  64|   0|   64|          0|
     |tmp_6_reg_286            |  32|   0|   32|          0|
     |tmp_reg_222              |   3|   0|   64|         61|
     |values_load_reg_276      |  32|   0|   32|          0|
-    |vector_load_reg_281      |  32|   0|   32|          0|
+    |x_load_reg_281           |  32|   0|   32|          0|
     |ytmp_reg_140             |  32|   0|   32|          0|
     |tmp_3_reg_247            |  64|  32|    1|          0|
     +-------------------------+----+----+-----+-----------+
@@ -144,33 +144,33 @@
 == Interface
 ================================================================
 * Summary: 
-+---------------------+-----+-----+------------+--------------+--------------+
-|      RTL Ports      | Dir | Bits|  Protocol  | Source Object|    C Type    |
-+---------------------+-----+-----+------------+--------------+--------------+
-|ap_clk               |  in |    1| ap_ctrl_hs |     smvm     | return value |
-|ap_rst               |  in |    1| ap_ctrl_hs |     smvm     | return value |
-|ap_start             |  in |    1| ap_ctrl_hs |     smvm     | return value |
-|ap_done              | out |    1| ap_ctrl_hs |     smvm     | return value |
-|ap_idle              | out |    1| ap_ctrl_hs |     smvm     | return value |
-|ap_ready             | out |    1| ap_ctrl_hs |     smvm     | return value |
-|iFirstEl_address0    | out |    3|  ap_memory |   iFirstEl   |     array    |
-|iFirstEl_ce0         | out |    1|  ap_memory |   iFirstEl   |     array    |
-|iFirstEl_q0          |  in |   32|  ap_memory |   iFirstEl   |     array    |
-|iFirstEl_address1    | out |    3|  ap_memory |   iFirstEl   |     array    |
-|iFirstEl_ce1         | out |    1|  ap_memory |   iFirstEl   |     array    |
-|iFirstEl_q1          |  in |   32|  ap_memory |   iFirstEl   |     array    |
-|iNonZeroEl_address0  | out |    4|  ap_memory |  iNonZeroEl  |     array    |
-|iNonZeroEl_ce0       | out |    1|  ap_memory |  iNonZeroEl  |     array    |
-|iNonZeroEl_q0        |  in |   32|  ap_memory |  iNonZeroEl  |     array    |
-|values_address0      | out |    4|  ap_memory |    values    |     array    |
-|values_ce0           | out |    1|  ap_memory |    values    |     array    |
-|values_q0            |  in |   32|  ap_memory |    values    |     array    |
-|mulRes_address0      | out |    2|  ap_memory |    mulRes    |     array    |
-|mulRes_ce0           | out |    1|  ap_memory |    mulRes    |     array    |
-|mulRes_we0           | out |    1|  ap_memory |    mulRes    |     array    |
-|mulRes_d0            | out |   32|  ap_memory |    mulRes    |     array    |
-|vector_address0      | out |    2|  ap_memory |    vector    |     array    |
-|vector_ce0           | out |    1|  ap_memory |    vector    |     array    |
-|vector_q0            |  in |   32|  ap_memory |    vector    |     array    |
-+---------------------+-----+-----+------------+--------------+--------------+
++----------------------+-----+-----+------------+--------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  | Source Object|    C Type    |
++----------------------+-----+-----+------------+--------------+--------------+
+|ap_clk                |  in |    1| ap_ctrl_hs |     smvm     | return value |
+|ap_rst                |  in |    1| ap_ctrl_hs |     smvm     | return value |
+|ap_start              |  in |    1| ap_ctrl_hs |     smvm     | return value |
+|ap_done               | out |    1| ap_ctrl_hs |     smvm     | return value |
+|ap_idle               | out |    1| ap_ctrl_hs |     smvm     | return value |
+|ap_ready              | out |    1| ap_ctrl_hs |     smvm     | return value |
+|rowPtr_address0       | out |    3|  ap_memory |    rowPtr    |     array    |
+|rowPtr_ce0            | out |    1|  ap_memory |    rowPtr    |     array    |
+|rowPtr_q0             |  in |   32|  ap_memory |    rowPtr    |     array    |
+|rowPtr_address1       | out |    3|  ap_memory |    rowPtr    |     array    |
+|rowPtr_ce1            | out |    1|  ap_memory |    rowPtr    |     array    |
+|rowPtr_q1             |  in |   32|  ap_memory |    rowPtr    |     array    |
+|columnIndex_address0  | out |    4|  ap_memory |  columnIndex |     array    |
+|columnIndex_ce0       | out |    1|  ap_memory |  columnIndex |     array    |
+|columnIndex_q0        |  in |   32|  ap_memory |  columnIndex |     array    |
+|values_address0       | out |    4|  ap_memory |    values    |     array    |
+|values_ce0            | out |    1|  ap_memory |    values    |     array    |
+|values_q0             |  in |   32|  ap_memory |    values    |     array    |
+|y_address0            | out |    2|  ap_memory |       y      |     array    |
+|y_ce0                 | out |    1|  ap_memory |       y      |     array    |
+|y_we0                 | out |    1|  ap_memory |       y      |     array    |
+|y_d0                  | out |   32|  ap_memory |       y      |     array    |
+|x_address0            | out |    2|  ap_memory |       x      |     array    |
+|x_ce0                 | out |    1|  ap_memory |       x      |     array    |
+|x_q0                  |  in |   32|  ap_memory |       x      |     array    |
++----------------------+-----+-----+------------+--------------+--------------+
 
