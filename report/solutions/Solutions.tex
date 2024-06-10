@@ -1,8 +1,10 @@
-Di seguito verranno illustrate e analizzate le soluzioni previste nella tabella sotto allegata. In particolare, per le soluzioni 7, 9 e 11, come verrà spiegato nelle successive sezioni, sono state previste ulteriori implementazioni così da poter risolvere determinati warning sollevati dal tool in questione.
+Di seguito verranno illustrate e analizzate le soluzioni previste nella tabella sotto allegata.
+
+Nello specifico, nelle implementazioni dove è previsto l'utilizzo della direttiva di partitioning sono stati considerati tre array (columnIndex, values, x) a cui corrispondono quattro solution differenti. In particolare, è stata prevista una soluzione in cui viene effettuato il partitioning di tutte e tre gli array contemporaneamente e le rimanenti tre implementazioni in cui, per ognuna di essa, è stato previsto il partizionamento singolo di uno dei tre array appena citati. Tali implementazioni sono riportate qui di seguito.
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|c|}
+	\begin{tabular}{|c|c|l|}
 		\hline
 		\textbf{Solution} & Loop1 & Loop2 \\
 		\hline
@@ -17,164 +19,80 @@ Di seguito verranno illustrate e analizzate le soluzioni previste nella tabella 
 		5 & - & Pipeline, Unroll=2 \\
 		\hline
 		6 & - & Pipeline, Unroll=2, Cyclic=2 \\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=2 (columnIndex)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=2 (values)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=2 (x)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=2 (columnIndex, values, x)}\\
 		\hline
-		 & - & Pipeline, Unroll=4 \\
-		7 & \footnotesize{-} & \footnotesize{Pipeline, Unroll=4} \\
-		 & \footnotesize{-} & \footnotesize{Pipeline, Unroll=4, Cyclic=4} \\
-		 & \footnotesize{Pipeline} & \footnotesize{Pipeline, Unroll=4} \\
+		7 & - & Pipeline, Unroll=4 \\
 		\hline
 		8 & - & Pipeline, Unroll=2, Cyclic=4 \\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=4 (columnIndex)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=4 (values)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=4 (x)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=4 (columnIndex, values, x)}\\
 		\hline
-		 & - & Pipeline, Unroll=8 \\
-		9 & \footnotesize{-} & \footnotesize{Pipeline, Unroll=8} \\
-		 & \footnotesize{-} & \footnotesize{Pipeline, Cyclic=8} \\
-		 & \footnotesize{Pipeline} & \footnotesize{Pipeline, Unroll=8} \\
+		9 & - & Pipeline, Unroll=8 \\
 		\hline
 		10 & - & Pipeline, Unroll=2, Cyclic=8 \\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=8 (columnIndex)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=8 (values)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=8 (x)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Cyclic=8 (columnIndex, values, x)}\\
 		\hline
-		 & - & Pipeline, Unroll=2, Block=8 \\
-		11 & \footnotesize{-} & \footnotesize{Pipeline, Unroll=2, Block=8} \\
-		 & \footnotesize{-} & \footnotesize{Pipeline, Unroll=2, Block=16} \\
+		11 & - & Pipeline, Unroll=2, Block=8 \\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Block=8 (columnIndex)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Block=8 (values)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Block=8 (x)}\\
+		&\footnotesize{-}&\tabitem{Pipeline, Unroll=2, Block=8 (columnIndex, values, x)}\\
 		\hline
 	\end{tabular}
-	\caption{SMVM Solutions Summary}
-	\label{tab:smvm-solutions-summary}
+	\caption{SMVM Solutions To Be Performed}
+	\label{tab:smvm-solutions-to-be-performed}
 \end{table}
 
-Nello specifico, nelle implementazioni dove è previsto l'utilizzo della direttiva di partitioning sono stati considerati tre array (iNonZeroEl, values, vector) a cui corrispondono quattro solution differenti. In particolare, è stata prevista una soluzione in cui viene effettuato il partitioning di tutte e tre gli array contemporaneamente e le rimanenti tre implementazioni in cui, per ognuna di essa, è stato previsto il partizionamento di uno dei tre array appena citati.
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c|c|l|}
-		\hline
-		\textbf{Solution} & Loop1 & Loop2 \\
-		\hline
-		
-		1 & \textbf{-} & \textbf{-} \\
-		\hline
-		
-		2 & \textbf{-} & \textbf{Pipeline} \\
-		\hline
-		
-		3 & \textbf{Pipeline} & \textbf{-} \\
-		\hline
-		
-		4 & \textbf{Unroll=2} & \textbf{-} \\
-		\hline
-		
-		5 & \textbf{-} & \textbf{Pipeline, Unroll=2} \\
-		\hline
-		
-		 6 & \textbf{-} & \textbf{Pipeline, Unroll=2, Cyclic=2} \\
-		 & - & \tabitem\footnotesize{Pipeline, Unroll=2, Cyclic=2 (iNonZeroEl, values, vector)} \\
-		 & - & \tabitem\footnotesize{Pipeline, Unroll=2, Cyclic=2 (iNonZeroEl)} \\
-		 & - & \tabitem\footnotesize{Pipeline, Unroll=2, Cyclic=2 (values)} \\
-		 & - & \tabitem\footnotesize{Pipeline, Unroll=2, Cyclic=2 (vector)} \\
-		\hline
-		
-		7 & \textbf{-} & \textbf{Pipeline, Unroll=4} \\
-		& \footnotesize{-} & \footnotesize{Pipeline, Unroll=4} \\
-		& \footnotesize{-} & \footnotesize{Pipeline, Unroll=4, Cyclic=4} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=4, Cyclic=4 (iNonZeroEl, values, vector)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=4, Cyclic=4 (iNonZeroEl)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=4, Cyclic=4 (values)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=4, Cyclic=4 (vector)} \\
-		& \footnotesize{Pipeline} & \footnotesize{Pipeline, Unroll=4} \\
-		\hline
-		
-		8 & \textbf{-} & \textbf{Pipeline, Unroll=2, Cyclic=4} \\
-		& \scriptsize{-} & \tabitem\footnotesize{Pipeline, Unroll=2, Cyclic=4 (iNonZeroEl, values, vector)} \\
-		& \scriptsize{-} & \tabitem\footnotesize{Pipeline, Unroll=2, Cyclic=4 (iNonZeroEl)} \\
-		& \scriptsize{-} & \tabitem\footnotesize{Pipeline, Unroll=2, Cyclic=4 (values)} \\
-		& \scriptsize{-} & \tabitem\footnotesize{Pipeline, Unroll=2, Cyclic=4 (vector)} \\
-		\hline
-		
-		9 & \textbf{-} & \textbf{Pipeline, Unroll=8} \\
-		& \footnotesize{-} & \footnotesize{Pipeline, Unroll=8} \\
-		& \footnotesize{-} & \footnotesize{Pipeline, Cyclic=8} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Cyclic=8 (iNonZeroEl, values, vector)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Cyclic=8 (iNonZeroEl)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Cyclic=8 (values)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Cyclic=8 (vector)} \\
-		& \footnotesize{-} & \footnotesize{Pipeline, Cyclic=8 (vector)} \\
-		\hline
-		
-		10 & \textbf{-} & \textbf{Pipeline, Unroll=2, Cyclic=8} \\
-		& - & \tabitem\scriptsize{Pipeline, Unroll=2, Cyclic=8 (iNonZeroEl, values, vector)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=2, Cyclic=8 (iNonZeroEl)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=2, Cyclic=8 (values)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=2, Cyclic=8 (vector)} \\
-		\hline
-		
-		11 & \textbf{-} & \textbf{Pipeline, Unroll=2, Block=8} \\
-		& \footnotesize{-} & \footnotesize{Pipeline, Unroll=2, Block=8} \\
-		& \footnotesize{-} & \footnotesize{Pipeline, Unroll=2, Block=16} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=2, Block=16 (iNonZeroEl, values, vector)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=2, Block=16 (iNonZeroEl)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=2, Block=16 (values)} \\
-		& \scriptsize{-} & \tabitem\scriptsize{Pipeline, Unroll=2, Block=16 (vector)} \\
-		\hline
-		
-	\end{tabular}
-	\caption{SMVM Detailed Solutions}
-	\label{tab:smvm-detailed-solutions}
-\end{table}
-
-Qui, di seguito, viene riportata l'implementazione utilizzata per la realizzazione delle solutions sopra citate. In particolare, vengono commentate le direttive poiché utilizzate solo in corrispondenza delle solution 2-11 mentre bisogna precisare che la direttiva \textit{trip count} (all'interno dell'architettura vengono specificate tre pragma \textit{trip count} poiché dipende dalla configurazione scelta) dal momento che è presente in tutte le soluzioni hardware.
-
-\lstinputlisting[language=C++]{solutions/smvm.cpp}
-
-Nello specifico, vengono riportate qui di seguito le possibili configurazioni e le corrispondenti direttive \textit{trip count}.
-\begin{itemize}
-	\item size=4, noZeroEl=9, rows=4 \\
-	\#pragma HLS loop\_tripcount min=0 max=4 avg=2
-	\item size=8, noZeroEl=13, rows=8 \\
-	\#pragma HLS loop\_tripcount min=0 max=8 avg=4
-	\item size=16, noZeroEl=16, rows=16 \\
-	\#pragma HLS loop\_tripcount min=0 max=16 avg=8
-\end{itemize}
 
 
 \subsection{Solution 1}
-\input{solutions/S1}
+\input{solutions/s1/S1}
 \newpage
 
 \subsection{Solution 2}
-\input{solutions/S2}
+\input{solutions/s2/S2}
 \newpage
 
 \subsection{Solution 3}
-\input{solutions/S3}
+\input{solutions/s3/S3}
 \newpage
 
 \subsection{Solution 4}
-\input{solutions/S4}
+\input{solutions/s4/S4}
 \newpage
 
 \subsection{Solution 5}
-\input{solutions/S5}
+\input{solutions/s5/S5}
 \newpage
 
 \subsection{Solution 6}
-\input{solutions/S6}
+\input{solutions/s6/S6}
 \newpage
 
 \subsection{Solution 7}
-\input{solutions/S7}
+\input{solutions/s7/S7}
 \newpage
 
 \subsection{Solution 8}
-\input{solutions/S8}
+\input{solutions/s8/S8}
 \newpage
 
 \subsection{Solution 9}
-\input{solutions/S9}
+\input{solutions/s9/S9}
 \newpage
 
 \subsection{Solution 10}
-\input{solutions/S10}
+\input{solutions/s10/S10}
 \newpage
 
 \subsection{Solution 11}
-\input{solutions/S11}
+\input{solutions/s11/S11}
 \newpage

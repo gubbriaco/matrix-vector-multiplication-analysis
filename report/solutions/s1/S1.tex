@@ -1,6 +1,8 @@
-Qui, di seguito, viene riportata l'architettura relativa alla prima solution. Bisogna precisare che, solo per questa soluzione hardware, per semplicità è stata considerata la prima configurazione, cioè size=4, noZeroEl=9, rows=4.
+Qui, di seguito, viene riportata l'architettura relativa alla prima solution. 
 
-\lstinputlisting[language=C++]{solutions/s1.cpp}
+\lstinputlisting[language=C++]{solutions/s1/s1.cpp}
+
+Si può notare come venga utilizzata una variabile temporanea \textit{ytmp} poiché essa viene utilizzata per calcolare l'uscita corrispondente. In particolare, il risultato calcolato ad ogni iterazione viene sommato a quello della precedente iterazione. Pertanto, essendo che l'uscita deve essere solo assegnata e non letta per ogni iterazione, si utilizza una variabile temporanea per calcolare il risultato. Solo alla fine delle iterazioni si potrà assegnare il risultato all'uscita corrispondente. 
 
 Effettuando la sintesi è possibile evidenziare il seguente report:\\
 \begin{table}[H]
@@ -14,7 +16,60 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 			ap\_clk & 10.00 & 8.510 & 1.25 \\
 			\hline
 		\end{tabular}
-		\caption{HLS Solution 1 Timing Summary (ns)}
+		\caption{HLS Solution 1 without Trip Count Timing Summary (ns)}
+		\label{tab:hls-solution-1-timing-summary}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{|c|}{\textbf{Interval}} \\
+			min & max & min & max \\
+			\hline
+			? & ? & ? & ? \\
+			\hline
+		\end{tabular}
+		\caption{HLS Unoptimized Solution without Trip Count Latency Summary (clock cycles)}
+		\label{tab:hls-unoptimized-solution-latency-summary}
+	\end{minipage}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max & min & max & achieved & target &  \\
+		\hline
+		- loop1 & ? & ? & ? & ? & - & - & 4 \\
+		+ loop2 & ? & ? & 5 & 5 & - & - & ? \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 1 without Trip Count Latency Loops Summary}
+	\label{tab:hls-solution-1-loop-summary}
+\end{table}
+
+Si può notare come la latenza associata a questa architettura risulta essere "?", cioè non definita. In particolare tale non definizione è dovuta al loop2 del quale non è definito il trip count associato essendo il numero di iterazioni corrispondente non noto a priori. Nello specifico, il ciclo 2 dipende dai valori presenti all'interno dell'array \textit{iFirstEl} che non sono incogniti poiché dipendono dai valori in input all'architettura. Viceversa, la latenza per ogni iterazione (IL), essendo che dipende dalla tipologia di operazioni, risulta essere definita. Per quanto riguarda, invece, il loop1, esso presenta un'iteration latency non definita poiché dipendente direttamente dal loop2 di cui non si è a conoscenza della latenza totale come spiegato precedentemente. Pertanto, la latenza totale del loop1 e, di conseguenza, la latenza totale associata all'architettura risulta essere non nota a priori. Quindi, per poter risolvere si specifica all'interno dell'implementazione la direttiva trip\_count. 
+
+\input{solutions/s1/TripCount}
+
+Pertanto, si allega l'architettura risultante.
+\lstinputlisting[language=C++]{solutions/s1/s1tripcount.cpp}
+
+Effettuando la sintesi è possibile evidenziare il seguente report:\\
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Clock} & \textbf{Target} & \textbf{Estimated} & \textbf{Uncertainty} \\
+			\hline
+			ap\_clk & 10.00 & 8.510 & 1.25 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 1 with Trip Count Timing Summary (ns)}
 		\label{tab:hls-solution-1-timing-summary}
 	\end{minipage}
 	\hfill
@@ -28,7 +83,7 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 			13 & 93 & 13 & 93 \\
 			\hline
 		\end{tabular}
-		\caption{HLS Unoptimized Solution Latency Summary (clock cycles)}
+		\caption{HLS Unoptimized Solution with Trip Count Latency Summary (clock cycles)}
 		\label{tab:hls-unoptimized-solution-latency-summary}
 	\end{minipage}
 \end{table}
@@ -44,7 +99,7 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 		+ loop2 & 0 & 20 & 5 & 5 & - & - & 0$\sim$4 \\
 		\hline
 	\end{tabular}
-	\caption{HLS Solution 1 Latency Loops Summary }
+	\caption{HLS Solution 1 Latency with Trip Count Loops Summary }
 	\label{tab:hls-solution-1-loop-summary}
 \end{table}
 
@@ -65,7 +120,7 @@ Qui di seguito, viene allegato l'utilizzazione delle risorse stimata dal process
 		\textbf{Available} & 280               & 220             & 106400      & 53200        \\ \hline
 		\textbf{Utilization (\%)} & 0            & 1               & $\sim$0     & $\sim$0      \\ \hline
 	\end{tabular}
-	\caption{HLS Solution 1 Utilization Estimates Summary}
+	\caption{HLS Solution 1 with Trip Count Utilization Estimates Summary}
 	\label{tab:hls-solution-1-utilization-estimates-summary}
 \end{table}
 
@@ -80,7 +135,7 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 		VHDL & Pass & 58 & 58 & 58 & 58 & 58 & 58 \\
 		\hline
 	\end{tabular}
-	\caption{HLS Solution 1 C/RTL Cosimulation Summary }
+	\caption{HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }
 	\label{tab:hls-solution-1-cosimulation-summary}
 \end{table}
 
@@ -105,7 +160,7 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 			SRL & 0 \\
 			\hline
 		\end{tabular}
-		\caption{HLS Solution 1 Export RTL Resource Usage}
+		\caption{HLS Solution 1 with Trip Count Export RTL Resource Usage}
 		\label{tab:hls-solution-1-export-rtl-resoruce-usage}
 	\end{minipage}
 	\hfill
@@ -122,7 +177,7 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 			CP achieved post-implementation & 5.692 \\
 			\hline
 		\end{tabular}
-		\caption{HLS Solution Export RTL Final Timing}
+		\caption{HLS Solution with Trip Count Export RTL Final Timing}
 		\label{tab:hls-solution-1-export-rtl-final-timing}
 	\end{minipage}
 \end{table}
