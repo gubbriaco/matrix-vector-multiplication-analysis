@@ -1,4 +1,19 @@
-Qui, di seguito, vengono riportate le architetture relative alla sesta solution. In particolare, come già precedentemente citato, tale solution prevede l'utilizzo della direttiva di partitioning. Nello specifico, verranno analizzate le seguenti implementazioni relative al loop2:
+Qui, di seguito, vengono riportate le architetture relative alla sesta solution. In particolare, come già precedentemente citato, tale solution prevede l'utilizzo della direttiva di partitioning. 
+\\
+Il partizionamento serve per risolvere un problema tipicamente causato dagli array. Gli array sono implementati come BRAM, solitamente progettate per un dual-port massimo. Questo può limitare il throughput di un algoritmo ad alta intensità di read/write. La larghezza di banda può essere migliorata dividendo l'array (una singola BRAM) in array più piccoli (più BRAM), aumentando di fatto il numero di porte. Gli array vengono partizionati utilizzando la direttiva ARRAY\_PARTITION. Vivado HLS offre tre tipi di partizionamento degli array. I tre tipi di partizionamento sono:
+\begin{itemize}
+	\item \textbf{block}\\L'array originale viene suddiviso in blocchi di uguali dimensioni di elementi consecutivi dell'array originale.
+	\item \textbf{cyclic}\\L'array originale viene suddiviso in blocchi di uguali dimensioni che interlacciano gli elementi dell'array originale.
+	\item \textbf{complete}\\L'operazione predefinita consiste nel dividere l'array nei suoi singoli elementi. Ciò corrisponde alla risoluzione di una memoria in registri.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{solutions/s6/partitioning.png}
+	\caption{HLS Array Partitioning}
+\end{figure}
+
+Nella soluzione hardware in questione verrà utilizzata il partizionamento di tipologia cyclic e nello specifico, verranno analizzate le seguenti implementazioni relative al loop2:
 \begin{itemize}
 	\item Pipeline, Unroll=2, Cyclic=2 (columnIndex, values, x)
 	\item Pipeline, Unroll=2, Cyclic=2 (columnIndex)
@@ -53,6 +68,8 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 	\label{tab:hls-solution-6-latency-summary}
 \end{table}
 
+Si può notare come, in corrispondenza di tutte e quattro le soluzioni hardware proposte in questa sezione, i valori di Iteration Latency, trip count, Initiation Interval relativa al loop2 e latenza totale del loop1 e loop2 risultano essere i medesimi. In particolare, il valore di trip count del loop2 risulta essere dimezzato, come quello della solution5, rispetto, ad esempio, alla solution2 dal momento che è presente la direttiva di unrolling di fattore pari a 2. 
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
@@ -96,6 +113,8 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 	\label{tab:hls-solution-6-utilization-report}
 \end{table}
 
+Si può evidenziare come i valori di latenza associati alle quattro solution proposte risultano essere i medesimi di quelli otteenuti in corrispondenza della soluzione hardware 5.
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -115,6 +134,8 @@ Effettuando la sintesi è possibile evidenziare il seguente report:\\
 	\caption{HLS Solution 6 C/RTL Cosimulation Report }
 	\label{tab:hls-solution-6-cosimulation-report}
 \end{table}
+
+Si può notare come, in corrispondenza della soluzione basata su partitioning dell'array \textit{columnIndex} e dell'array \textit{values} si ha la medesima utilizzazione dei FF. Molto probabilmente questo risultato è legato al fatto che entrambi gli array presentano medesima dimensione, cioè pari a \textit{nnz}. Inoltre, la minore utilizzazione delle risorse si ha in corrispondenza dell'array \textit{x} a cui corrisponde, infatti, la dimensione minore tra i tre array considerati. In particolare, la soluzione in cui viene considerato il partizionamento dei tre array potrebbe essere considerata come la solution che richiede più risorse dal momento che presenta il maggior numero di slice utilizzate.
 
 \begin{table}[H]
 	\centering

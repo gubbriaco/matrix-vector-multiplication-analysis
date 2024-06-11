@@ -1,0 +1,256 @@
+Qui, di seguito, viene riportata l'architettura relativa alla settima solution.
+
+\lstinputlisting[language=C++]{solutions/s7/s7.cpp}
+
+In particolare, rispetto alla soluzione hardware 5 dove era stato considerato un parallelismo di fattore pari a 2, in questa solution è stato considerato un unrolling di fattore pari a 4. In particolare, ciò che ci si aspetta è un aumento delle risorse ed eventuali problematiche relative al timing dal momento che il tool deve gestire all'interno del loop2 più accessi in memoria paralleli.
+\\
+Effettuando la sintesi è possibile evidenziare il seguente log nella console:
+\\
+\textcolor{blue}{WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('columnIndex\_load\_2', smvmProject/smvm.cpp:34) on array 'columnIndex' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'columnIndex'.}
+\\
+Tale log sta a significare che non riesce a schedulare correttamente, dal punto di vista degli accessi in memoria, la load operation relativa all'array \textit{columnIndex} dato dal numero limitato di porte relative alla memoria.
+\\
+In particolare, analizzando il report relativo alla sintesi, si può notare come l'Initiation Interval, associato al loop2, raggiunto risulta essere maggiore di quello target.
+\\
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Clock} & \textbf{Target} & \textbf{Estimated} & \textbf{Uncertainty} \\
+			\hline
+			ap\_clk & 10.00 & 8.510 & 1.25 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 Timing Summary (ns)}
+		\label{tab:hls-solution-7-timing-summary}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{|c|}{\textbf{Interval}} \\
+			min & max & min & max \\
+			\hline
+			37 & 45 & 37 & 45 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 Latency Summary (clock cycles)}
+		\label{tab:hls-solution-7-latency-summary}
+	\end{minipage}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 36 & 44 & 9$\sim$11 & - & - & 4 \\
+		+ loop2 & 5 & 7 & 6 & \textcolor{red}{2} & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 7 Latency Loops Summary}
+	\label{tab:hls-solution-7-loop-summary}
+\end{table}
+
+Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{columnIndex}.
+
+\lstinputlisting[language=C++]{solutions/s7/s7columnIndex.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i seguenti valori di latenza.
+\\
+\textcolor{blue}{WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('values\_load\_2', smvmProject/smvm.cpp:34) on array 'values' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'values'.}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 36 & 44 & 9$\sim$11 & - & - & 4 \\
+		+ loop2 & 5 & 7 & 6 & \textcolor{red}{2} & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 7 with columnIndex partitioning Latency Loops Summary}
+	\label{tab:hls-solution-7-columnindex-partitioning-loop-summary}
+\end{table}
+
+Si può notare come in questo caso il warning sia relativo all'array \textit{values}. In particolare, la tipologia di warning è la medesima facendo presupporre che il tool non riesca a schedulare correttamente, secondo le direttive imposte dall'architetture, gli accessi in parallello all'array \textit{values}. Infatti, il valore di Iteration Latency raggiunto risulta essere ancora maggiore di quello di quello target. 
+\\
+Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{values}.
+
+\lstinputlisting[language=C++]{solutions/s7/s7values.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i seguenti valori di latenza.
+\\
+\textcolor{blue}{WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('x\_load\_2', smvmProject/smvm.cpp:34) on array 'x' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'x'.}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 36 & 44 & 9$\sim$11 & - & - & 4 \\
+		+ loop2 & 5 & 7 & 6 & \textcolor{red}{2} & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 7 with columnIndex and values partitioning Latency Loops Summary}
+	\label{tab:hls-solution-7-columnindex-values-partitioning-loop-summary}
+\end{table}
+
+Si può notare come in questo caso il warning sia relativo all'array \textit{x}. In particolare, la tipologia di warning è la medesima della precedente. Anche in questo caso il valore di Iteration Latency raggiunto risulta essere ancora maggiore di quello di quello target. 
+\\
+Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{x}.
+
+\lstinputlisting[language=C++]{solutions/s7/s7x.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
+
+\textcolor{blue}{WARNING: [SCHED 204-21] Estimated clock period (10.208ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns).}
+\textcolor{blue}{WARNING: [SCHED 204-21] The critical path in module 'smvm' consists of the following:}
+\\
+\textcolor{blue}{'add' operation ('ytmp\_1\_3', smvmProject/smvm.cpp:34) [215]  (2.55 ns)}
+\\
+\textcolor{blue}{'phi' operation ('ytmp', smvmProject/smvm.cpp:34) with incoming values : ('ytmp\_1\_3', smvmProject/smvm.cpp:34) [48]  (0 ns)}
+\\
+\textcolor{blue}{'add' operation ('ytmp\_1', smvmProject/smvm.cpp:34) [105]  (2.55 ns)}
+\\
+\textcolor{blue}{'add' operation ('ytmp\_1\_1', smvmProject/smvm.cpp:34) [145]  (2.55 ns)}
+\\
+\textcolor{blue}{'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:34) [180]  (2.55 ns)}
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Clock} & \textbf{Target} & \textbf{Estimated} & \textbf{Uncertainty} \\
+			\hline
+			ap\_clk & 10.00 & 10.208 & 1.25 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 with columnIndex, values and x partitioning Timing Summary (ns)}
+		\label{tab:hls-solution-7-columnindex-values-x-partitioning-timing-summary}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{|c|}{\textbf{Interval}} \\
+			min & max & min & max \\
+			\hline
+			37 & 41 & 37 & 41 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 with columnIndex, values and x partitioning Latency Summary (clock cycles)}
+		\label{tab:hls-solution-7-columnindex-values-x-partitioning-latency-summary}
+	\end{minipage}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 36 & 40 & 9$\sim$10 & - & - & 4 \\
+		+ loop2 & 5 & 6 & 6 & 1 & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 7 with columnIndex, values and x partitioning Latency Loops Summary}
+	\label{tab:hls-solution-7-columnindex-values-x-partitioning-loop-summary}
+\end{table}
+
+Quello che si può notare è che all'interno della console viene visualizzato un warning indicante un periodo di clock stimato maggiore di quello target. In particolare, viene stimato un timing per ogni operazione in maniera dettagliata: $2.55 ns$ per \textit{add operation ytmp\_1\_3}, $0 ns$ per \textit{phi operation ytmp}, $2.55 ns$ per \textit{add operation ytmp\_1}, $2.55 ns$ per \textit{add operation ytmp\_1\_1} e $2.55 ns$ per \textit{add operation ytmp\_1\_2}. Pertanto, calcolando la somma di tutti questi timing stimati si ottiene un periodo di clock stimato pari a $10.2 ns$. Nello specifico, il periodo di clock rimanente, cioè $0.008 ns$, evidentemente corrisponde al valore di timing relativo a \textit{phi operation ytmp} che viene approssimato all'interno del report a $0 ns$. 
+\\
+Inoltre, si può notare come l'utilizzazione delle risorse sia notevolmente aumentata. In particolare, l'utilizzazione delle risorse, rispetto alle risorse disponibili della scheda, risultano essere pari al $5\%$ per i DSP, all'$1\%$ per i FF e al $2\%$ per le LUT.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		\textbf{Name}    & \textbf{BRAM\_18K} & \textbf{DSP48E} & \textbf{FF} & \textbf{LUT} \\ \hline
+		DSP              & -                   & -               & -           & -            \\ 
+		Expression       & -                   & 12              & 0           & 848          \\ 
+		FIFO             & -                   & -               & -           & -            \\ 
+		Instance         & -                   & -               & -           & 84            \\ 
+		Memory           & 0                   & -               & -          & -            \\ 
+		Multiplexer      & -                   & -               & -           & 321          \\ 
+		Register         & -                   & -               & 1338         & 128            \\ \hline
+		\textbf{Total}   & 0                   & 12               & 1338         & 1381          \\ \hline
+		\textbf{Available} & 280               & 220             & 106400      & 53200        \\ \hline
+		\textbf{Utilization (\%)} & 0            & 5               & 1     & 2      \\ \hline
+	\end{tabular}
+	\caption{HLS Solution 7 with columnIndex, values and x partitioning Utilization Estimates Summary}
+	\label{tab:hls-solution-7-columnindex-values-x-partitioning-utilization-estimates-summary}
+\end{table}
+
+Si procede con successivi passi così da verificare se tale problematica, riguardo il periodo di clock stimato superiore a quello target, possa essere risolta dal tool, tramite ulteriori ottimizzazioni, durante la fase di Export RTL.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
+		&  & min & avg & max & min & avg & max \\
+		\hline
+		VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 7 with columnIndex, values and x partitioning C/RTL Cosimulation Summary }
+	\label{tab:hls-solution-7-columnindex-values-x-partitioning-cosimulation-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|l|r|}
+			\hline
+			\textbf{Resource} & \textbf{VHDL} \\
+			\hline
+			SLICE & 69 \\
+			\hline
+			LUT & 184 \\
+			\hline
+			FF & 196 \\
+			\hline
+			DSP & 6 \\
+			\hline
+			BRAM & 0 \\
+			\hline
+			SRL & 0 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 with columnIndex, values and x partitioning Export RTL Resource Usage}
+		\label{tab:hls-solution-7-columnindex-values-x-partitioning-export-rtl-resoruce-usage}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|l|r|}
+			\hline
+			\textbf{Timing} & \textbf{VHDL} \\
+			\hline
+			CP required & 10.000 \\
+			\hline
+			CP achieved post-synthesis & 7.927 \\
+			\hline
+			CP achieved post-implementation & 7.465 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 with columnIndex, values and x partitioning Export RTL Final Timing}
+		\label{tab:hls-solution-7-columnindex-values-x-partitioning-export-rtl-final-timing}
+	\end{minipage}
+\end{table}

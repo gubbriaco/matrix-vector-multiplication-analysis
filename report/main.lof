@@ -1,8 +1,8 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces HLS Array Partitioning}}{5}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces HLS Solution 1 Analysis}}{12}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces HLS Loop Pipelining}}{14}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces HLS Solution 3 Analysis}}{17}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces HLS Loop Unrolling}}{19}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces HLS Solution 4 Analysis}}{20}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces HLS Solution 5 Analysis}}{23}{figure.7}%
+\contentsline {figure}{\numberline {1}{\ignorespaces HLS Solution 1 Analysis}}{11}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces HLS Loop Pipelining}}{13}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces HLS Solution 3 Analysis}}{16}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces HLS Loop Unrolling}}{19}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces HLS Solution 4 Analysis}}{20}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces HLS Solution 5 Analysis}}{23}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces HLS Array Partitioning}}{25}{figure.7}%
