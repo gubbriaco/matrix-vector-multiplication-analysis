@@ -61,3 +61,10 @@
 \contentsline {table}{\numberline {60}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning C/RTL Cosimulation Summary }}{32}{table.60}%
 \contentsline {table}{\numberline {61}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Export RTL Resource Usage}}{32}{table.61}%
 \contentsline {table}{\numberline {62}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Export RTL Final Timing}}{32}{table.62}%
+\contentsline {table}{\numberline {63}{\ignorespaces HLS Solution 7 with loop1 pipelined Timing Summary (ns)}}{33}{table.63}%
+\contentsline {table}{\numberline {64}{\ignorespaces HLS Solution 7 with loop1 pipelined Latency Summary (clock cycles)}}{33}{table.64}%
+\contentsline {table}{\numberline {65}{\ignorespaces HLS Solution 7 with loop1 pipelined Latency Loops Summary}}{33}{table.65}%
+\contentsline {table}{\numberline {66}{\ignorespaces HLS Solution 7 with loop1 pipelined Utilization Estimates Summary}}{33}{table.66}%
+\contentsline {table}{\numberline {67}{\ignorespaces HLS Solution 7 with loop1 pipelined C/RTL Cosimulation Summary }}{33}{table.67}%
+\contentsline {table}{\numberline {68}{\ignorespaces HLS Solution 7 with loop1 pipelined Export RTL Resource Usage}}{33}{table.68}%
+\contentsline {table}{\numberline {69}{\ignorespaces HLS Solution 7 with loop1 pipelined Export RTL Final Timing}}{33}{table.69}%

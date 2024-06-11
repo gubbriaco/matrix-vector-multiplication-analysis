@@ -212,6 +212,8 @@ Si procede con successivi passi così da verificare se tale problematica, riguar
 	\label{tab:hls-solution-7-columnindex-values-x-partitioning-cosimulation-summary}
 \end{table}
 
+Si può notare come il tool sia riuscito a risolvere la problematica riguardante il periodo di clock stimato superiore a quello target. Infatti, si evidenzia come quello raggiunto post-implementation risulta essere pari a $7.974 ns$. Bisogna notare, però, che l'utilizzazione delle risorse risulta essere notevolmente alta dal momento che il tool ha attuato i partizionamenti di fattore pari a 4 su tutti e tre gli array precedentemente citati.
+
 \begin{table}[H]
 	\centering
 	\begin{minipage}[t]{0.45\linewidth}
@@ -220,13 +222,13 @@ Si procede con successivi passi così da verificare se tale problematica, riguar
 			\hline
 			\textbf{Resource} & \textbf{VHDL} \\
 			\hline
-			SLICE & 69 \\
+			SLICE & 264 \\
 			\hline
-			LUT & 184 \\
+			LUT & 723 \\
 			\hline
-			FF & 196 \\
+			FF & 571 \\
 			\hline
-			DSP & 6 \\
+			DSP & 12 \\
 			\hline
 			BRAM & 0 \\
 			\hline
@@ -245,12 +247,138 @@ Si procede con successivi passi così da verificare se tale problematica, riguar
 			\hline
 			CP required & 10.000 \\
 			\hline
-			CP achieved post-synthesis & 7.927 \\
+			CP achieved post-synthesis & 7.449 \\
 			\hline
-			CP achieved post-implementation & 7.465 \\
+			CP achieved post-implementation & 7.974 \\
 			\hline
 		\end{tabular}
 		\caption{HLS Solution 7 with columnIndex, values and x partitioning Export RTL Final Timing}
 		\label{tab:hls-solution-7-columnindex-values-x-partitioning-export-rtl-final-timing}
+	\end{minipage}
+\end{table}
+
+Anche se le problematiche precedentemente citate sono state risolte, si potrebbe pensare di adottare un approccio differente così da cercare di ottenere una diminuzione delle risorse. In particolare, si potrebbero non considerare i tre partizionamenti all'interno del loop2 e aggiungere, invece, la direttiva di pipelining all'interno del loop1.
+
+\lstinputlisting[language=C++]{solutions/s7/s7loop1pipeline.cpp}
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Clock} & \textbf{Target} & \textbf{Estimated} & \textbf{Uncertainty} \\
+			\hline
+			ap\_clk & 10.00 & 10.208 & 1.25 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 with loop1 pipelined Timing Summary (ns)}
+		\label{tab:hls-solution-7-loop1-pipelined-timing-summary}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{|c|}{\textbf{Interval}} \\
+			min & max & min & max \\
+			\hline
+			17 & 45 & 17 & 45 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 with loop1 pipelined Latency Summary (clock cycles)}
+		\label{tab:hls-solution-7-loop1-pipeline-latency-summary}
+	\end{minipage}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 16 & 44 & 4$\sim$14 & - & - & 4 \\
+		+ loop2 & 0 & 7 & 5 & 1 & 1 & 0$\sim$4 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 7 with loop1 pipelined Latency Loops Summary}
+	\label{tab:hls-solution-7-loop1-pipeline-loop-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		\textbf{Name}    & \textbf{BRAM\_18K} & \textbf{DSP48E} & \textbf{FF} & \textbf{LUT} \\ \hline
+		DSP              & -                   & -               & -           & -            \\ 
+		Expression       & -                   & 3              & 0           & 141          \\ 
+		FIFO             & -                   & -               & -           & -            \\ 
+		Instance         & -                   & -               & -           & -            \\ 
+		Memory           & 0                   & -               & -          & -            \\ 
+		Multiplexer      & -                   & -               & -           & 78          \\ 
+		Register         & -                   & -               & 340         & 32            \\ \hline
+		\textbf{Total}   & 0                   & 3               & 340         & 251          \\ \hline
+		\textbf{Available} & 280               & 220             & 106400      & 53200        \\ \hline
+		\textbf{Utilization (\%)} & 0            & 1               & $\sim$0     & $\sim$0      \\ \hline
+	\end{tabular}
+	\caption{HLS Solution 7 with loop1 pipelined Utilization Estimates Summary}
+	\label{tab:hls-solution-7-loop1-pipeline-utilization-estimates-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
+		&  & min & avg & max & min & avg & max \\
+		\hline
+		VHDL & Pass & 38 & 38 & 38 & NA & NA & NA \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 7 with loop1 pipelined C/RTL Cosimulation Summary }
+	\label{tab:hls-solution-7-loop1-pipeline-cosimulation-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|l|r|}
+			\hline
+			\textbf{Resource} & \textbf{VHDL} \\
+			\hline
+			SLICE & 38 \\
+			\hline
+			LUT & 115 \\
+			\hline
+			FF & 139 \\
+			\hline
+			DSP & 3 \\
+			\hline
+			BRAM & 0 \\
+			\hline
+			SRL & 0 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 with loop1 pipelined Export RTL Resource Usage}
+		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-resoruce-usage}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|l|r|}
+			\hline
+			\textbf{Timing} & \textbf{VHDL} \\
+			\hline
+			CP required & 10.000 \\
+			\hline
+			CP achieved post-synthesis & 5.745 \\
+			\hline
+			CP achieved post-implementation & 5.718 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 7 with loop1 pipelined Export RTL Final Timing}
+		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-final-timing}
 	\end{minipage}
 \end{table}

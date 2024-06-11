@@ -17,3 +17,4 @@
 \contentsline {lstlisting}{solutions/s7/s7columnIndex.cpp}{29}{lstlisting.-17}%
 \contentsline {lstlisting}{solutions/s7/s7values.cpp}{30}{lstlisting.-18}%
 \contentsline {lstlisting}{solutions/s7/s7x.cpp}{31}{lstlisting.-19}%
+\contentsline {lstlisting}{solutions/s7/s7loop1pipeline.cpp}{32}{lstlisting.-20}%
