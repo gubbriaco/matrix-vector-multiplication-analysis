@@ -261,6 +261,14 @@ Anche se le problematiche precedentemente citate sono state risolte, si potrebbe
 
 \lstinputlisting[language=C++]{solutions/s7/s7loop1pipeline.cpp}
 
+Effettuando la sintesi, si possono evidenziare i seguenti log nella console e i seguenti report.
+\\
+\textcolor{blue}{WARNING: [XFORM 203-503] Ignored partial unroll directive for loop 'loop2' (smvmProject/smvm.cpp:21) because its parent loop or function is pipelined.}
+\\
+\textcolor{blue}{WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Loop contains subloop(s) not being unrolled or flattened.}
+\\
+In particolare, si può notare come il primo warning segnali, tramite console, che la direttiva di unroll all'interno del loop2 è stata ignorata dal momento che all'interno del parent loop, cioè il loop1, è presente una direttiva di pipeline. Invece, per quanto riguarda il secondo warning, segnala che il tool non riesce a soddisfare la direttiva di pipeline senza però specificare quale loop. Nello specifico, lo si può capire dal report di sintesi generato. Infatti, si può notare come non sia stata attuata la direttiva di pipeline nel loop1 dal momento che l'Initiation Interval associato risulta essere non definito. Inoltre, si può evidenziare come il trip count associato al loop2 sia pari a 4, cioè questo valore dimostra che effettivamente la direttiva di unrolling di fattore pari a 4 non è stata attuata. Tanto è vero che, altrimenti, si troverebbe un numero di iterazioni pari a 1 come precedentemente mostrato. Pertanto, è come se il tool riconducesse la soluzione hardware implementata ad una solution dove nel loop1 non è presente alcun pragma e nel loop2 sono presenti soltanto le direttive di trip count e pipeline. Praticamente è come se riconducesse il tutto alla solution 2.
+
 \begin{table}[H]
 	\centering
 	\begin{minipage}[t]{0.45\linewidth}
@@ -326,6 +334,8 @@ Anche se le problematiche precedentemente citate sono state risolte, si potrebbe
 	\label{tab:hls-solution-7-loop1-pipeline-utilization-estimates-summary}
 \end{table}
 
+Infatti, si può notare come la latenza e l'utilizzazione delle risorse associate alla solution in questione risultano essere le medesime di quelle ottenute in corrispondenza della soluzione hardware 2.
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -382,3 +392,5 @@ Anche se le problematiche precedentemente citate sono state risolte, si potrebbe
 		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-final-timing}
 	\end{minipage}
 \end{table}
+
+Pertanto, confrontando le due soluzioni hardware implementate, rispettivamente quella associata all'unrolling di fattore 4 del loop2 e del partizionamento dei tre array e quella appena descritta, è possibile fare alcune considerazioni. In particolare, se l'obiettivo dell'ottimizzazione è quello di ottenere un parallelismo del loop2, nello specifico di un fattore pari a 4, allora l'unica implementazione possibile è quella ottenuta tramite partitioning dei tre array (columnIndex, values e x). Ovviamente, come precedentemente citato, tale soluzione presenta un'utilizzazione delle risorse maggiore rispetto alle altre solution presentate dal momento che viene effettuato un partizionamento di fattore 4 su tre array. Invece, se l'obiettivo è quello di ottenere una minore utilizzazione delle risorse, allora la solution si riconduce a quella ottenuta in corrispondenza della soluzione hardware 2 dal momento che i risultati ottenuti sono i medesimi. Bisogna specificare, però, che l'obiettivo della solution in questione, cioè la 7, è quella di poter ottenere un unrolling di fattore pari a 4 in corrispondenza del loop2 e, pertanto, la soluzione hardware ottimale corrisponde a quella ottenuta tramite partizionamento dei tre array.

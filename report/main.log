@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  11 JUN 2024 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  11 JUN 2024 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1207,37 +1207,45 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.13 	
       	y[i] = ytmp;])
-Overfull \hbox (11.02881pt too wide) in paragraph at lines 268--275
+Overfull \hbox (11.02881pt too wide) in paragraph at lines 276--283
  [][] 
  []
 
-)
+
 
 [33
 pdfTeX warning (ext4): destination with the same identifier (name{table.63}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.83 \newpage
-             
+l.352 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.64}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.83 \newpage
-             
+l.352 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.65}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.83 \newpage
-             
+l.352 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.66}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.83 \newpage
-             
+l.352 
+      ])
+Overfull \hbox (13.71814pt too wide) in paragraph at lines 396--83
+[]\OT1/cmr/m/n/10 Pertanto, con-frontando le due soluzioni hard-ware im-ple-men
+-tate, rispet-ti-va-mente quella as-so-ci-ata all'unrolling
+ []
+
+
+
+[34
 pdfTeX warning (ext4): destination with the same identifier (name{table.67}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1257,15 +1265,15 @@ s been already used, duplicate ignored
 l.83 \newpage
              ] (solutions/s8/S8.tex)
 
-[34] (solutions/s9/S9.tex)
+[35] (solutions/s9/S9.tex)
 
-[35] (solutions/s10/S10.tex)
+[36] (solutions/s10/S10.tex)
 
-[36] (solutions/s11/S11.tex)
+[37] (solutions/s11/S11.tex)
 
-[37]) (conclusions/Conclusions.tex)
+[38]) (conclusions/Conclusions.tex)
 
-[38] (main.aux)
+[39] (main.aux)
  ***********
 LaTeX2e <2024-06-01>
 L3 programming layer <2024-05-08>
@@ -1280,8 +1288,8 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14828 strings out of 473938
- 233797 string characters out of 5743807
+ 14829 strings out of 473938
+ 233804 string characters out of 5743807
  2331893 words of memory out of 5000000
  36796 multiletter control sequences out of 15000+600000
  564808 words of font info for 60 fonts, out of 8000000 for 9000
@@ -1298,9 +1306,9 @@ blic/amsfonts/cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 c/amsfonts/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
 /MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/MikTex/fonts/type1/public
 /amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (38 pages, 572150 bytes).
+Output written on main.pdf (39 pages, 575492 bytes).
 PDF statistics:
- 1031 PDF objects out of 1200 (max. 8388607)
- 535 named destinations out of 1000 (max. 500000)
+ 1035 PDF objects out of 1200 (max. 8388607)
+ 536 named destinations out of 1000 (max. 500000)
  188 words of extra memory for PDF output out of 10000 (max. 10000000)
 
