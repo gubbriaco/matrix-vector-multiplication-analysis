@@ -70,7 +70,7 @@
 \contentsline {table}{\numberline {69}{\ignorespaces HLS Solution 7 with loop1 pipelined Export RTL Final Timing}}{35}{table.69}%
 \contentsline {table}{\numberline {70}{\ignorespaces HLS Solution 8 Timing Summary (ns)}}{37}{table.70}%
 \contentsline {table}{\numberline {71}{\ignorespaces HLS Solution 8 Latency Summary (clock cycles)}}{37}{table.71}%
-\contentsline {table}{\numberline {72}{\ignorespaces HLS Solution 8 Latency Loops Summary }}{37}{table.72}%
+\contentsline {table}{\numberline {72}{\ignorespaces HLS Solution 8 Latency Loops Summary }}{38}{table.72}%
 \contentsline {table}{\numberline {73}{\ignorespaces HLS Solution 8 Utilization Estimates [\#]}}{38}{table.73}%
 \contentsline {table}{\numberline {74}{\ignorespaces HLS Solution 8 C/RTL Cosimulation Report }}{38}{table.74}%
 \contentsline {table}{\numberline {75}{\ignorespaces HLS Solution 8 Export RTL Report}}{38}{table.75}%

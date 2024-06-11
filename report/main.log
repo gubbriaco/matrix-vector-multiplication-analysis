@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  11 JUN 2024 19:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  11 JUN 2024 19:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1275,7 +1275,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
  []
 
 
-Overfull \hbox (12.87212pt too wide) in paragraph at lines 58--76
+Overfull \hbox (12.87212pt too wide) in paragraph at lines 60--78
  [][] 
  []
 
@@ -1286,27 +1286,27 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.70}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.98 
+l.81 
      
 pdfTeX warning (ext4): destination with the same identifier (name{table.71}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.98 
-     
-pdfTeX warning (ext4): destination with the same identifier (name{table.72}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.98 
+l.81 
      ]
-Overfull \hbox (39.62991pt too wide) in paragraph at lines 121--137
+Overfull \hbox (39.62991pt too wide) in paragraph at lines 123--139
  [][] 
  []
 
 )
 
 [38
+pdfTeX warning (ext4): destination with the same identifier (name{table.72}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.87 \newpage
+             
 pdfTeX warning (ext4): destination with the same identifier (name{table.73}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1353,7 +1353,7 @@ Here is how much of TeX's memory you used:
  36814 multiletter control sequences out of 15000+600000
  564808 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,1535b,2193s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,1775b,2193s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\giorg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/
 ec/dpi600\tcrm0700.pk> <C:\Users\giorg\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
 appen/ec/dpi600\tcrm1000.pk><D:/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pf
@@ -1365,7 +1365,7 @@ blic/amsfonts/cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 c/amsfonts/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
 /MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/MikTex/fonts/type1/public
 /amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (42 pages, 596383 bytes).
+Output written on main.pdf (42 pages, 597732 bytes).
 PDF statistics:
  1143 PDF objects out of 1200 (max. 8388607)
  611 named destinations out of 1000 (max. 500000)
