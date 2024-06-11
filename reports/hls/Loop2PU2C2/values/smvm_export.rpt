@@ -1,0 +1,20 @@
+
+
+Implementation tool: Xilinx Vivado v.2018.3
+Project:             smvmProject
+Solution:            Loop2PU2C2values
+Device target:       xc7z020clg484-1
+Report date:         Tue Jun 11 09:34:12 +0200 2024
+
+#=== Post-Implementation Resource usage ===
+SLICE:           99
+LUT:            327
+FF:             224
+DSP:              6
+BRAM:             0
+SRL:              0
+#=== Final timing ===
+CP required:    10.000
+CP achieved post-synthesis:    7.502
+CP achieved post-implementation:    8.184
+Timing met
