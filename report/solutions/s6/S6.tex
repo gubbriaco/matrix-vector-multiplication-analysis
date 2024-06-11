@@ -13,7 +13,7 @@ Il partizionamento serve per risolvere un problema tipicamente causato dagli arr
 	\caption{HLS Array Partitioning}
 \end{figure}
 
-Nella soluzione hardware in questione verrà utilizzata il partizionamento di tipologia cyclic e nello specifico, verranno analizzate le seguenti implementazioni relative al loop2:
+Nella soluzione hardware in questione verrà utilizzata la direttiva di partizionamento di tipologia cyclic e nello specifico, verranno analizzate le seguenti implementazioni relative al loop2:
 \begin{itemize}
 	\item Pipeline, Unroll=2, Cyclic=2 (columnIndex, values, x)
 	\item Pipeline, Unroll=2, Cyclic=2 (columnIndex)
@@ -155,6 +155,6 @@ Si può notare come, in corrispondenza della soluzione basata su partitioning de
 		x  & 99 & 250 & 198 & 6 & 0 & 10 & 6.541 & 6.931 \\
 		\hline
 	\end{tabular}
-	\caption{HLS Loop Unrolling Factor=2 Solution Export RTL Report}
+	\caption{HLS Solution 6 Export RTL Report}
 	\label{tab:hls-solution-6-export-rtl-report}
 \end{table}
