@@ -26,6 +26,6 @@
 \contentsline {lstlisting}{solutions/s9/s9columnIndex.cpp}{39}{lstlisting.-26}%
 \contentsline {lstlisting}{solutions/s9/s9values.cpp}{40}{lstlisting.-27}%
 \contentsline {lstlisting}{solutions/s9/s9x.cpp}{41}{lstlisting.-28}%
-\contentsline {lstlisting}{solutions/s9/s9x4.cpp}{41}{lstlisting.-29}%
-\contentsline {lstlisting}{solutions/s9/headermodified.h}{42}{lstlisting.-30}%
-\contentsline {lstlisting}{solutions/s9/s9x.cpp}{42}{lstlisting.-31}%
+\contentsline {lstlisting}{solutions/s9/s9rowPtr4.cpp}{41}{lstlisting.-29}%
+\contentsline {lstlisting}{solutions/s9/s9y4.cpp}{42}{lstlisting.-30}%
+\contentsline {lstlisting}{solutions/s9/s9pipelineloop1.cpp}{43}{lstlisting.-31}%

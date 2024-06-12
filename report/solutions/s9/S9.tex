@@ -114,16 +114,6 @@ Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'a
 
 Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
 \\
-\textcolor{red}{ERROR: [XFORM 203-103] Cannot partition array 'x' (smvmProject/smvm.cpp:11): incorrect partition factor 8.}
-\\
-In particolare, la console sta segnalando che effettivamente non riesce a partizionare l'array x dal momento che la dimensione dell'array risulta essere non compatibile con il fattore di partitioning dichiarato. Infatti, la dimensione di x inizialmente dichiarata in definitions.h è pari a 4 mentre il fattore di partizionamento che si sta utilizzando è pari a 8. A questo proposito si potrebbe modificare il valore di dimensionamento relativo a x all'interno dell'header oppure considerare i partizionamenti dei tre array con fattore pari a 4 così che possano essere compatibili con i dimensionamenti delle tre strutture dati. 
-\\
-A tale proposito verranno illustrate entrambe le soluzioni hardware individuate. Pertanto, considerando un partizionamento di fattore pari a 4 su tutti e tre gli array, è possibile riscontrare i seguenti risultati.
-
-\lstinputlisting[language=C++]{solutions/s9/s9x4.cpp}
-
-Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
-\\
 \textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
 	between 'add' operation ('ytmp\_1\_7', smvmProject/smvm.cpp:34) and 'add' operation ('ytmp\_1', smvmProject/smvm.cpp:34).}
 \\
@@ -147,17 +137,14 @@ In particolare, tali warning suggeriscono problematiche relative alla variabile 
 		+ loop2 & 6 & 9 & 7 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
-	\caption{HLS Solution 9 with columnIndex and values partitioning Latency Loops Summary}
+	\caption{HLS Solution 9 with columnIndex, values and x partitioning Latency Loops Summary}
 	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
 \end{table}
 
-Pertanto, si potrebbe provare modificando le variabili associate al dimensionamento di x così da poter applicare un partizionamento di fattore pari a 8, è possibile riscontrare la seguente architettura.
+Un'idea potrebbe quella di effettuare un partizionamento anche sull'array rowPtr.
 
-\lstinputlisting[language=C]{solutions/s9/headermodified.h}
-\lstinputlisting[language=C++]{solutions/s9/s9x.cpp}
+\lstinputlisting[language=C++]{solutions/s9/s9rowPtr4.cpp}
 
-Ovviamente, bisogna modificare sia la variabile size sia la variabile rows dal momento che il formato CRS presuppone l'utilizzo di una matrice quadrata, cioè dove il numero di righe è il medesimo di quelle delle colonne.
-\\
 Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
 \\
 \textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
@@ -169,9 +156,7 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il
 \textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
 	between 'add' operation ('ytmp\_1\_6', smvmProject/smvm.cpp:34) and 'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:34).}
 \\
-In particolare, i warning, ottenuti all'interno della console, risultano essere similari a quelli riscontrati precedentemente in corrispondenza del partizionamento di fattore 4.
-\\
-Si può notare, inoltre, come il trip count relativo al loop1 sia incrementato da 4 a 8 dal momento che sono state modificate le variabili all'interno dell'header precedentemente citate. Inoltre, si evidenzia come anche in questo caso l'Initiation Interval raggiunto risulta essere decrementato da 4 a 3 ma comunque ancora maggiore di quello target. 
+In particolare, si riscontrano i medesimi warning allegati precedentemente.
 
 \begin{table}[H]
 	\centering
@@ -180,11 +165,130 @@ Si può notare, inoltre, come il trip count relativo al loop1 sia incrementato d
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 80 & 104 & 10$\sim$13 & - & - & 8 \\
+		- loop1 & 44 & 56 & 11$\sim$14 & - & - & 4 \\
 		+ loop2 & 6 & 9 & 7 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
-	\caption{HLS Solution 9 with columnIndex and values partitioning Latency Loops Summary}
+	\caption{HLS Solution 9 with columnIndex, values, x and rowPtr partitioning Latency Loops Summary}
 	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
 \end{table}
 
+Pertanto, a tale proposito si potrebbe effettuare un partizionamento anche su y.
+
+\lstinputlisting[language=C++]{solutions/s9/s9y4.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
+\\
+\textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+	between 'add' operation ('ytmp\_1\_7', smvmProject/smvm.cpp:35) and 'add' operation ('ytmp\_1', smvmProject/smvm.cpp:35).}
+\\
+\textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+	between 'add' operation ('ytmp\_1\_5', smvmProject/smvm.cpp:35) and 'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:35).}
+\\
+\textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+	between 'add' operation ('ytmp\_1\_6', smvmProject/smvm.cpp:35) and 'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:35).}
+\\
+Nello specifico, si riscontrano nuovamente i medesimi warning allegati precedentemente.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 44 & 56 & 11$\sim$14 & - & - & 4 \\
+		+ loop2 & 6 & 9 & 7 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex, values, x, rowPtr and y partitioning Latency Loops Summary}
+	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
+\end{table}
+
+Pertanto, dal momento che i warning sono ancora presenti e il valore di Initiation Latency non tende a diminuire, si potrebbe provare effettuando anche il pipelining del loop1.
+
+\lstinputlisting[language=C++]{solutions/s9/s9pipelineloop1.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
+\\
+\textcolor{blue}{WARNING: [XFORM 203-503] Ignored partial unroll directive for loop 'loop2' (smvmProject/smvm.cpp:21) because its parent loop or function is pipelined.}
+\\
+\textcolor{blue}{WARNING: [XFORM 203-503] Cannot unroll loop 'loop2' (smvmProject/smvm.cpp:21) in function 'smvm' completely: variable loop bound.}
+\\
+\textcolor{blue}{WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Loop contains subloop(s) not being unrolled or flattened.}
+\\
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 16 & 40 & 4$\sim$10 & - & - & 4 \\
+		+ loop2 & 0 & 6 & 4 & 1 & 1 & 0$\sim$4 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Latency Loops Summary}
+	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
+\end{table}
+
+Si può notare come i warning relativi a ytmp non sono più presenti all'interno della console e che, inoltre, l'Initiation Interval relativo al loop2 presenta un valore raggiunto uguale a quello target, cioè pari a 1. In aggiunta, si possono evidenziare ulteriori warning all'interno della console. Essi sono i medesimi di quelli riscontrati nella solution 7, in cui veniva effettuato un unrolling di fattore pari a 4 nel loop2, dopo aver applicato il pipeline al loop1. Anche in questo caso, il tool non è riuscito a soddisfare la richiesta di pipeline a causa dei bound non noti e, pertanto, non riuscendo nemmeno a soddisfare la direttiva di unrolling all'interno del loop2. Infatti, si può notare come i valori di Initiation Interval (achieved e target) risultano essere non definiti, mentre il trip count relativo relativo al loop2 risulta essere il medesimo di quello della solution2 dove non era presente alcun pragma di parallelismo nel ciclo 2.
+\\
+Pertanto, considerando l'implementazione finale ottenuta in corrispondenza della solution in questione, si effettua la C/RTL Cosimulation e l'Export RTL e si analizzano, di conseguenza, i report corrispondenti.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
+		&  & min & avg & max & min & avg & max \\
+		\hline
+		VHDL & Pass & 34 & 34 & 34 & NA & NA & NA \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined C/RTL Cosimulation Summary }
+	\label{tab:hls-solution-7-loop1-pipeline-cosimulation-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|l|r|}
+			\hline
+			\textbf{Resource} & \textbf{VHDL} \\
+			\hline
+			SLICE & 80 \\
+			\hline
+			LUT & 208 \\
+			\hline
+			FF & 263 \\
+			\hline
+			DSP & 3 \\
+			\hline
+			BRAM & 0 \\
+			\hline
+			SRL & 0 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Export RTL Resource Usage}
+		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-resoruce-usage}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|l|r|}
+			\hline
+			\textbf{Timing} & \textbf{VHDL} \\
+			\hline
+			CP required & 10.000 \\
+			\hline
+			CP achieved post-synthesis & 5.745 \\
+			\hline
+			CP achieved post-implementation & 5.762 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Export RTL Final Timing}
+		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-final-timing}
+	\end{minipage}
+\end{table}

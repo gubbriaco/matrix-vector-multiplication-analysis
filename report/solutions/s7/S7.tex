@@ -265,9 +265,13 @@ Effettuando la sintesi, si possono evidenziare i seguenti log nella console e i 
 \\
 \textcolor{blue}{WARNING: [XFORM 203-503] Ignored partial unroll directive for loop 'loop2' (smvmProject/smvm.cpp:21) because its parent loop or function is pipelined.}
 \\
+\textcolor{blue}{WARNING: [XFORM 203-503] Cannot unroll loop 'loop2' (smvmProject/smvm.cpp:21) in function 'smvm' completely: variable loop bound.}
+\\
 \textcolor{blue}{WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Loop contains subloop(s) not being unrolled or flattened.}
 \\
-In particolare, si può notare come il primo warning segnali, tramite console, che la direttiva di unroll all'interno del loop2 è stata ignorata dal momento che all'interno del parent loop, cioè il loop1, è presente una direttiva di pipeline. Invece, per quanto riguarda il secondo warning, segnala che il tool non riesce a soddisfare la direttiva di pipeline senza però specificare quale loop. Nello specifico, lo si può capire dal report di sintesi generato. Infatti, si può notare come non sia stata attuata la direttiva di pipeline nel loop1 dal momento che l'Initiation Interval associato risulta essere non definito. Inoltre, si può evidenziare come il trip count associato al loop2 sia pari a 4, cioè questo valore dimostra che effettivamente la direttiva di unrolling di fattore pari a 4 non è stata attuata. Tanto è vero che, altrimenti, si troverebbe un numero di iterazioni pari a 1 come precedentemente mostrato. Pertanto, è come se il tool riconducesse la soluzione hardware implementata ad una solution dove nel loop1 non è presente alcun pragma e nel loop2 sono presenti soltanto le direttive di trip count e pipeline. Praticamente è come se riconducesse il tutto alla solution 2.
+In particolare, si può notare come il primo warning segnali, tramite console, che la direttiva di unroll all'interno del loop2 è stata ignorata dal momento che all'interno del parent loop, cioè il loop1, è presente una direttiva di pipeline. Invece, per quanto riguarda il secondo warning, segnala che il tool non riesce a soddisfare la direttiva di pipeline senza però specificare quale loop. Nello specifico, lo si può capire dal report di sintesi generato. Infatti, si può notare come non sia stata attuata la direttiva di pipeline nel loop1 dal momento che l'Initiation Interval associato risulta essere non definito. Inoltre, si può evidenziare come il trip count associato al loop2 sia pari a 4, cioè questo valore dimostra che effettivamente la direttiva di unrolling di fattore pari a 4 non è stata attuata. Tanto è vero che, altrimenti, si troverebbe un numero di iterazioni pari a 1 come precedentemente mostrato. In particolare, questo approccio del tool è dovuto al fatto che non riesce ad effettuare il pipeline del loop1 dal momento che non ci sono bound al loop in questione, cioè il tutto corrisponderebbe ad un'architettura che non è nota perchè i bound non sono noti.
+\\
+Pertanto, è come se il tool riconducesse la soluzione hardware implementata ad una solution dove nel loop1 non è presente alcun pragma e nel loop2 sono presenti soltanto le direttive di trip count e pipeline. Praticamente è come se riconducesse il tutto alla solution 2.
 
 \begin{table}[H]
 	\centering
@@ -306,7 +310,7 @@ In particolare, si può notare come il primo warning segnali, tramite console, c
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 16 & 44 & 4$\sim$14 & - & - & 4 \\
+		- loop1 & 16 & 44 & 4$\sim$11 & - & - & 4 \\
 		+ loop2 & 0 & 7 & 5 & 1 & 1 & 0$\sim$4 \\
 		\hline
 	\end{tabular}

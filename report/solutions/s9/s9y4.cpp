@@ -10,6 +10,8 @@ void smvm(int rowPtr[rows+1], int columnIndex[nnz], DTYPE values[nnz], DTYPE y[s
 			#pragma HLS array_partition variable=columnIndex cyclic factor=4
 			#pragma HLS array_partition variable=values cyclic factor=4
 			#pragma HLS array_partition variable=x cyclic factor=4
+			#pragma HLS array_partition variable=rowPtr cyclic factor=4
+			#pragma HLS array_partition variable=y cyclic factor=4
 			ytmp += values[k] * x[columnIndex[k]];
 		}
 		y[i] = ytmp;
