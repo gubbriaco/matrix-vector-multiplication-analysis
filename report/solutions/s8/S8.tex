@@ -118,6 +118,8 @@ Si può notare come i valori di latenza totale, delle latenze totali dei loop co
 	\label{tab:hls-solution-8-cosimulation-report}
 \end{table}
 
+Si può notare come la maggiore utilizzazione delle risorse si ha in corrrispondenza della soluzione hardware basata sul partizionamento dei tre array dove si ha la maggiore utilizzazione di slice, LUT e FF. Inoltre, si può evidenziare che le soluzioni basate rispettivamente sul partitioning di columnIndex e values risultano avere pressoché la medesima utilizzazione dal momento che le dimensioni di tali strutture dati è la medesima. In particolare, rispetto alla soluzione hardware similare dove era stato utilizzato un fattore di partitioning pari a 2, si può notare, in corrispondenza del partizionamento dei tre array, un incremento dei FF di circa il $59\%$, un incremento delle LUT e delle slice di circa il $9\%$.
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}

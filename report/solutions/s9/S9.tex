@@ -1,0 +1,190 @@
+Qui, di seguito, viene riportata l'architettura relativa alla nona solution.
+
+\lstinputlisting[language=C++]{solutions/s9/s9.cpp}
+
+In particolare, rispetto alla soluzione hardware 5 e 7 dove rispettivamente era stato considerato un parallelismo di fattore pari a 2 e un parallelismo di fattore pari a 4, in questa solution è stato considerato un unrolling di fattore pari a 8. In particolare, ciò che ci si aspetta è un aumento delle risorse ed eventuali problematiche relative al timing, similari a quelle riscontrate nella solution 7, dal momento che il tool deve gestire all'interno del loop2 più accessi in memoria paralleli.
+\\
+Effettuando la sintesi è possibile evidenziare il seguente log nella console:
+\\
+\textcolor{blue}{WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('columnIndex\_load\_6', smvmProject/smvm.cpp:34) on array 'columnIndex' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'columnIndex'.}
+\\
+Tale log sta a significare che non riesce a schedulare correttamente, dal punto di vista degli accessi in memoria, la load operation relativa all'array \textit{columnIndex} dato dal numero limitato di porte relative alla memoria.
+\\
+In particolare, analizzando il report relativo alla sintesi, si può notare come l'Initiation Interval, associato al loop2, raggiunto risulta essere maggiore di quello target.
+\\
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Clock} & \textbf{Target} & \textbf{Estimated} & \textbf{Uncertainty} \\
+			\hline
+			ap\_clk & 10.00 & 8.510 & 1.25 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 9 Timing Summary (ns)}
+		\label{tab:hls-solution-9-timing-summary}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{|c|}{\textbf{Interval}} \\
+			min & max & min & max \\
+			\hline
+			45 & 61 & 45 & 61 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 9 Latency Summary (clock cycles)}
+		\label{tab:hls-solution-9-latency-summary}
+	\end{minipage}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 44 & 60 & 11$\sim$15 & - & - & 4 \\
+		+ loop2 & 7 & 11 & 8 & \textcolor{red}{4} & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 Latency Loops Summary}
+	\label{tab:hls-solution-9-loop-summary}
+\end{table}
+
+Pertanto, si potrebbe aggiungere una direttiva di partizionamento con fattore pari a 8 relativa all'array menzionato all'interno del log, cioè \textit{columnIndex}.
+
+\lstinputlisting[language=C++]{solutions/s9/s9columnIndex.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i seguenti valori di latenza.
+\\
+\textcolor{blue}{WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('values\_load\_6', smvmProject/smvm.cpp:34) on array 'values' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'values'.}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 44 & 60 & 11$\sim$15 & - & - & 4 \\
+		+ loop2 & 7 & 11 & 8 & \textcolor{red}{4} & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex partitioning Latency Loops Summary}
+	\label{tab:hls-solution-9-columnindex-partitioning-loop-summary}
+\end{table}
+
+Si può notare come in questo caso il warning sia relativo all'array \textit{values}. In particolare, la tipologia di warning è la medesima facendo presupporre che il tool non riesca a schedulare correttamente, secondo le direttive imposte dall'architetture, gli accessi in parallello all'array \textit{values}. Infatti, il valore di Iteration Latency raggiunto risulta essere ancora maggiore di quello di quello target. 
+\\
+Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{values}.
+
+\lstinputlisting[language=C++]{solutions/s9/s9values.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i seguenti valori di latenza.
+\\
+\textcolor{blue}{WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('x\_load\_6', smvmProject/smvm.cpp:34) on array 'x' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'x'.}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 44 & 60 & 11$\sim$15 & - & - & 4 \\
+		+ loop2 & 7 & 11 & 8 & \textcolor{red}{4} & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex and values partitioning Latency Loops Summary}
+	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
+\end{table}
+
+Si può notare come in questo caso il warning sia relativo all'array \textit{x}. In particolare, la tipologia di warning è la medesima della precedente. Anche in questo caso il valore di Iteration Latency raggiunto risulta essere ancora maggiore di quello di quello target. 
+\\
+Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{x}.
+
+\lstinputlisting[language=C++]{solutions/s9/s9x.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
+\\
+\textcolor{red}{ERROR: [XFORM 203-103] Cannot partition array 'x' (smvmProject/smvm.cpp:11): incorrect partition factor 8.}
+\\
+In particolare, la console sta segnalando che effettivamente non riesce a partizionare l'array x dal momento che la dimensione dell'array risulta essere non compatibile con il fattore di partitioning dichiarato. Infatti, la dimensione di x inizialmente dichiarata in definitions.h è pari a 4 mentre il fattore di partizionamento che si sta utilizzando è pari a 8. A questo proposito si potrebbe modificare il valore di dimensionamento relativo a x all'interno dell'header oppure considerare i partizionamenti dei tre array con fattore pari a 4 così che possano essere compatibili con i dimensionamenti delle tre strutture dati. 
+\\
+A tale proposito verranno illustrate entrambe le soluzioni hardware individuate. Pertanto, considerando un partizionamento di fattore pari a 4 su tutti e tre gli array, è possibile riscontrare i seguenti risultati.
+
+\lstinputlisting[language=C++]{solutions/s9/s9x4.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
+\\
+\textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+	between 'add' operation ('ytmp\_1\_7', smvmProject/smvm.cpp:34) and 'add' operation ('ytmp\_1', smvmProject/smvm.cpp:34).}
+\\
+\textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+	between 'add' operation ('ytmp\_1\_5', smvmProject/smvm.cpp:34) and 'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:34).}
+\\
+\textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+	between 'add' operation ('ytmp\_1\_6', smvmProject/smvm.cpp:34) and 'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:34).}
+\\
+
+In particolare, tali warning suggeriscono problematiche relative alla variabile ytmp. Nello specifico, ymtp è una variabile temporanea (di appoggio) di tipo DTYPE, cioè int, e pertanto il partizionamento su tale variabile non avrebbe senso poiché quest'ultimo funziona solo con gli array. Bisogna notare però che il problema non è relativo a ytmp ma è associato a y, cioè l'output, che è un vettore. Inoltre, y fa riferimento al loop1 e questo suggerisce che gli eventuali problemi sono relativi al ciclo1 ed, essendo che il loop1 presenta al suo interno il loop2, allora tali problemi si ripercuotono sul loop2. In aggiunta, si evidenzia come in questo caso l'Initiation Interval raggiunto risulta essere decrementato da 4 a 3 ma comunque ancora maggiore di quello target. 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 40 & 52 & 10$\sim$13 & - & - & 4 \\
+		+ loop2 & 6 & 9 & 7 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex and values partitioning Latency Loops Summary}
+	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
+\end{table}
+
+Pertanto, si potrebbe provare modificando le variabili associate al dimensionamento di x così da poter applicare un partizionamento di fattore pari a 8, è possibile riscontrare la seguente architettura.
+
+\lstinputlisting[language=C]{solutions/s9/headermodified.h}
+\lstinputlisting[language=C++]{solutions/s9/s9x.cpp}
+
+Ovviamente, bisogna modificare sia la variabile size sia la variabile rows dal momento che il formato CRS presuppone l'utilizzo di una matrice quadrata, cioè dove il numero di righe è il medesimo di quelle delle colonne.
+\\
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
+\\
+\textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+	between 'add' operation ('ytmp\_1\_7', smvmProject/smvm.cpp:34) and 'add' operation ('ytmp\_1', smvmProject/smvm.cpp:34).}
+\\
+\textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+	between 'add' operation ('ytmp\_1\_5', smvmProject/smvm.cpp:34) and 'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:34).}
+\\
+\textcolor{blue}{WARNING: [SCHED 204-68] The II Violation in module 'smvm': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+	between 'add' operation ('ytmp\_1\_6', smvmProject/smvm.cpp:34) and 'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:34).}
+\\
+In particolare, i warning, ottenuti all'interno della console, risultano essere similari a quelli riscontrati precedentemente in corrispondenza del partizionamento di fattore 4.
+\\
+Si può notare, inoltre, come il trip count relativo al loop1 sia incrementato da 4 a 8 dal momento che sono state modificate le variabili all'interno dell'header precedentemente citate. Inoltre, si evidenzia come anche in questo caso l'Initiation Interval raggiunto risulta essere decrementato da 4 a 3 ma comunque ancora maggiore di quello target. 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 80 & 104 & 10$\sim$13 & - & - & 8 \\
+		+ loop2 & 6 & 9 & 7 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex and values partitioning Latency Loops Summary}
+	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
+\end{table}
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  11 JUN 2024 19:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  12 JUN 2024 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -643,7 +643,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--87
 
  []
 
-<solutions/s1/s1analysis.png, id=473, 1082.54437pt x 543.53062pt>
+<solutions/s1/s1analysis.png, id=495, 1082.54437pt x 543.53062pt>
 File: solutions/s1/s1analysis.png Graphic file (type png)
 <use solutions/s1/s1analysis.png>
 Package pdftex.def Info: solutions/s1/s1analysis.png  used on input line 108.
@@ -701,7 +701,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.59 \newpage
              ] (solutions/s2/S2.tex (solutions/s2/s2.cpp)
-<solutions/s2/looppipelining.png, id=494, 490.08093pt x 279.29344pt>
+<solutions/s2/looppipelining.png, id=516, 490.08093pt x 279.29344pt>
 File: solutions/s2/looppipelining.png Graphic file (type png)
 <use solutions/s2/looppipelining.png>
 Package pdftex.def Info: solutions/s2/looppipelining.png  used on input line 9.
@@ -779,7 +779,7 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 13--20
  [][] 
  []
 
-<solutions/s3/loop1pipeline.png, id=517, 1082.54437pt x 538.26094pt>
+<solutions/s3/loop1pipeline.png, id=539, 1082.54437pt x 538.26094pt>
 File: solutions/s3/loop1pipeline.png Graphic file (type png)
 <use solutions/s3/loop1pipeline.png>
 Package pdftex.def Info: solutions/s3/loop1pipeline.png  used on input line 62.
@@ -871,7 +871,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.67 \newpage
              ] (solutions/s4/S4.tex (solutions/s4/s4.cpp)
-<solutions/s4/unrolling.png, id=567, 490.08093pt x 380.17032pt>
+<solutions/s4/unrolling.png, id=589, 490.08093pt x 380.17032pt>
 File: solutions/s4/unrolling.png Graphic file (type png)
 <use solutions/s4/unrolling.png>
 Package pdftex.def Info: solutions/s4/unrolling.png  used on input line 9.
@@ -907,7 +907,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.62 
       <./solutions/s4/unrolling.png>]
-<solutions/s4/s4analysis.png, id=588, 1083.29718pt x 572.89032pt>
+<solutions/s4/s4analysis.png, id=610, 1083.29718pt x 572.89032pt>
 File: solutions/s4/s4analysis.png Graphic file (type png)
 <use solutions/s4/s4analysis.png>
 Package pdftex.def Info: solutions/s4/s4analysis.png  used on input line 67.
@@ -968,7 +968,7 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 13--20
  [][] 
  []
 
-<solutions/s5/s5analysis.png, id=598, 1081.03876pt x 572.1375pt>
+<solutions/s5/s5analysis.png, id=620, 1081.03876pt x 572.1375pt>
 File: solutions/s5/s5analysis.png Graphic file (type png)
 <use solutions/s5/s5analysis.png>
 Package pdftex.def Info: solutions/s5/s5analysis.png  used on input line 60.
@@ -1028,7 +1028,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.75 \newpage
              ] (solutions/s6/S6.tex
-<solutions/s6/partitioning.png, id=627, 769.37437pt x 330.48468pt>
+<solutions/s6/partitioning.png, id=649, 769.37437pt x 330.48468pt>
 File: solutions/s6/partitioning.png Graphic file (type png)
 <use solutions/s6/partitioning.png>
 Package pdftex.def Info: solutions/s6/partitioning.png  used on input line 12.
@@ -1294,7 +1294,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.81 
      ]
-Overfull \hbox (39.62991pt too wide) in paragraph at lines 123--139
+Overfull \hbox (39.62991pt too wide) in paragraph at lines 125--141
  [][] 
  []
 
@@ -1324,15 +1324,87 @@ s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.87 \newpage
-             ] (solutions/s9/S9.tex)
+             ] (solutions/s9/S9.tex (solutions/s9/s9.cpp)
+Underfull \hbox (badness 10000) in paragraph at lines 5--15
 
-[39] (solutions/s10/S10.tex)
+ []
 
-[40] (solutions/s11/S11.tex)
 
-[41]) (conclusions/Conclusions.tex)
+Overfull \hbox (11.02881pt too wide) in paragraph at lines 20--27
+ [][] 
+ []
 
-[42] (main.aux)
+(solutions/s9/s9columnIndex.cpp
+
+[39
+pdfTeX warning (ext4): destination with the same identifier (name{table.76}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.10 	
+      		#pragma HLS array_partition variable=columnIndex cyclic factor=8
+pdfTeX warning (ext4): destination with the same identifier (name{table.77}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.10 	
+      		#pragma HLS array_partition variable=columnIndex cyclic factor=8
+pdfTeX warning (ext4): destination with the same identifier (name{table.78}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.10 	
+      		#pragma HLS array_partition variable=columnIndex cyclic factor=8])
+Overfull \hbox (6.34761pt too wide) in paragraph at lines 65--68
+[]\OT1/cmr/m/n/10 WARNING: [SCHED 204-69] Un-able to sched-ule 'load' op-er-a-t
+ion ('val-ues[]load[]6', smvm-Pro-jec-t/s-mvm.cpp:34)
+ []
+
+(solutions/s9/s9values.cpp)
+
+[40
+pdfTeX warning (ext4): destination with the same identifier (name{table.79}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.113 ...sting[language=C++]{solutions/s9/s9x.cpp}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{table.80}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.113 ...sting[language=C++]{solutions/s9/s9x.cpp}
+                                                  ] (solutions/s9/s9x.cpp)
+(solutions/s9/s9x4.cpp)
+Underfull \hbox (badness 10000) in paragraph at lines 125--136
+
+ []
+
+
+
+[41] (solutions/s9/headermodified.h) (solutions/s9/s9x.cpp)
+
+[42
+pdfTeX warning (ext4): destination with the same identifier (name{table.81}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.175 
+      ])
+
+[43
+pdfTeX warning (ext4): destination with the same identifier (name{table.82}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.91 \newpage
+             ] (solutions/s10/S10.tex)
+
+[44] (solutions/s11/S11.tex)
+
+[45]) (conclusions/Conclusions.tex)
+
+[46] (main.aux)
  ***********
 LaTeX2e <2024-06-01>
 L3 programming layer <2024-05-08>
@@ -1347,10 +1419,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14934 strings out of 473938
- 236138 string characters out of 5743807
+ 15112 strings out of 473938
+ 240031 string characters out of 5743807
  2331893 words of memory out of 5000000
- 36814 multiletter control sequences out of 15000+600000
+ 36837 multiletter control sequences out of 15000+600000
  564808 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,1775b,2193s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1365,9 +1437,9 @@ blic/amsfonts/cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 c/amsfonts/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
 /MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/MikTex/fonts/type1/public
 /amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (42 pages, 597732 bytes).
+Output written on main.pdf (46 pages, 636429 bytes).
 PDF statistics:
- 1143 PDF objects out of 1200 (max. 8388607)
- 611 named destinations out of 1000 (max. 500000)
+ 1330 PDF objects out of 1440 (max. 8388607)
+ 746 named destinations out of 1000 (max. 500000)
  188 words of extra memory for PDF output out of 10000 (max. 10000000)
 

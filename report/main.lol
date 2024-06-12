@@ -22,3 +22,10 @@
 \contentsline {lstlisting}{solutions/s8/s8columnIndex.cpp}{36}{lstlisting.-22}%
 \contentsline {lstlisting}{solutions/s8/s8values.cpp}{36}{lstlisting.-23}%
 \contentsline {lstlisting}{solutions/s8/s8x.cpp}{37}{lstlisting.-24}%
+\contentsline {lstlisting}{solutions/s9/s9.cpp}{39}{lstlisting.-25}%
+\contentsline {lstlisting}{solutions/s9/s9columnIndex.cpp}{39}{lstlisting.-26}%
+\contentsline {lstlisting}{solutions/s9/s9values.cpp}{40}{lstlisting.-27}%
+\contentsline {lstlisting}{solutions/s9/s9x.cpp}{41}{lstlisting.-28}%
+\contentsline {lstlisting}{solutions/s9/s9x4.cpp}{41}{lstlisting.-29}%
+\contentsline {lstlisting}{solutions/s9/headermodified.h}{42}{lstlisting.-30}%
+\contentsline {lstlisting}{solutions/s9/s9x.cpp}{42}{lstlisting.-31}%
