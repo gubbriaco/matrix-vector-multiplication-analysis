@@ -29,3 +29,12 @@
 \contentsline {lstlisting}{solutions/s9/s9rowPtr4.cpp}{41}{lstlisting.-29}%
 \contentsline {lstlisting}{solutions/s9/s9y4.cpp}{42}{lstlisting.-30}%
 \contentsline {lstlisting}{solutions/s9/s9pipelineloop1.cpp}{43}{lstlisting.-31}%
+\contentsline {lstlisting}{solutions/s10/s10all3.cpp}{45}{lstlisting.-32}%
+\contentsline {lstlisting}{solutions/s10/s10columnIndex.cpp}{45}{lstlisting.-33}%
+\contentsline {lstlisting}{solutions/s10/s10values.cpp}{45}{lstlisting.-34}%
+\contentsline {lstlisting}{solutions/s10/s10x.cpp}{46}{lstlisting.-35}%
+\contentsline {lstlisting}{solutions/s10/headermodified.h}{46}{lstlisting.-36}%
+\contentsline {lstlisting}{solutions/s10/s10all3modified.cpp}{46}{lstlisting.-37}%
+\contentsline {lstlisting}{solutions/s10/s10columnIndexmodified.cpp}{47}{lstlisting.-38}%
+\contentsline {lstlisting}{solutions/s10/s10valuesmodified.cpp}{47}{lstlisting.-39}%
+\contentsline {lstlisting}{solutions/s10/s10xmodified.cpp}{47}{lstlisting.-40}%
