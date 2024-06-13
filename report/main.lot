@@ -1,100 +1,102 @@
 \babel@toc {english}{}\relax 
-\contentsline {table}{\numberline {1}{\ignorespaces SMVM Solutions To Be Performed}}{7}{table.1}%
-\contentsline {table}{\numberline {2}{\ignorespaces SMVM Solutions To Be Performed}}{11}{table.2}%
-\contentsline {table}{\numberline {3}{\ignorespaces HLS Solution 1 without Trip Count Timing Summary (ns)}}{12}{table.3}%
-\contentsline {table}{\numberline {4}{\ignorespaces HLS Solution 1 without Trip Count Latency Summary (clock cycles)}}{12}{table.4}%
-\contentsline {table}{\numberline {5}{\ignorespaces HLS Solution 1 without Trip Count Latency Loops Summary}}{12}{table.5}%
-\contentsline {table}{\numberline {6}{\ignorespaces HLS Solution 1 with Trip Count Timing Summary (ns)}}{13}{table.6}%
-\contentsline {table}{\numberline {7}{\ignorespaces HLS Solution 1 with Trip Count Latency Summary (clock cycles)}}{13}{table.7}%
-\contentsline {table}{\numberline {8}{\ignorespaces HLS Solution 1 Latency with Trip Count Loops Summary }}{13}{table.8}%
-\contentsline {table}{\numberline {9}{\ignorespaces HLS Solution 1 with Trip Count Utilization Estimates Summary}}{14}{table.9}%
-\contentsline {table}{\numberline {10}{\ignorespaces HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }}{14}{table.10}%
-\contentsline {table}{\numberline {11}{\ignorespaces HLS Solution 1 with Trip Count Export RTL Resource Usage}}{14}{table.11}%
-\contentsline {table}{\numberline {12}{\ignorespaces HLS Solution 1 with Trip Count Export RTL Final Timing}}{14}{table.12}%
-\contentsline {table}{\numberline {13}{\ignorespaces HLS Solution 2 Timing Summary (ns)}}{15}{table.13}%
-\contentsline {table}{\numberline {14}{\ignorespaces HLS Solution 2 Latency Summary (clock cycles)}}{15}{table.14}%
-\contentsline {table}{\numberline {15}{\ignorespaces HLS Solution 2 Latency Loops Summary}}{15}{table.15}%
-\contentsline {table}{\numberline {16}{\ignorespaces HLS Solution 2 Utilization Estimates Summary}}{16}{table.16}%
-\contentsline {table}{\numberline {17}{\ignorespaces HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }}{16}{table.17}%
-\contentsline {table}{\numberline {18}{\ignorespaces HLS Solution 2t Export RTL Resource Usage}}{16}{table.18}%
-\contentsline {table}{\numberline {19}{\ignorespaces HLS Solution 2 Export RTL Final Timing}}{16}{table.19}%
-\contentsline {table}{\numberline {20}{\ignorespaces HLS Solution 3 Timing Summary (ns)}}{17}{table.20}%
-\contentsline {table}{\numberline {21}{\ignorespaces HLS Solution 3 Latency Summary (clock cycles)}}{17}{table.21}%
-\contentsline {table}{\numberline {22}{\ignorespaces HLS Solution 3 Latency Loops Summary}}{17}{table.22}%
-\contentsline {table}{\numberline {23}{\ignorespaces HLS Solution 3 Utilization Estimates Summary}}{18}{table.23}%
-\contentsline {table}{\numberline {24}{\ignorespaces HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }}{18}{table.24}%
-\contentsline {table}{\numberline {25}{\ignorespaces HLS Solution 2t Export RTL Resource Usage}}{19}{table.25}%
-\contentsline {table}{\numberline {26}{\ignorespaces HLS Solution 2 Export RTL Final Timing}}{19}{table.26}%
-\contentsline {table}{\numberline {27}{\ignorespaces HLS Solution 3 Modified Timing Summary (ns)}}{19}{table.27}%
-\contentsline {table}{\numberline {28}{\ignorespaces HLS Solution 3 Modified Latency Summary (clock cycles)}}{19}{table.28}%
-\contentsline {table}{\numberline {29}{\ignorespaces HLS Solution 3 Modified Latency Loops Summary}}{19}{table.29}%
-\contentsline {table}{\numberline {30}{\ignorespaces HLS Solution 3 Modified Utilization Estimates Summary}}{20}{table.30}%
-\contentsline {table}{\numberline {31}{\ignorespaces HLS Solution 4 Timing Summary (ns)}}{21}{table.31}%
-\contentsline {table}{\numberline {32}{\ignorespaces HLS Solution 4 Latency Summary (clock cycles)}}{21}{table.32}%
-\contentsline {table}{\numberline {33}{\ignorespaces HLS Solution 4 Latency Loops Summary}}{22}{table.33}%
-\contentsline {table}{\numberline {34}{\ignorespaces HLS Solution 4 Utilization Estimates Summary}}{22}{table.34}%
-\contentsline {table}{\numberline {35}{\ignorespaces HLS Solution 4 C/RTL Cosimulation Summary }}{23}{table.35}%
-\contentsline {table}{\numberline {36}{\ignorespaces HLS Solution 4 Export RTL Resource Usage}}{23}{table.36}%
-\contentsline {table}{\numberline {37}{\ignorespaces HLS Solution 4 Export RTL Final Timing}}{23}{table.37}%
-\contentsline {table}{\numberline {38}{\ignorespaces HLS Solution 5 Timing Summary (ns)}}{24}{table.38}%
-\contentsline {table}{\numberline {39}{\ignorespaces HLS Solution 5 Latency Summary (clock cycles)}}{24}{table.39}%
-\contentsline {table}{\numberline {40}{\ignorespaces HLS Solution 5 Latency Loops Summary}}{24}{table.40}%
-\contentsline {table}{\numberline {41}{\ignorespaces HLS Solution 5 Utilization Estimates Summary}}{25}{table.41}%
-\contentsline {table}{\numberline {42}{\ignorespaces HLS Solution 5 C/RTL Cosimulation Summary }}{25}{table.42}%
-\contentsline {table}{\numberline {43}{\ignorespaces HLS Solution 5 Export RTL Resource Usage}}{26}{table.43}%
-\contentsline {table}{\numberline {44}{\ignorespaces HLS Solution 5 Export RTL Final Timing}}{26}{table.44}%
-\contentsline {table}{\numberline {45}{\ignorespaces HLS Solution 6 Timing Summary (ns)}}{29}{table.45}%
-\contentsline {table}{\numberline {46}{\ignorespaces HLS Solution 6 Latency Summary (clock cycles)}}{29}{table.46}%
-\contentsline {table}{\numberline {47}{\ignorespaces HLS Solution 6 Latency Loops Summary }}{29}{table.47}%
-\contentsline {table}{\numberline {48}{\ignorespaces HLS Solution 6 Utilization Estimates [\#]}}{29}{table.48}%
-\contentsline {table}{\numberline {49}{\ignorespaces HLS Solution 6 C/RTL Cosimulation Report }}{30}{table.49}%
-\contentsline {table}{\numberline {50}{\ignorespaces HLS Solution 6 Export RTL Report}}{30}{table.50}%
-\contentsline {table}{\numberline {51}{\ignorespaces HLS Solution 7 Timing Summary (ns)}}{31}{table.51}%
-\contentsline {table}{\numberline {52}{\ignorespaces HLS Solution 7 Latency Summary (clock cycles)}}{31}{table.52}%
-\contentsline {table}{\numberline {53}{\ignorespaces HLS Solution 7 Latency Loops Summary}}{31}{table.53}%
-\contentsline {table}{\numberline {54}{\ignorespaces HLS Solution 7 with columnIndex partitioning Latency Loops Summary}}{32}{table.54}%
-\contentsline {table}{\numberline {55}{\ignorespaces HLS Solution 7 with columnIndex and values partitioning Latency Loops Summary}}{32}{table.55}%
-\contentsline {table}{\numberline {56}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Timing Summary (ns)}}{33}{table.56}%
-\contentsline {table}{\numberline {57}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Latency Summary (clock cycles)}}{33}{table.57}%
-\contentsline {table}{\numberline {58}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Latency Loops Summary}}{33}{table.58}%
-\contentsline {table}{\numberline {59}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Utilization Estimates Summary}}{34}{table.59}%
-\contentsline {table}{\numberline {60}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning C/RTL Cosimulation Summary }}{34}{table.60}%
-\contentsline {table}{\numberline {61}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Export RTL Resource Usage}}{34}{table.61}%
-\contentsline {table}{\numberline {62}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Export RTL Final Timing}}{34}{table.62}%
-\contentsline {table}{\numberline {63}{\ignorespaces HLS Solution 7 with loop1 pipelined Timing Summary (ns)}}{35}{table.63}%
-\contentsline {table}{\numberline {64}{\ignorespaces HLS Solution 7 with loop1 pipelined Latency Summary (clock cycles)}}{35}{table.64}%
-\contentsline {table}{\numberline {65}{\ignorespaces HLS Solution 7 with loop1 pipelined Latency Loops Summary}}{35}{table.65}%
-\contentsline {table}{\numberline {66}{\ignorespaces HLS Solution 7 with loop1 pipelined Utilization Estimates Summary}}{35}{table.66}%
-\contentsline {table}{\numberline {67}{\ignorespaces HLS Solution 7 with loop1 pipelined C/RTL Cosimulation Summary }}{36}{table.67}%
-\contentsline {table}{\numberline {68}{\ignorespaces HLS Solution 7 with loop1 pipelined Export RTL Resource Usage}}{36}{table.68}%
-\contentsline {table}{\numberline {69}{\ignorespaces HLS Solution 7 with loop1 pipelined Export RTL Final Timing}}{36}{table.69}%
-\contentsline {table}{\numberline {70}{\ignorespaces HLS Solution 8 Timing Summary (ns)}}{38}{table.70}%
-\contentsline {table}{\numberline {71}{\ignorespaces HLS Solution 8 Latency Summary (clock cycles)}}{38}{table.71}%
-\contentsline {table}{\numberline {72}{\ignorespaces HLS Solution 8 Latency Loops Summary }}{39}{table.72}%
-\contentsline {table}{\numberline {73}{\ignorespaces HLS Solution 8 Utilization Estimates [\#]}}{39}{table.73}%
-\contentsline {table}{\numberline {74}{\ignorespaces HLS Solution 8 C/RTL Cosimulation Report }}{39}{table.74}%
-\contentsline {table}{\numberline {75}{\ignorespaces HLS Solution 8 Export RTL Report}}{39}{table.75}%
-\contentsline {table}{\numberline {76}{\ignorespaces HLS Solution 9 Timing Summary (ns)}}{40}{table.76}%
-\contentsline {table}{\numberline {77}{\ignorespaces HLS Solution 9 Latency Summary (clock cycles)}}{40}{table.77}%
-\contentsline {table}{\numberline {78}{\ignorespaces HLS Solution 9 Latency Loops Summary}}{40}{table.78}%
-\contentsline {table}{\numberline {79}{\ignorespaces HLS Solution 9 with columnIndex partitioning Latency Loops Summary}}{41}{table.79}%
-\contentsline {table}{\numberline {80}{\ignorespaces HLS Solution 9 with columnIndex and values partitioning Latency Loops Summary}}{41}{table.80}%
-\contentsline {table}{\numberline {81}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning Latency Loops Summary}}{42}{table.81}%
-\contentsline {table}{\numberline {82}{\ignorespaces HLS Solution 9 with columnIndex, values, x and rowPtr partitioning Latency Loops Summary}}{43}{table.82}%
-\contentsline {table}{\numberline {83}{\ignorespaces HLS Solution 9 with columnIndex, values, x, rowPtr and y partitioning Latency Loops Summary}}{44}{table.83}%
-\contentsline {table}{\numberline {84}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Latency Loops Summary}}{44}{table.84}%
-\contentsline {table}{\numberline {85}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined C/RTL Cosimulation Summary }}{45}{table.85}%
-\contentsline {table}{\numberline {86}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Export RTL Resource Usage}}{45}{table.86}%
-\contentsline {table}{\numberline {87}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Export RTL Final Timing}}{45}{table.87}%
-\contentsline {table}{\numberline {88}{\ignorespaces HLS Solution 10 Timing Summary (ns)}}{48}{table.88}%
-\contentsline {table}{\numberline {89}{\ignorespaces HLS Solution 10 Latency Summary (clock cycles)}}{49}{table.89}%
-\contentsline {table}{\numberline {90}{\ignorespaces HLS Solution 10 Latency Loops Summary }}{49}{table.90}%
-\contentsline {table}{\numberline {91}{\ignorespaces HLS Solution 10 Utilization Estimates [\#]}}{49}{table.91}%
-\contentsline {table}{\numberline {92}{\ignorespaces HLS Solution 10 C/RTL Cosimulation Report }}{50}{table.92}%
-\contentsline {table}{\numberline {93}{\ignorespaces HLS Solution 10 Export RTL Report}}{51}{table.93}%
-\contentsline {table}{\numberline {94}{\ignorespaces HLS Solution 11 Timing Summary (ns)}}{54}{table.94}%
-\contentsline {table}{\numberline {95}{\ignorespaces HLS Solution 11 Latency Summary (clock cycles)}}{54}{table.95}%
-\contentsline {table}{\numberline {96}{\ignorespaces HLS Solution 11 Latency Loops Summary }}{54}{table.96}%
-\contentsline {table}{\numberline {97}{\ignorespaces HLS Solution 11 Utilization Estimates [\#]}}{54}{table.97}%
-\contentsline {table}{\numberline {98}{\ignorespaces HLS Solution 11 C/RTL Cosimulation Report }}{55}{table.98}%
-\contentsline {table}{\numberline {99}{\ignorespaces HLS Solution 11 Export RTL Report}}{55}{table.99}%
+\contentsline {table}{\numberline {1}{\ignorespaces SMVM Solutions To Be Performed}}{7}{table.caption.1}%
+\contentsline {table}{\numberline {2}{\ignorespaces SMVM Solutions To Be Performed}}{11}{table.caption.2}%
+\contentsline {table}{\numberline {3}{\ignorespaces HLS Solution 1 without Trip Count Timing Summary (ns)}}{12}{table.caption.3}%
+\contentsline {table}{\numberline {4}{\ignorespaces HLS Solution 1 without Trip Count Latency Summary (clock cycles)}}{12}{table.caption.3}%
+\contentsline {table}{\numberline {5}{\ignorespaces HLS Solution 1 without Trip Count Latency Loops Summary}}{12}{table.caption.4}%
+\contentsline {table}{\numberline {6}{\ignorespaces HLS Solution 1 with Trip Count Timing Summary (ns)}}{13}{table.caption.5}%
+\contentsline {table}{\numberline {7}{\ignorespaces HLS Solution 1 with Trip Count Latency Summary (clock cycles)}}{13}{table.caption.5}%
+\contentsline {table}{\numberline {8}{\ignorespaces HLS Solution 1 Latency with Trip Count Loops Summary }}{13}{table.caption.6}%
+\contentsline {table}{\numberline {9}{\ignorespaces HLS Solution 1 with Trip Count Utilization Estimates Summary}}{14}{table.caption.8}%
+\contentsline {table}{\numberline {10}{\ignorespaces HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }}{14}{table.caption.9}%
+\contentsline {table}{\numberline {11}{\ignorespaces HLS Solution 1 with Trip Count Export RTL Resource Usage}}{14}{table.caption.10}%
+\contentsline {table}{\numberline {12}{\ignorespaces HLS Solution 1 with Trip Count Export RTL Final Timing}}{14}{table.caption.10}%
+\contentsline {table}{\numberline {13}{\ignorespaces HLS Solution 2 Timing Summary (ns)}}{15}{table.caption.12}%
+\contentsline {table}{\numberline {14}{\ignorespaces HLS Solution 2 Latency Summary (clock cycles)}}{15}{table.caption.12}%
+\contentsline {table}{\numberline {15}{\ignorespaces HLS Solution 2 Latency Loops Summary}}{15}{table.caption.13}%
+\contentsline {table}{\numberline {16}{\ignorespaces HLS Solution 2 Utilization Estimates Summary}}{16}{table.caption.14}%
+\contentsline {table}{\numberline {17}{\ignorespaces HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }}{16}{table.caption.15}%
+\contentsline {table}{\numberline {18}{\ignorespaces HLS Solution 2t Export RTL Resource Usage}}{16}{table.caption.16}%
+\contentsline {table}{\numberline {19}{\ignorespaces HLS Solution 2 Export RTL Final Timing}}{16}{table.caption.16}%
+\contentsline {table}{\numberline {20}{\ignorespaces HLS Solution 3 Timing Summary (ns)}}{17}{table.caption.17}%
+\contentsline {table}{\numberline {21}{\ignorespaces HLS Solution 3 Latency Summary (clock cycles)}}{17}{table.caption.17}%
+\contentsline {table}{\numberline {22}{\ignorespaces HLS Solution 3 Latency Loops Summary}}{17}{table.caption.18}%
+\contentsline {table}{\numberline {23}{\ignorespaces HLS Solution 3 Utilization Estimates Summary}}{18}{table.caption.20}%
+\contentsline {table}{\numberline {24}{\ignorespaces HLS Solution 1 with Trip Count C/RTL Cosimulation Summary }}{18}{table.caption.21}%
+\contentsline {table}{\numberline {25}{\ignorespaces HLS Solution 2t Export RTL Resource Usage}}{19}{table.caption.22}%
+\contentsline {table}{\numberline {26}{\ignorespaces HLS Solution 2 Export RTL Final Timing}}{19}{table.caption.22}%
+\contentsline {table}{\numberline {27}{\ignorespaces HLS Solution 3 Modified Timing Summary (ns)}}{19}{table.caption.23}%
+\contentsline {table}{\numberline {28}{\ignorespaces HLS Solution 3 Modified Latency Summary (clock cycles)}}{19}{table.caption.23}%
+\contentsline {table}{\numberline {29}{\ignorespaces HLS Solution 3 Modified Latency Loops Summary}}{19}{table.caption.24}%
+\contentsline {table}{\numberline {30}{\ignorespaces HLS Solution 3 Modified Utilization Estimates Summary}}{20}{table.caption.25}%
+\contentsline {table}{\numberline {31}{\ignorespaces HLS Solution 4 Timing Summary (ns)}}{21}{table.caption.27}%
+\contentsline {table}{\numberline {32}{\ignorespaces HLS Solution 4 Latency Summary (clock cycles)}}{21}{table.caption.27}%
+\contentsline {table}{\numberline {33}{\ignorespaces HLS Solution 4 Latency Loops Summary}}{22}{table.caption.28}%
+\contentsline {table}{\numberline {34}{\ignorespaces HLS Solution 4 Utilization Estimates Summary}}{22}{table.caption.30}%
+\contentsline {table}{\numberline {35}{\ignorespaces HLS Solution 4 C/RTL Cosimulation Summary }}{23}{table.caption.31}%
+\contentsline {table}{\numberline {36}{\ignorespaces HLS Solution 4 Export RTL Resource Usage}}{23}{table.caption.32}%
+\contentsline {table}{\numberline {37}{\ignorespaces HLS Solution 4 Export RTL Final Timing}}{23}{table.caption.32}%
+\contentsline {table}{\numberline {38}{\ignorespaces HLS Solution 5 Timing Summary (ns)}}{24}{table.caption.33}%
+\contentsline {table}{\numberline {39}{\ignorespaces HLS Solution 5 Latency Summary (clock cycles)}}{24}{table.caption.33}%
+\contentsline {table}{\numberline {40}{\ignorespaces HLS Solution 5 Latency Loops Summary}}{24}{table.caption.34}%
+\contentsline {table}{\numberline {41}{\ignorespaces HLS Solution 5 Utilization Estimates Summary}}{25}{table.caption.36}%
+\contentsline {table}{\numberline {42}{\ignorespaces HLS Solution 5 C/RTL Cosimulation Summary }}{25}{table.caption.37}%
+\contentsline {table}{\numberline {43}{\ignorespaces HLS Solution 5 Export RTL Resource Usage}}{26}{table.caption.38}%
+\contentsline {table}{\numberline {44}{\ignorespaces HLS Solution 5 Export RTL Final Timing}}{26}{table.caption.38}%
+\contentsline {table}{\numberline {45}{\ignorespaces HLS Solution 6 Timing Summary (ns)}}{29}{table.caption.40}%
+\contentsline {table}{\numberline {46}{\ignorespaces HLS Solution 6 Latency Summary (clock cycles)}}{29}{table.caption.41}%
+\contentsline {table}{\numberline {47}{\ignorespaces HLS Solution 6 Latency Loops Summary }}{29}{table.caption.42}%
+\contentsline {table}{\numberline {48}{\ignorespaces HLS Solution 6 Utilization Estimates [\#]}}{29}{table.caption.43}%
+\contentsline {table}{\numberline {49}{\ignorespaces HLS Solution 6 C/RTL Cosimulation Report }}{30}{table.caption.44}%
+\contentsline {table}{\numberline {50}{\ignorespaces HLS Solution 6 Export RTL Report}}{30}{table.caption.45}%
+\contentsline {table}{\numberline {51}{\ignorespaces HLS Solution 7 Timing Summary (ns)}}{31}{table.caption.46}%
+\contentsline {table}{\numberline {52}{\ignorespaces HLS Solution 7 Latency Summary (clock cycles)}}{31}{table.caption.46}%
+\contentsline {table}{\numberline {53}{\ignorespaces HLS Solution 7 Latency Loops Summary}}{31}{table.caption.47}%
+\contentsline {table}{\numberline {54}{\ignorespaces HLS Solution 7 with columnIndex partitioning Latency Loops Summary}}{32}{table.caption.48}%
+\contentsline {table}{\numberline {55}{\ignorespaces HLS Solution 7 with columnIndex and values partitioning Latency Loops Summary}}{32}{table.caption.49}%
+\contentsline {table}{\numberline {56}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Timing Summary (ns)}}{33}{table.caption.50}%
+\contentsline {table}{\numberline {57}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Latency Summary (clock cycles)}}{33}{table.caption.50}%
+\contentsline {table}{\numberline {58}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Latency Loops Summary}}{33}{table.caption.51}%
+\contentsline {table}{\numberline {59}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Utilization Estimates Summary}}{34}{table.caption.52}%
+\contentsline {table}{\numberline {60}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning C/RTL Cosimulation Summary }}{34}{table.caption.53}%
+\contentsline {table}{\numberline {61}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Export RTL Resource Usage}}{34}{table.caption.54}%
+\contentsline {table}{\numberline {62}{\ignorespaces HLS Solution 7 with columnIndex, values and x partitioning Export RTL Final Timing}}{34}{table.caption.54}%
+\contentsline {table}{\numberline {63}{\ignorespaces HLS Solution 7 with loop1 pipelined Timing Summary (ns)}}{35}{table.caption.55}%
+\contentsline {table}{\numberline {64}{\ignorespaces HLS Solution 7 with loop1 pipelined Latency Summary (clock cycles)}}{35}{table.caption.55}%
+\contentsline {table}{\numberline {65}{\ignorespaces HLS Solution 7 with loop1 pipelined Latency Loops Summary}}{35}{table.caption.56}%
+\contentsline {table}{\numberline {66}{\ignorespaces HLS Solution 7 with loop1 pipelined Utilization Estimates Summary}}{36}{table.caption.57}%
+\contentsline {table}{\numberline {67}{\ignorespaces HLS Solution 7 with loop1 pipelined C/RTL Cosimulation Summary }}{36}{table.caption.58}%
+\contentsline {table}{\numberline {68}{\ignorespaces HLS Solution 7 with loop1 pipelined Export RTL Resource Usage}}{36}{table.caption.59}%
+\contentsline {table}{\numberline {69}{\ignorespaces HLS Solution 7 with loop1 pipelined Export RTL Final Timing}}{36}{table.caption.59}%
+\contentsline {table}{\numberline {70}{\ignorespaces HLS Solution 8 Timing Summary (ns)}}{38}{table.caption.60}%
+\contentsline {table}{\numberline {71}{\ignorespaces HLS Solution 8 Latency Summary (clock cycles)}}{38}{table.caption.61}%
+\contentsline {table}{\numberline {72}{\ignorespaces HLS Solution 8 Latency Loops Summary }}{39}{table.caption.62}%
+\contentsline {table}{\numberline {73}{\ignorespaces HLS Solution 8 Utilization Estimates [\#]}}{39}{table.caption.63}%
+\contentsline {table}{\numberline {74}{\ignorespaces HLS Solution 8 C/RTL Cosimulation Report }}{39}{table.caption.64}%
+\contentsline {table}{\numberline {75}{\ignorespaces HLS Solution 8 Export RTL Report}}{39}{table.caption.65}%
+\contentsline {table}{\numberline {76}{\ignorespaces HLS Solution 9 Timing Summary (ns)}}{40}{table.caption.66}%
+\contentsline {table}{\numberline {77}{\ignorespaces HLS Solution 9 Latency Summary (clock cycles)}}{40}{table.caption.66}%
+\contentsline {table}{\numberline {78}{\ignorespaces HLS Solution 9 Latency Loops Summary}}{40}{table.caption.67}%
+\contentsline {table}{\numberline {79}{\ignorespaces HLS Solution 9 with columnIndex partitioning Latency Loops Summary}}{41}{table.caption.68}%
+\contentsline {table}{\numberline {80}{\ignorespaces HLS Solution 9 with columnIndex and values partitioning Latency Loops Summary}}{41}{table.caption.69}%
+\contentsline {table}{\numberline {81}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning Latency Loops Summary}}{42}{table.caption.70}%
+\contentsline {table}{\numberline {82}{\ignorespaces HLS Solution 9 with columnIndex, values, x and rowPtr partitioning Latency Loops Summary}}{43}{table.caption.71}%
+\contentsline {table}{\numberline {83}{\ignorespaces HLS Solution 9 with columnIndex, values, x, rowPtr and y partitioning Latency Loops Summary}}{44}{table.caption.72}%
+\contentsline {table}{\numberline {84}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Latency Loops Summary}}{44}{table.caption.73}%
+\contentsline {table}{\numberline {85}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined C/RTL Cosimulation Summary }}{45}{table.caption.74}%
+\contentsline {table}{\numberline {86}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Export RTL Resource Usage}}{45}{table.caption.75}%
+\contentsline {table}{\numberline {87}{\ignorespaces HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Export RTL Final Timing}}{45}{table.caption.75}%
+\contentsline {table}{\numberline {88}{\ignorespaces HLS Solution 10 Timing Summary (ns)}}{48}{table.caption.76}%
+\contentsline {table}{\numberline {89}{\ignorespaces HLS Solution 10 Latency Summary (clock cycles)}}{49}{table.caption.77}%
+\contentsline {table}{\numberline {90}{\ignorespaces HLS Solution 10 Latency Loops Summary }}{49}{table.caption.78}%
+\contentsline {table}{\numberline {91}{\ignorespaces HLS Solution 10 Utilization Estimates [\#]}}{49}{table.caption.79}%
+\contentsline {table}{\numberline {92}{\ignorespaces HLS Solution 10 C/RTL Cosimulation Report }}{50}{table.caption.81}%
+\contentsline {table}{\numberline {93}{\ignorespaces HLS Solution 10 Export RTL Report}}{51}{table.caption.82}%
+\contentsline {table}{\numberline {94}{\ignorespaces HLS Solution 11 Timing Summary (ns)}}{54}{table.caption.83}%
+\contentsline {table}{\numberline {95}{\ignorespaces HLS Solution 11 Latency Summary (clock cycles)}}{54}{table.caption.84}%
+\contentsline {table}{\numberline {96}{\ignorespaces HLS Solution 11 Latency Loops Summary }}{54}{table.caption.85}%
+\contentsline {table}{\numberline {97}{\ignorespaces HLS Solution 11 Utilization Estimates [\#]}}{54}{table.caption.86}%
+\contentsline {table}{\numberline {98}{\ignorespaces HLS Solution 11 C/RTL Cosimulation Report }}{55}{table.caption.87}%
+\contentsline {table}{\numberline {99}{\ignorespaces HLS Solution 11 Export RTL Report}}{55}{table.caption.88}%
+\contentsline {table}{\numberline {100}{\ignorespaces HLS Conclusions C/RTL Cosimulation Report }}{56}{table.caption.89}%
+\contentsline {table}{\numberline {101}{\ignorespaces HLS Conclusions Export RTL Report}}{58}{table.caption.91}%
