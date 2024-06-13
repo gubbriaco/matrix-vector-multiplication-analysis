@@ -1,0 +1,150 @@
+Considerando il codice utilizzato nella precedente solution, nella soluzione hardware in questione verrà utilizzata la direttiva di pipeline, di unrolling di fattore pari a 2 e la direttiva di partizionamento di tipologia block. Nello specifico, verranno analizzate le seguenti implementazioni relative al loop2:
+\begin{itemize}
+	\item Pipeline, Unroll=2, Block=8 (columnIndex, values, x)
+	\item Pipeline, Unroll=2, Block=8 (columnIndex)
+	\item Pipeline, Unroll=2, Block=8 (values)
+	\item Pipeline, Unroll=2, Block=8 (x)
+\end{itemize}
+
+In particolare, è possibile evidenziare nel dettaglio le differenti soluzioni hardware nei seguenti allegati.
+\lstinputlisting[language=C]{solutions/s11/definitions.h}
+\lstinputlisting[language=C++]{solutions/s11/s11all3.cpp}
+\lstinputlisting[language=C++]{solutions/s11/s11columnIndex.cpp}
+\lstinputlisting[language=C++]{solutions/s11/s11values.cpp}
+\lstinputlisting[language=C++]{solutions/s11/s11x.cpp}
+
+Effettuando la sintesi si ottiene il seguente log.
+\\
+\textcolor{blue}{WARNING: [XFORM 203-105] Cannot partition array 'columnIndex' (smvmProject/smvm.cpp:11): indivisible factor 8 on dimension 1, which has 9 elements.}
+\\
+\textcolor{blue}{WARNING: [XFORM 203-105] Cannot partition array 'values' (smvmProject/smvm.cpp:11): indivisible factor 8 on dimension 1, which has 9 elements.}
+\\
+In particolare, la console sta segnalando che il tool non riesce a partizionare correttamente, tramite la tipologia block e il fattore 8 dichiarato, gli array columnIndex e values dal momento che presentano un numero di elementi che risulta essere non multiplo del fattore di array partitioning dichiarato. Pertanto, a tale proposito si modifica, di conseguenza, la variabile nnz, cioè il numero di elementi non nulli all'interno della matrice, nell'header. Nello specifico è stato scelto un valore pari a 16. Pertanto, ciò che ci si aspetta è che il tool divida tali array, columnIndex e values, in 8 sub-array aventi ognuno 2 elementi. Invece, per quanto riguarda l'array x, avente dimensione pari a 8, ci si aspetta che il tool lo divida in 8 sub-array da un elemento ognuno.
+
+\lstinputlisting[language=C]{solutions/s11/headermodified.h}
+
+Pertanto, effettuando la sintesi si ottiene il seguente report.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{Solution} & \textbf{Clock} & \textbf{Target} & \textbf{Estimated} & \textbf{Uncertainty} \\
+		\hline
+		columnIndex, values, x & ap\_clk & 10.00 & 8.510 & 1.25 \\
+		\hline
+		columnIndex & ap\_clk & 10.00 & 8.510 & 1.25 \\
+		\hline
+		values & ap\_clk & 10.00 & 8.510 & 1.25 \\
+		\hline
+		x & ap\_clk & 10.00 & 8.510 & 1.25 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 11 Timing Summary (ns)}
+	\label{tab:hls-solution-11-timing-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Solution}} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{|c|}{\textbf{Interval}} \\
+		& min & max & min & max \\
+		\hline
+		columnIndex, values, x & 57 & 89 & 57 & 89 \\
+		\hline
+		columnIndex & 65 & 97 & 65 & 97 \\
+		\hline
+		values & 65 & 97 & 65 & 97 \\
+		\hline
+		x & 57 & 89 & 57 & 89 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 11 Latency Summary (clock cycles)}
+	\label{tab:hls-solution-11-latency-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Solution}} & \multicolumn{1}{|c|}{Loop Name} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip}}  \\
+		&  & min & max & & achieved & target & \textbf{Count} \\
+		\hline
+		columnIndex, values, x & - loop1 & 56 & 88 & 7$\sim$11 & - & - & 8 \\
+		& + loop2 & 3 & 7 & 4 & 1 & 1 & 0$\sim$4 \\
+		\hline
+		columnIndex & - loop1 & 64 & 96 & 8$\sim$12 & - & - & 8 \\
+		& + loop2 & 4 & 8 & 5 & 1 & 1 & 0$\sim$4 \\
+		\hline
+		values & - loop1 & 64 & 96 & 8$\sim$12 & - & - & 8 \\
+		& + loop2 & 4 & 8 & 5 & 1 & 1 & 0$\sim$4 \\
+		\hline
+		x & - loop1 & 56 & 88 & 7$\sim$11 & - & - & 8 \\
+		& + loop2 & 3 & 7 & 4 & 1 & 1 & 0$\sim$4 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 11 Latency Loops Summary }
+	\label{tab:hls-solution-11-loop-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{Solution} & \textbf{BRAM\_18K} & \textbf{DSP48E} & \textbf{FF} & \textbf{LUT} \\
+		\hline
+		columnIndex, values, x & 0 & 6 & 789 & 674 \\
+		\hline
+		columnIndex & 0 & 6 & 536 & 503 \\
+		\hline
+		values & 0 & 6 & 597 & 503 \\
+		\hline
+		x & 0 & 6 & 727 & 492 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 11 Utilization Estimates [\#]}
+	\label{tab:hls-solution-11-utilization-report}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Solution}} & \multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
+		& &  & min & avg & max & min & avg & max \\
+		\hline
+		columnIndex, values, x & VHDL & Pass & 64 & 64 & 64 & NA & NA & NA \\
+		\hline
+		columnIndex & VHDL & Pass & 72 & 72 & 72 & NA & NA & NA \\
+		\hline
+		values & VHDL & Pass & 72 & 72 & 72 & NA & NA & NA \\
+		\hline
+		x & VHDL & Pass & 64 & 64 & 64 & NA & NA & NA \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 11 C/RTL Cosimulation Report }
+	\label{tab:hls-solution-11-cosimulation-report}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\textbf{Solution} & \textbf{SLICE} & \textbf{LUT} & \textbf{FF} & \textbf{DSP} & \textbf{BRAM} & \textbf{CP} & \textbf{CP} & \textbf{CP} \\
+		& & & & & & \textbf{required} & \textbf{achieved} & \textbf{achieved}\\
+		& & & & & & & \textbf{post-} & \textbf{post-}\\
+		& & & & & & & \textbf{synthesis} & \textbf{implementation}\\
+		\hline
+		columnIndex, values, x  & 179 & 454 & 450 & 6 & 0 & 10 & 6.541 & 6.677 \\
+		\hline
+		columnIndex  & 90 & 267 & 227 & 6 & 0 & 10 & 7.489 & 7.664 \\
+		\hline
+		values  & 122 & 391 & 232 & 6 & 0 & 10 & 7.506 & 7.768 \\
+		\hline
+		x  & 143 & 311 & 444 & 6 & 0 & 10 & 6.540 & 6.790 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 11 Export RTL Report}
+	\label{tab:hls-solution-11-export-rtl-report}
+\end{table}
