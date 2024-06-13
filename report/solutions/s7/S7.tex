@@ -73,8 +73,8 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 36 & 44 & 9$\sim$11 & - & - & 4 \\
-		+ loop2 & 5 & 7 & 6 & \textcolor{red}{2} & 1 & 0$\sim$1 \\
+		- loop1 & 32 & 40 & 8$\sim$10 & - & - & 4 \\
+		+ loop2 & 4 & 6 & 5 & \textcolor{red}{2} & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 7 with columnIndex partitioning Latency Loops Summary}
@@ -98,8 +98,8 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 36 & 44 & 9$\sim$11 & - & - & 4 \\
-		+ loop2 & 5 & 7 & 6 & \textcolor{red}{2} & 1 & 0$\sim$1 \\
+		- loop1 & 32 & 40 & 8$\sim$10 & - & - & 4 \\
+		+ loop2 & 4 & 6 & 5 & \textcolor{red}{2} & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 7 with columnIndex and values partitioning Latency Loops Summary}
@@ -117,15 +117,15 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il
 \textcolor{blue}{WARNING: [SCHED 204-21] Estimated clock period (10.208ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns).}
 \textcolor{blue}{WARNING: [SCHED 204-21] The critical path in module 'smvm' consists of the following:}
 \\
-\textcolor{blue}{'add' operation ('ytmp\_1\_3', smvmProject/smvm.cpp:34) [215]  (2.55 ns)}
+\textcolor{blue}{'add' operation ('ytmp\_1\_3', smvmProject/smvm.cpp:34) [139]  (2.55 ns)}
 \\
-\textcolor{blue}{'phi' operation ('ytmp', smvmProject/smvm.cpp:34) with incoming values : ('ytmp\_1\_3', smvmProject/smvm.cpp:34) [48]  (0 ns)}
+\textcolor{blue}{'phi' operation ('ytmp', smvmProject/smvm.cpp:34) with incoming values : ('ytmp\_1\_3', smvmProject/smvm.cpp:34) [68]  (0 ns)}
 \\
 \textcolor{blue}{'add' operation ('ytmp\_1', smvmProject/smvm.cpp:34) [105]  (2.55 ns)}
 \\
-\textcolor{blue}{'add' operation ('ytmp\_1\_1', smvmProject/smvm.cpp:34) [145]  (2.55 ns)}
+\textcolor{blue}{'add' operation ('ytmp\_1\_1', smvmProject/smvm.cpp:34) [117]  (2.55 ns)}
 \\
-\textcolor{blue}{'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:34) [180]  (2.55 ns)}
+\textcolor{blue}{'add' operation ('ytmp\_1\_2', smvmProject/smvm.cpp:34) [128]  (2.55 ns)}
 
 \begin{table}[H]
 	\centering
@@ -149,7 +149,7 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il
 			\multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{|c|}{\textbf{Interval}} \\
 			min & max & min & max \\
 			\hline
-			37 & 41 & 37 & 41 \\
+			29 & 33 & 29 & 33 \\
 			\hline
 		\end{tabular}
 		\caption{HLS Solution 7 with columnIndex, values and x partitioning Latency Summary (clock cycles)}
@@ -164,8 +164,8 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 36 & 40 & 9$\sim$10 & - & - & 4 \\
-		+ loop2 & 5 & 6 & 6 & 1 & 1 & 0$\sim$1 \\
+		- loop1 & 28 & 32 & 7$\sim$8 & - & - & 4 \\
+		+ loop2 & 3 & 4 & 4 & 1 & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 7 with columnIndex, values and x partitioning Latency Loops Summary}
@@ -182,15 +182,15 @@ Inoltre, si può notare come l'utilizzazione delle risorse sia notevolmente aume
 		\hline
 		\textbf{Name}    & \textbf{BRAM\_18K} & \textbf{DSP48E} & \textbf{FF} & \textbf{LUT} \\ \hline
 		DSP              & -                   & -               & -           & -            \\ 
-		Expression       & -                   & 12              & 0           & 848          \\ 
+		Expression       & -                   & 12              & 0           & 534          \\ 
 		FIFO             & -                   & -               & -           & -            \\ 
-		Instance         & -                   & -               & -           & 84            \\ 
+		Instance         & -                   & -               & -           & 252            \\ 
 		Memory           & 0                   & -               & -          & -            \\ 
-		Multiplexer      & -                   & -               & -           & 321          \\ 
-		Register         & -                   & -               & 1338         & 128            \\ \hline
-		\textbf{Total}   & 0                   & 12               & 1338         & 1381          \\ \hline
+		Multiplexer      & -                   & -               & -           & 99          \\ 
+		Register         & -                   & -               & 854         & 128            \\ \hline
+		\textbf{Total}   & 0                   & 12               & 854         & 1013          \\ \hline
 		\textbf{Available} & 280               & 220             & 106400      & 53200        \\ \hline
-		\textbf{Utilization (\%)} & 0            & 5               & 1     & 2      \\ \hline
+		\textbf{Utilization (\%)} & 0            & 5               & $\sim$0     & 1      \\ \hline
 	\end{tabular}
 	\caption{HLS Solution 7 with columnIndex, values and x partitioning Utilization Estimates Summary}
 	\label{tab:hls-solution-7-columnindex-values-x-partitioning-utilization-estimates-summary}
@@ -205,7 +205,7 @@ Si procede con successivi passi così da verificare se tale problematica, riguar
 		\multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
 		&  & min & avg & max & min & avg & max \\
 		\hline
-		VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
+		VHDL & Pass & 29 & 29 & 29 & NA & NA & NA \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 7 with columnIndex, values and x partitioning C/RTL Cosimulation Summary }
@@ -222,11 +222,11 @@ Si può notare come il tool sia riuscito a risolvere la problematica riguardante
 			\hline
 			\textbf{Resource} & \textbf{VHDL} \\
 			\hline
-			SLICE & 264 \\
+			SLICE & 314 \\
 			\hline
-			LUT & 723 \\
+			LUT & 915 \\
 			\hline
-			FF & 571 \\
+			FF & 297 \\
 			\hline
 			DSP & 12 \\
 			\hline
@@ -249,7 +249,7 @@ Si può notare come il tool sia riuscito a risolvere la problematica riguardante
 			\hline
 			CP achieved post-synthesis & 7.449 \\
 			\hline
-			CP achieved post-implementation & 7.974 \\
+			CP achieved post-implementation & 8.110 \\
 			\hline
 		\end{tabular}
 		\caption{HLS Solution 7 with columnIndex, values and x partitioning Export RTL Final Timing}
@@ -295,7 +295,7 @@ Pertanto, è come se il tool riconducesse la soluzione hardware implementata ad 
 			\multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{|c|}{\textbf{Interval}} \\
 			min & max & min & max \\
 			\hline
-			17 & 45 & 17 & 45 \\
+			17 & 37 & 17 & 37 \\
 			\hline
 		\end{tabular}
 		\caption{HLS Solution 7 with loop1 pipelined Latency Summary (clock cycles)}
@@ -310,8 +310,8 @@ Pertanto, è come se il tool riconducesse la soluzione hardware implementata ad 
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 16 & 44 & 4$\sim$11 & - & - & 4 \\
-		+ loop2 & 0 & 7 & 5 & 1 & 1 & 0$\sim$4 \\
+		- loop1 & 16 & 36 & 4$\sim$9 & - & - & 4 \\
+		+ loop2 & 0 & 5 & 3 & 1 & 1 & 0$\sim$4 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 7 with loop1 pipelined Latency Loops Summary}
@@ -326,11 +326,11 @@ Pertanto, è come se il tool riconducesse la soluzione hardware implementata ad 
 		DSP              & -                   & -               & -           & -            \\ 
 		Expression       & -                   & 3              & 0           & 141          \\ 
 		FIFO             & -                   & -               & -           & -            \\ 
-		Instance         & -                   & -               & -           & -            \\ 
+		Instance         & -                   & -               & -           & 63            \\ 
 		Memory           & 0                   & -               & -          & -            \\ 
 		Multiplexer      & -                   & -               & -           & 78          \\ 
-		Register         & -                   & -               & 340         & 32            \\ \hline
-		\textbf{Total}   & 0                   & 3               & 340         & 251          \\ \hline
+		Register         & -                   & -               & 211         & -            \\ \hline
+		\textbf{Total}   & 0                   & 3               & 211         & 282          \\ \hline
 		\textbf{Available} & 280               & 220             & 106400      & 53200        \\ \hline
 		\textbf{Utilization (\%)} & 0            & 1               & $\sim$0     & $\sim$0      \\ \hline
 	\end{tabular}
@@ -347,7 +347,7 @@ Infatti, si può notare come la latenza e l'utilizzazione delle risorse associat
 		\multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
 		&  & min & avg & max & min & avg & max \\
 		\hline
-		VHDL & Pass & 38 & 38 & 38 & NA & NA & NA \\
+		VHDL & Pass & 30 & 30 & 30 & NA & NA & NA \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 7 with loop1 pipelined C/RTL Cosimulation Summary }
@@ -362,11 +362,11 @@ Infatti, si può notare come la latenza e l'utilizzazione delle risorse associat
 			\hline
 			\textbf{Resource} & \textbf{VHDL} \\
 			\hline
-			SLICE & 38 \\
+			SLICE & 75 \\
 			\hline
-			LUT & 115 \\
+			LUT & 248 \\
 			\hline
-			FF & 139 \\
+			FF & 131 \\
 			\hline
 			DSP & 3 \\
 			\hline
@@ -389,7 +389,7 @@ Infatti, si può notare come la latenza e l'utilizzazione delle risorse associat
 			\hline
 			CP achieved post-synthesis & 5.745 \\
 			\hline
-			CP achieved post-implementation & 5.718 \\
+			CP achieved post-implementation & 6.120 \\
 			\hline
 		\end{tabular}
 		\caption{HLS Solution 7 with loop1 pipelined Export RTL Final Timing}

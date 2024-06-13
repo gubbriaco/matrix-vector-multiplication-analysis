@@ -73,8 +73,8 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 44 & 60 & 11$\sim$15 & - & - & 4 \\
-		+ loop2 & 7 & 11 & 8 & \textcolor{red}{4} & 1 & 0$\sim$1 \\
+		- loop1 & 40 & 56 & 10$\sim$14 & - & - & 4 \\
+		+ loop2 & 6 & 10 & 7 & \textcolor{red}{4} & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 9 with columnIndex partitioning Latency Loops Summary}
@@ -98,8 +98,8 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 44 & 60 & 11$\sim$15 & - & - & 4 \\
-		+ loop2 & 7 & 11 & 8 & \textcolor{red}{4} & 1 & 0$\sim$1 \\
+		- loop1 & 40 & 56 & 10$\sim$14 & - & - & 4 \\
+		+ loop2 & 6 & 10 & 7 & \textcolor{red}{4} & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 9 with columnIndex and values partitioning Latency Loops Summary}
@@ -133,8 +133,8 @@ In particolare, tali warning suggeriscono problematiche relative alla variabile 
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 40 & 52 & 10$\sim$13 & - & - & 4 \\
-		+ loop2 & 6 & 9 & 7 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
+		- loop1 & 32 & 44 & 8$\sim$11 & - & - & 4 \\
+		+ loop2 & 4 & 7 & 5 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 9 with columnIndex, values and x partitioning Latency Loops Summary}
@@ -165,8 +165,8 @@ In particolare, si riscontrano i medesimi warning allegati precedentemente.
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 44 & 56 & 11$\sim$14 & - & - & 4 \\
-		+ loop2 & 6 & 9 & 7 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
+		- loop1 & 28 & 40 & 7$\sim$10 & - & - & 4 \\
+		+ loop2 & 4 & 7 & 5 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 9 with columnIndex, values, x and rowPtr partitioning Latency Loops Summary}
@@ -197,8 +197,8 @@ Nello specifico, si riscontrano nuovamente i medesimi warning allegati precedent
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 44 & 56 & 11$\sim$14 & - & - & 4 \\
-		+ loop2 & 6 & 9 & 7 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
+		- loop1 & 28 & 40 & 7$\sim$10 & - & - & 4 \\
+		+ loop2 & 4 & 7 & 5 & \textcolor{red}{3} & 1 & 0$\sim$1 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 9 with columnIndex, values, x, rowPtr and y partitioning Latency Loops Summary}
@@ -224,12 +224,32 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il
 		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
 		Name & min & max &  & achieved & target &  \\
 		\hline
-		- loop1 & 16 & 40 & 4$\sim$10 & - & - & 4 \\
-		+ loop2 & 0 & 6 & 4 & 1 & 1 & 0$\sim$4 \\
+		- loop1 & 16 & 36 & 4$\sim$9 & - & - & 4 \\
+		+ loop2 & 0 & 5 & 3 & 1 & 1 & 0$\sim$4 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Latency Loops Summary}
 	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		\textbf{Name}    & \textbf{BRAM\_18K} & \textbf{DSP48E} & \textbf{FF} & \textbf{LUT} \\ \hline
+		DSP              & -                   & -               & -           & -            \\ 
+		Expression       & -                   & 3              & 0           & 141          \\ 
+		FIFO             & -                   & -               & -           & -            \\ 
+		Instance         & -                   & -               & -           & 63            \\ 
+		Memory           & 0                   & -               & -          & -            \\ 
+		Multiplexer      & -                   & -               & -           & 78          \\ 
+		Register         & -                   & -               & 211         & -            \\ \hline
+		\textbf{Total}   & 0                   & 3               & 211         & 282          \\ \hline
+		\textbf{Available} & 280               & 220             & 106400      & 53200        \\ \hline
+		\textbf{Utilization (\%)} & 0            & 1               & $\sim$0     & $\sim$0      \\ \hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Utilization Estimates Summary}
+	\label{tab:hls-solution-7-loop1-pipeline-utilization-estimates-summary}
 \end{table}
 
 Si può notare come i warning relativi a ytmp non sono più presenti all'interno della console e che, inoltre, l'Initiation Interval relativo al loop2 presenta un valore raggiunto uguale a quello target, cioè pari a 1. In aggiunta, si possono evidenziare ulteriori warning all'interno della console. Essi sono i medesimi di quelli riscontrati nella solution 7, in cui veniva effettuato un unrolling di fattore pari a 4 nel loop2, dopo aver applicato il pipeline al loop1. Anche in questo caso, il tool non è riuscito a soddisfare la richiesta di pipeline a causa dei bound non noti e, pertanto, non riuscendo nemmeno a soddisfare la direttiva di unrolling all'interno del loop2. Infatti, si può notare come i valori di Initiation Interval (achieved e target) risultano essere non definiti, mentre il trip count relativo relativo al loop2 risulta essere il medesimo di quello della solution2 dove non era presente alcun pragma di parallelismo nel ciclo 2.
@@ -243,7 +263,7 @@ Pertanto, considerando l'implementazione finale ottenuta in corrispondenza della
 		\multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
 		&  & min & avg & max & min & avg & max \\
 		\hline
-		VHDL & Pass & 34 & 34 & 34 & NA & NA & NA \\
+		VHDL & Pass & 30 & 30 & 30 & NA & NA & NA \\
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined C/RTL Cosimulation Summary }
@@ -258,11 +278,11 @@ Pertanto, considerando l'implementazione finale ottenuta in corrispondenza della
 			\hline
 			\textbf{Resource} & \textbf{VHDL} \\
 			\hline
-			SLICE & 80 \\
+			SLICE & 75 \\
 			\hline
-			LUT & 208 \\
+			LUT & 248 \\
 			\hline
-			FF & 263 \\
+			FF & 131 \\
 			\hline
 			DSP & 3 \\
 			\hline
@@ -285,7 +305,7 @@ Pertanto, considerando l'implementazione finale ottenuta in corrispondenza della
 			\hline
 			CP achieved post-synthesis & 5.745 \\
 			\hline
-			CP achieved post-implementation & 5.762 \\
+			CP achieved post-implementation & 6.120 \\
 			\hline
 		\end{tabular}
 		\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Export RTL Final Timing}

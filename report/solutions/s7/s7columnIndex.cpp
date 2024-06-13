@@ -7,7 +7,7 @@ void smvm(int rowPtr[rows+1], int columnIndex[nnz], DTYPE values[nnz], DTYPE y[s
 			#pragma HLS loop_tripcount min=0 max=4 avg=2
 			#pragma HLS pipeline
 			#pragma HLS unroll factor=4
-			#pragma HLS array_partition variable=columnIndex cyclic factor=4
+			#pragma HLS array_partition variable=columnIndex complete
 			ytmp += values[k] * x[columnIndex[k]];
 		}
 		y[i] = ytmp;
