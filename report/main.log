@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  13 JUN 2024 17:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  13 JUN 2024 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -673,7 +673,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--87
 
  []
 
-<solutions/s1/s1analysis.png, id=575, 1082.54437pt x 543.53062pt>
+<solutions/s1/s1analysis.png, id=577, 1082.54437pt x 543.53062pt>
 File: solutions/s1/s1analysis.png Graphic file (type png)
 <use solutions/s1/s1analysis.png>
 Package pdftex.def Info: solutions/s1/s1analysis.png  used on input line 108.
@@ -731,7 +731,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.59 \newpage
              ] (solutions/s2/S2.tex (solutions/s2/s2.cpp)
-<solutions/s2/looppipelining.png, id=596, 490.08093pt x 279.29344pt>
+<solutions/s2/looppipelining.png, id=598, 490.08093pt x 279.29344pt>
 File: solutions/s2/looppipelining.png Graphic file (type png)
 <use solutions/s2/looppipelining.png>
 Package pdftex.def Info: solutions/s2/looppipelining.png  used on input line 9.
@@ -809,7 +809,7 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 13--20
  [][] 
  []
 
-<solutions/s3/loop1pipeline.png, id=619, 1082.54437pt x 538.26094pt>
+<solutions/s3/loop1pipeline.png, id=621, 1082.54437pt x 538.26094pt>
 File: solutions/s3/loop1pipeline.png Graphic file (type png)
 <use solutions/s3/loop1pipeline.png>
 Package pdftex.def Info: solutions/s3/loop1pipeline.png  used on input line 62.
@@ -901,7 +901,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.67 \newpage
              ] (solutions/s4/S4.tex (solutions/s4/s4.cpp)
-<solutions/s4/unrolling.png, id=669, 490.08093pt x 380.17032pt>
+<solutions/s4/unrolling.png, id=671, 490.08093pt x 380.17032pt>
 File: solutions/s4/unrolling.png Graphic file (type png)
 <use solutions/s4/unrolling.png>
 Package pdftex.def Info: solutions/s4/unrolling.png  used on input line 9.
@@ -937,7 +937,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.62 
       <./solutions/s4/unrolling.png>]
-<solutions/s4/s4analysis.png, id=690, 1083.29718pt x 572.89032pt>
+<solutions/s4/s4analysis.png, id=692, 1083.29718pt x 572.89032pt>
 File: solutions/s4/s4analysis.png Graphic file (type png)
 <use solutions/s4/s4analysis.png>
 Package pdftex.def Info: solutions/s4/s4analysis.png  used on input line 67.
@@ -998,7 +998,7 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 13--20
  [][] 
  []
 
-<solutions/s5/s5analysis.png, id=700, 1081.03876pt x 572.1375pt>
+<solutions/s5/s5analysis.png, id=702, 1081.03876pt x 572.1375pt>
 File: solutions/s5/s5analysis.png Graphic file (type png)
 <use solutions/s5/s5analysis.png>
 Package pdftex.def Info: solutions/s5/s5analysis.png  used on input line 60.
@@ -1058,7 +1058,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.75 \newpage
              ] (solutions/s6/S6.tex
-<solutions/s6/partitioning.png, id=729, 769.37437pt x 330.48468pt>
+<solutions/s6/partitioning.png, id=731, 769.37437pt x 330.48468pt>
 File: solutions/s6/partitioning.png Graphic file (type png)
 <use solutions/s6/partitioning.png>
 Package pdftex.def Info: solutions/s6/partitioning.png  used on input line 12.
@@ -1506,7 +1506,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.111 
       ]
-<solutions/s10/s10analysis.png, id=1290, 1437.87187pt x 730.22812pt>
+<solutions/s10/s10analysis.png, id=1292, 1437.87187pt x 730.22812pt>
 File: solutions/s10/s10analysis.png Graphic file (type png)
 <use solutions/s10/s10analysis.png>
 Package pdftex.def Info: solutions/s10/s10analysis.png  used on input line 114.
@@ -1577,7 +1577,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.129 
       ]
-Overfull \hbox (39.62991pt too wide) in paragraph at lines 132--148
+Overfull \hbox (39.62991pt too wide) in paragraph at lines 134--150
  [][] 
  []
 
@@ -1612,27 +1612,31 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15517 strings out of 473938
- 249422 string characters out of 5743807
+ 15518 strings out of 473938
+ 249430 string characters out of 5743807
  2331893 words of memory out of 5000000
  36906 multiletter control sequences out of 15000+600000
  564808 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,2677b,2203s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\giorg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/
-ec/dpi600\tcrm0700.pk> <C:\Users\giorg\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\tcrm1000.pk><D:/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pf
-b><D:/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MikTex/fonts/type1/p
-ublic/amsfonts/cm/cmmi10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pf
-b><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-<D:/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><D:/MikTex/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
-/MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/MikTex/fonts/type1/public
-/amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (56 pages, 810944 bytes).
+
+pdfTeX warning (dest): name{figure.9} has been referenced but does not exist, r
+eplaced by a fixed one
+
+ <C:\Users\giorg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm07
+00.pk> <C:\Users\giorg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+tcrm1000.pk><D:/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/MikTex/fon
+ts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MikTex/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/MikTex/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm
+/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb><D:/MikTex/fonts
+/type1/public/amsfonts/cm/cmr5.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cm
+r8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/ty
+pe1/public/amsfonts/cm/cmti10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmt
+t8.pfb>
+Output written on main.pdf (56 pages, 811748 bytes).
 PDF statistics:
- 1753 PDF objects out of 2073 (max. 8388607)
- 1038 named destinations out of 1200 (max. 500000)
+ 1756 PDF objects out of 2073 (max. 8388607)
+ 1039 named destinations out of 1200 (max. 500000)
  193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
