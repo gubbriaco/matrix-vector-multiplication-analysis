@@ -2,7 +2,7 @@ Qui, di seguito, viene riportata l'architettura relativa alla quinta solution.
 
 \lstinputlisting[language=C++]{solutions/s5/s5.cpp}
 
-In particolare, nella soluzione hardware in questione, rispetto alla solution 2 dove era presenta solo la direttiva di unrolling nel loop2,, è stata aggiunta la direttiva di unrolling con fattore pari a 2 all'interno del loop2.
+In particolare, nella soluzione hardware in questione, rispetto alla solution 2 dove era presenta solo la direttiva di pipelining nel loop2, è stata aggiunta la direttiva di unrolling con fattore pari a 2 all'interno dello stesso ciclo.
 
 Effettuando la sintesi è possibile evidenziare il seguente report:\\
 
@@ -53,11 +53,11 @@ In particolare, si può notare come, rispetto alla solution 2 dove il trip count
 	\label{tab:hls-solution-5-loop-summary}
 \end{table}
 
-Si può notare come, all'interno del loop2, vengono effettuate in parallelo due letture relative alle variabili \textit{columnIndex}, due relative alle variabili \textit{values} e due relative alle variabili \textit{x}. 
+Si può notare come, all'interno del loop2, vengono effettuate in parallelo due letture relative alle variabili columnIndex, due relative alle variabili \textit{values} e due relative alle variabili x. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{solutions/s5/s5analysis.png}
+	\includegraphics[width=0.9\textwidth]{solutions/s5/s5analysis.png}
 	\caption{HLS Solution 5 Analysis}
 \end{figure}
 
@@ -95,7 +95,7 @@ Si può notare come, all'interno del loop2, vengono effettuate in parallelo due 
 	\label{tab:hls-solution-5-cosimulation-summary}
 \end{table}
 
-Si può notare, rispetto alla soluzione hardware 2, un aumento dell'utilizzazione delle risorse del $60\%$ per quanto riguarda le LUT e di circa il $41\%$ per quanto riguarda i FF. Inoltre, si può evidenziare come il numero dei DSP sia raddoppiato.
+Si può notare, rispetto alla soluzione hardware 2, un aumento dell'utilizzazione delle risorse di circa l'$82\%$ per quanto riguarda le slice, del $60\%$ per quanto riguarda le LUT e di circa il $41\%$ per quanto riguarda i FF. Inoltre, si può evidenziare come il numero dei DSP sia raddoppiato proprio in seguito all'introduzione della direttiva di unrolling di fattore pari a 2 all'interno del loop2.
 
 \begin{table}[H]
 	\centering

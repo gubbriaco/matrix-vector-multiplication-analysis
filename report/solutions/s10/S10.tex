@@ -16,7 +16,7 @@ Effettuando la sintesi si ottiene il seguente log.
 \\
 \textcolor{red}{ERROR: [XFORM 203-103] Cannot partition array 'x' (smvmProject/smvm.cpp:11): incorrect partition factor 8.}
 \\
-In particolare, la console sta segnalando che effettivamente non riesce a partizionare l'array x dal momento che la dimensione dell'array risulta essere non compatibile con il fattore di partitioning dichiarato. Infatti, la dimensione di x inizialmente dichiarata in definitions.h è pari a 4 mentre il fattore di partizionamento che si sta utilizzando è pari a 8. A questo proposito si potrebbe modificare il valore di dimensionamento relativo a x all'interno dell'header. In particolare è necessario modificare sia il valore di size sia il valore di rows poiché l'applicazione che si sta implementando richiede che la matrice sia quadrata. Inoltre, bisogna anche modificare i parametri dichiarati all'interno della direttiva trip count dal momento che il numero di righe e, quindi, di iterazioni risulta essere differente.
+In particolare, la console sta segnalando che effettivamente non riesce a partizionare l'array x dal momento che la dimensione dell'array risulta essere non compatibile con il fattore di partitioning dichiarato. Infatti, la dimensione di x inizialmente dichiarata in definitions.h è pari a 4 mentre il fattore di partizionamento che si sta utilizzando è pari a 8. A questo proposito si potrebbe modificare il valore di dimensionamento relativo a x all'interno dell'header. In particolare è necessario modificare sia il valore di size sia il valore di rows. Inoltre, bisogna anche modificare i parametri dichiarati all'interno della direttiva trip count dal momento che il numero di righe e, quindi, di iterazioni risulta essere differente.
 \lstinputlisting[language=C]{solutions/s10/headermodified.h}
 \lstinputlisting[language=C++]{solutions/s10/s10all3modified.cpp}
 \lstinputlisting[language=C++]{solutions/s10/s10columnIndexmodified.cpp}
@@ -135,11 +135,11 @@ In particolare, dall'interfaccia Analysis sotto allegata (corrispondente al part
 	\label{tab:hls-solution-10-cosimulation-report}
 \end{table}
 
-Si può notare come l'utilizzazione delle risorse sia aumentata rispetto alle soluzioni 6 (loop2 Pipeline, Unroll=2, Cyclic=2) e 8 (loop2 Pipeline, Unroll=2, Cyclic=4). In particolare, considerando le soluzioni hardware corrispondenti al partizionamento di tutti e tre gli array, si evidenzia rispettivamente un aumento di circa il $66\%$ in corrispondenza delle slice rispetto alla soluzione 6 e 8, un aumento di circa il $77\%$ e di circa il $63\%$ in corrispondenza delle LUT, un aumento di circa il $127\%$ e di circa il $43\%$. 
+Si può notare come l'utilizzazione delle risorse sia aumentata rispetto alle soluzioni 6 (loop2 Pipeline, Unroll=2, Cyclic=2) e 8 (loop2 Pipeline, Unroll=2, Cyclic=4). In particolare, considerando le soluzioni hardware corrispondenti al partizionamento di tutti e tre gli array, si evidenzia rispettivamente un aumento di circa l'$81\%$ e di circa il $66\%$ in corrispondenza delle slice rispetto alla soluzione 6 e 8, un aumento di circa il $77\%$ e di circa il $63\%$ in corrispondenza delle LUT, un aumento di circa il $127\%$ e di circa il $43\%$. 
 \\
 Per quanto riguarda le soluzioni hardware corrispondenti al partizionamento di columnIndex, rispetto alla soluzione 6 e 8, si registra rispettivamente un aumento di un'unità e una diminuzione di 2 slice, un aumento di nove unità e di 7 unità delle LUT, un aumento di 6 unità e di 4 unità dei FF. 
 \\
-Per quanto riguarda le solution corrispondenti al partitioning di values, rispetto alla soluzione 6 e 8, si registra rispettivamente un aumento di circa il $18\%$ e di circa il $27\%$ delle slice, un aumento di 15 unità e di circa il $25\%$ delle LUT, un aumento di 25 unità e di 3 unità dei FF. 
+Per quanto riguarda le solution corrispondenti al partitioning di values, rispetto alla soluzione 6 e 8, si registra rispettivamente un aumento di circa il $18\%$ e di circa il $27\%$ delle slice, un aumento di 15 unità e di circa il $25\%$ delle LUT, una diminuzione di 25 unità e un aumento di 3 unità dei FF. 
 \\
 Per quanto riguarda le soluzioni hardware corrispondenti al partizionamento di x, rispetto alla soluzione 6 e 8, si registra rispettivamente un aumento di circa il $44\%$ e di circa il $38\%$ delle slice, un aumento di circa il $24\%$ e di circa il $25\%$ delle LUT, un aumento di circa il $124\%$ e di circa il $42\%$ dei FF.
 

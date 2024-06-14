@@ -113,8 +113,6 @@ Si può notare come, in corrispondenza di tutte e quattro le soluzioni hardware 
 	\label{tab:hls-solution-6-utilization-report}
 \end{table}
 
-Si può evidenziare come i valori di latenza associati alle quattro solution proposte risultano essere i medesimi di quelli otteenuti in corrispondenza della soluzione hardware 5.
-
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -135,7 +133,7 @@ Si può evidenziare come i valori di latenza associati alle quattro solution pro
 	\label{tab:hls-solution-6-cosimulation-report}
 \end{table}
 
-Si può notare come, in corrispondenza della soluzione basata su partitioning dell'array \textit{columnIndex} e dell'array \textit{values} si ha la medesima utilizzazione dei FF. Molto probabilmente questo risultato è legato al fatto che entrambi gli array presentano medesima dimensione, cioè pari a \textit{nnz}. Inoltre, la minore utilizzazione delle risorse si ha in corrispondenza dell'array \textit{x} a cui corrisponde, infatti, la dimensione minore tra i tre array considerati. In particolare, la soluzione in cui viene considerato il partizionamento dei tre array potrebbe essere considerata come la solution che richiede più risorse dal momento che presenta il maggior numero di slice utilizzate.
+Si può notare come, in corrispondenza della soluzione basata su partitioning dell'array columnIndex e dell'array values si ha la medesima utilizzazione dei FF. Molto probabilmente questo risultato è legato al fatto che entrambi gli array presentano medesima dimensione, cioè pari a nnz. Inoltre, la minore utilizzazione delle risorse si ha in corrispondenza dell'array x a cui corrisponde, infatti, la dimensione minore tra i tre array considerati. In particolare, la soluzione in cui viene considerato il partizionamento dei tre array contemporaneamente potrebbe essere considerata come la solution che richiede più risorse dal momento che presenta il maggior numero di slice utilizzate.
 
 \begin{table}[H]
 	\centering

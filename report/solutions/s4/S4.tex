@@ -60,7 +60,7 @@ In particolare, si può notare come il valore di trip count del loop1 risulta es
 	\label{tab:hls-solution-4-loop-summary}
 \end{table}
 
-Infatti, lo si può meglio notare tramite l'interfaccia analysis. In particolare, si può evidenziare come il loop1 venga parallelizzato. Nello specifico, vengono previsti due loop2 uno dopo l'altro facendo così aumentare la latenza per ogni iterazione del loop1. Quindi, il valore del trip count associato al ciclo 1 viene dimezzato mentre l'Iteration Latency associata allo stesso loop viene sostanzialmente raddoppiata. 
+Infatti, lo si può meglio notare tramite l'interfaccia analysis. In particolare, si può evidenziare come il loop1 venga parallelizzato. Nello specifico, vengono previsti due loop2 uno dopo l'altro facendo così aumentare la latenza per ogni iterazione del loop1. Quindi, il valore del trip count associato al ciclo 1 viene dimezzato mentre l'Iteration Latency associata allo stesso loop aumenta dal momento che vengono gestiti due loop2.
 
 \begin{figure}[H]
 	\centering
@@ -104,7 +104,7 @@ Successivamente effettuando la C/RTL Cosimulation e l'Export RTL è possibile ev
 	\label{tab:hls-solution-4-cosimulation-summary}
 \end{table}
 
-In particolare, rispetto alla solution 1 si ha un aumento del $100\%$ e di circa l'$81\%$ rispettivamente dell'utilizzazione delle LUT e dei FF dal momento che è stato introdotto un parallelismo all'interno dell'architettura.
+In particolare, rispetto alla solution 1 si ha un aumento di circa il $73\%$ delle slice, del $100\%$ delle LUT e di circa l'$81\%$ dei FF dal momento che è stato introdotto un parallelismo all'interno dell'architettura.
 
 \begin{table}[H]
 	\centering

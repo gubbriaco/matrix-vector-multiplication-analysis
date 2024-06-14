@@ -8,7 +8,7 @@ Effettuando la sintesi è possibile evidenziare il seguente log nella console:
 \\
 \textcolor{blue}{WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('columnIndex\_load\_2', smvmProject/smvm.cpp:34) on array 'columnIndex' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'columnIndex'.}
 \\
-Tale log sta a significare che non riesce a schedulare correttamente, dal punto di vista degli accessi in memoria, la load operation relativa all'array \textit{columnIndex} dato dal numero limitato di porte relative alla memoria.
+Tale log sta a significare che non riesce a schedulare correttamente, dal punto di vista degli accessi in memoria, la load operation relativa all'array columnIndex dato dal numero limitato di porte relative alla memoria.
 \\
 In particolare, analizzando il report relativo alla sintesi, si può notare come l'Initiation Interval, associato al loop2, raggiunto risulta essere maggiore di quello target.
 \\
@@ -58,7 +58,7 @@ In particolare, analizzando il report relativo alla sintesi, si può notare come
 	\label{tab:hls-solution-7-loop-summary}
 \end{table}
 
-Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{columnIndex}.
+Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè columnIndex.
 
 \lstinputlisting[language=C++]{solutions/s7/s7columnIndex.cpp}
 
@@ -81,9 +81,9 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 	\label{tab:hls-solution-7-columnindex-partitioning-loop-summary}
 \end{table}
 
-Si può notare come in questo caso il warning sia relativo all'array \textit{values}. In particolare, la tipologia di warning è la medesima facendo presupporre che il tool non riesca a schedulare correttamente, secondo le direttive imposte dall'architettura, gli accessi in parallello all'array \textit{values}. Infatti, il valore di Initiation Interval raggiunto risulta essere ancora maggiore di quello di quello target. 
+Si può notare come in questo caso il warning sia relativo all'array values. In particolare, la tipologia di warning è la medesima facendo presupporre che il tool non riesca a schedulare correttamente, secondo le direttive imposte dall'architettura, gli accessi in parallello all'array values. Infatti, anche in questo caso il valore di Initiation Interval raggiunto risulta essere ancora maggiore di quello di quello target. 
 \\
-Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{values}.
+Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè values.
 
 \lstinputlisting[language=C++]{solutions/s7/s7values.cpp}
 
@@ -106,9 +106,9 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 	\label{tab:hls-solution-7-columnindex-values-partitioning-loop-summary}
 \end{table}
 
-Si può notare come in questo caso il warning sia relativo all'array \textit{x}. In particolare, la tipologia di warning è la medesima della precedente. Anche in questo caso il valore di Initiation Interval raggiunto risulta essere ancora maggiore di quello di quello target. 
+Si può notare come in questo caso il warning sia relativo all'array x. In particolare, la tipologia di warning è la medesima della precedente. Anche in questo caso il valore di Initiation Interval raggiunto risulta essere ancora maggiore di quello di quello target. 
 \\
-Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{x}.
+Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè x.
 
 \lstinputlisting[language=C++]{solutions/s7/s7x.cpp}
 
