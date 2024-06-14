@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  14 JUN 2024 17:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  14 JUN 2024 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -812,18 +812,6 @@ LaTeX Warning: Label `tab:hls-solution-1-cosimulation-summary' multiply defined
 .
 
 
-LaTeX Warning: Label `tab:hls-solution-1-cosimulation-summary' multiply defined
-.
-
-
-LaTeX Warning: Label `tab:hls-solution-2-export-rtl-resoruce-usage' multiply de
-fined.
-
-
-LaTeX Warning: Label `tab:hls-solution-2-export-rtl-final-timing' multiply defi
-ned.
-
-
 LaTeX Warning: Label `tab:hls-solution-9-columnindex-values-partitioning-loop-s
 ummary' multiply defined.
 
@@ -953,14 +941,12 @@ Package caption Info: End \AtBeginDocument code.
 
 
 
-[4]
-
-[5] (introduction/Introduction.tex (introduction/SparseMatrix.tex)
+[4] (introduction/Introduction.tex (introduction/SparseMatrix.tex)
 (introduction/CompressedRowStorage.tex))
 
-[6] (tasks/TasksToBePerformed.tex)
+[5] (tasks/TasksToBePerformed.tex)
 
-[7] (definitions/Definitions.tex (D:\MikTex\tex/latex/listings\lstlang1.sty
+[6] (definitions/Definitions.tex (D:\MikTex\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2024/05/25 1.10b listings language file
 )
 (D:\MikTex\tex/latex/listings\lstmisc.sty
@@ -970,15 +956,15 @@ Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 3.
  (definitions/definitions.h))
 
-[8] (c_simulations/CSimulations.tex (D:\MikTex\tex/latex/listings\lstlang1.sty
+[7] (c_simulations/CSimulations.tex (D:\MikTex\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2024/05/25 1.10b listings language file
 ) (c_simulations/smvmTB.cpp
 
-[9]) (c_simulations/smvmTB_output.cpp) (c_simulations/stdm.cpp))
+[8]) (c_simulations/smvmTB_output.cpp) (c_simulations/stdm.cpp))
 
-[10] (solutions/Solutions.tex
+[9] (solutions/Solutions.tex
 
-[11] (solutions/s1/S1.tex (solutions/s1/s1.cpp)
+[10] (solutions/s1/S1.tex (solutions/s1/s1.cpp)
 Overfull \hbox (11.02881pt too wide) in paragraph at lines 12--19
  [][] 
  []
@@ -990,7 +976,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--36
 
 (solutions/s1/s1tripcount.cpp
 
-[12])
+[11])
 Overfull \hbox (11.02881pt too wide) in paragraph at lines 63--70
  [][] 
  []
@@ -1000,17 +986,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--87
 
  []
 
-<solutions/s1/s1analysis.png, id=556, 1082.54437pt x 543.53062pt>
+<solutions/s1/s1analysis.png, id=541, 1082.54437pt x 543.53062pt>
 File: solutions/s1/s1analysis.png Graphic file (type png)
 <use solutions/s1/s1analysis.png>
 Package pdftex.def Info: solutions/s1/s1analysis.png  used on input line 108.
 (pdftex.def)             Requested size: 469.75502pt x 235.85335pt.
 
 
-[13 <./solutions/s1/s1analysis.png>])
+[12 <./solutions/s1/s1analysis.png>])
 
-[14] (solutions/s2/S2.tex (solutions/s2/s2.cpp)
-<solutions/s2/looppipelining.png, id=577, 490.08093pt x 279.29344pt>
+[13] (solutions/s2/S2.tex (solutions/s2/s2.cpp)
+<solutions/s2/looppipelining.png, id=562, 490.08093pt x 279.29344pt>
 File: solutions/s2/looppipelining.png Graphic file (type png)
 <use solutions/s2/looppipelining.png>
 Package pdftex.def Info: solutions/s2/looppipelining.png  used on input line 9.
@@ -1028,9 +1014,9 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 19--26
 
 
 
-[15 <./solutions/s2/looppipelining.png>])
+[14 <./solutions/s2/looppipelining.png>])
 
-[16] (solutions/s3/S3.tex (solutions/s3/s3.cpp)
+[15] (solutions/s3/S3.tex (solutions/s3/s3.cpp)
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
@@ -1040,27 +1026,15 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 13--20
  [][] 
  []
 
-<solutions/s3/loop1pipeline.png, id=600, 1082.54437pt x 538.26094pt>
-File: solutions/s3/loop1pipeline.png Graphic file (type png)
-<use solutions/s3/loop1pipeline.png>
-Package pdftex.def Info: solutions/s3/loop1pipeline.png  used on input line 62.
 
-(pdftex.def)             Requested size: 469.75502pt x 233.5667pt.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-[17]
 
-[18 <./solutions/s3/loop1pipeline.png>] (solutions/s3/s3modificata.cpp)
-Overfull \hbox (11.02881pt too wide) in paragraph at lines 158--165
- [][] 
- []
+[16])
 
-)
-
-[19]
-
-[20] (solutions/s4/S4.tex (solutions/s4/s4.cpp)
-<solutions/s4/unrolling.png, id=650, 490.08093pt x 380.17032pt>
+[17] (solutions/s4/S4.tex (solutions/s4/s4.cpp)
+<solutions/s4/unrolling.png, id=608, 490.08093pt x 380.17032pt>
 File: solutions/s4/unrolling.png Graphic file (type png)
 <use solutions/s4/unrolling.png>
 Package pdftex.def Info: solutions/s4/unrolling.png  used on input line 9.
@@ -1077,15 +1051,15 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 19--26
 
 
 
-[21 <./solutions/s4/unrolling.png>]
-<solutions/s4/s4analysis.png, id=671, 1083.29718pt x 572.89032pt>
+[18 <./solutions/s4/unrolling.png>]
+<solutions/s4/s4analysis.png, id=629, 1083.29718pt x 572.89032pt>
 File: solutions/s4/s4analysis.png Graphic file (type png)
 <use solutions/s4/s4analysis.png>
 Package pdftex.def Info: solutions/s4/s4analysis.png  used on input line 67.
 (pdftex.def)             Requested size: 469.75502pt x 248.42728pt.
 
 
-[22 <./solutions/s4/s4analysis.png>]
+[19 <./solutions/s4/s4analysis.png>]
 Overfull \hbox (26.18813pt too wide) in paragraph at lines 107--108
 \OT1/cmr/m/n/10 dell'utilizzazione delle LUT e dei FF dal mo-mento che ^^Re sta
 to in-trodotto un par-al-lelismo all'interno dell'architettura. 
@@ -1093,7 +1067,7 @@ to in-trodotto un par-al-lelismo all'interno dell'architettura.
 
 )
 
-[23] (solutions/s5/S5.tex (solutions/s5/s5.cpp)
+[20] (solutions/s5/S5.tex (solutions/s5/s5.cpp)
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
@@ -1103,26 +1077,26 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 13--20
  [][] 
  []
 
-<solutions/s5/s5analysis.png, id=681, 1081.03876pt x 572.1375pt>
+<solutions/s5/s5analysis.png, id=640, 1081.03876pt x 572.1375pt>
 File: solutions/s5/s5analysis.png Graphic file (type png)
 <use solutions/s5/s5analysis.png>
 Package pdftex.def Info: solutions/s5/s5analysis.png  used on input line 60.
 (pdftex.def)             Requested size: 469.75502pt x 248.61589pt.
 
 
-[24])
+[21])
 
-[25 <./solutions/s5/s5analysis.png>]
+[22 <./solutions/s5/s5analysis.png>]
 
-[26] (solutions/s6/S6.tex
-<solutions/s6/partitioning.png, id=710, 769.37437pt x 330.48468pt>
+[23] (solutions/s6/S6.tex
+<solutions/s6/partitioning.png, id=668, 769.37437pt x 330.48468pt>
 File: solutions/s6/partitioning.png Graphic file (type png)
 <use solutions/s6/partitioning.png>
 Package pdftex.def Info: solutions/s6/partitioning.png  used on input line 12.
 (pdftex.def)             Requested size: 234.8775pt x 100.89096pt.
  (solutions/s6/s6all3.cpp
 
-[27 <./solutions/s6/partitioning.png>]) (solutions/s6/s6columnIndex.cpp)
+[24 <./solutions/s6/partitioning.png>]) (solutions/s6/s6columnIndex.cpp)
 (solutions/s6/s6values.cpp) (solutions/s6/s6x.cpp)
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
@@ -1130,21 +1104,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
 
 
-[28]
+[25]
 Overfull \hbox (12.87212pt too wide) in paragraph at lines 75--93
  [][] 
  []
 
 
 
-[29]
+[26]
 Overfull \hbox (39.62991pt too wide) in paragraph at lines 142--158
  [][] 
  []
 
 )
 
-[30] (solutions/s7/S7.tex (solutions/s7/s7.cpp)
+[27] (solutions/s7/S7.tex (solutions/s7/s7.cpp)
 Underfull \hbox (badness 10000) in paragraph at lines 5--15
 
  []
@@ -1156,7 +1130,7 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 20--27
 
 (solutions/s7/s7columnIndex.cpp
 
-[31])
+[28])
 Overfull \hbox (6.34761pt too wide) in paragraph at lines 65--68
 []\OT1/cmr/m/n/10 WARNING: [SCHED 204-69] Un-able to sched-ule 'load' op-er-a-t
 ion ('val-ues[]load[]2', smvm-Pro-jec-t/s-mvm.cpp:34)
@@ -1164,7 +1138,7 @@ ion ('val-ues[]load[]2', smvm-Pro-jec-t/s-mvm.cpp:34)
 
 (solutions/s7/s7values.cpp)
 
-[32] (solutions/s7/s7x.cpp)
+[29] (solutions/s7/s7x.cpp)
 Overfull \hbox (11.02881pt too wide) in paragraph at lines 134--141
  [][] 
  []
@@ -1177,13 +1151,13 @@ ia notevol-mente au-men-tata. In par-ti-co-lare, l'utilizzazione
 
 
 
-[33])
+[30])
 
-[34] (solutions/s8/S8.tex (solutions/s8/s8all3.cpp)
+[31] (solutions/s8/S8.tex (solutions/s8/s8all3.cpp)
 (solutions/s8/s8columnIndex.cpp) (solutions/s8/s8values.cpp)
 (solutions/s8/s8x.cpp
 
-[35])
+[32])
 Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
@@ -1195,14 +1169,14 @@ Overfull \hbox (12.87212pt too wide) in paragraph at lines 60--78
 
 
 
-[36]
+[33]
 Overfull \hbox (39.62991pt too wide) in paragraph at lines 125--141
  [][] 
  []
 
 )
 
-[37] (solutions/s9/S9.tex (solutions/s9/s9.cpp)
+[34] (solutions/s9/S9.tex (solutions/s9/s9.cpp)
 Underfull \hbox (badness 10000) in paragraph at lines 5--15
 
  []
@@ -1214,7 +1188,7 @@ Overfull \hbox (11.02881pt too wide) in paragraph at lines 20--27
 
 (solutions/s9/s9columnIndex.cpp
 
-[38])
+[35])
 Overfull \hbox (6.34761pt too wide) in paragraph at lines 65--68
 []\OT1/cmr/m/n/10 WARNING: [SCHED 204-69] Un-able to sched-ule 'load' op-er-a-t
 ion ('val-ues[]load[]6', smvm-Pro-jec-t/s-mvm.cpp:34)
@@ -1222,42 +1196,42 @@ ion ('val-ues[]load[]6', smvm-Pro-jec-t/s-mvm.cpp:34)
 
 (solutions/s9/s9values.cpp)
 
-[39] (solutions/s9/s9x.cpp)
+[36] (solutions/s9/s9x.cpp)
 Underfull \hbox (badness 10000) in paragraph at lines 115--126
 
  []
 
 (solutions/s9/s9rowPtr4.cpp
 
-[40]) (solutions/s9/s9y4.cpp)
+[37]) (solutions/s9/s9y4.cpp)
 
-[41] (solutions/s9/s9pipelineloop1.cpp)
+[38] (solutions/s9/s9pipelineloop1.cpp)
 Underfull \hbox (badness 10000) in paragraph at lines 212--233
 
  []
 
 
 
-[42])
+[39])
 
-[43] (solutions/s10/S10.tex (solutions/s10/s10all3.cpp)
+[40] (solutions/s10/S10.tex (solutions/s10/s10all3.cpp)
 (solutions/s10/s10columnIndex.cpp) (solutions/s10/s10values.cpp)
 (solutions/s10/s10x.cpp
 
-[44]) (solutions/s10/headermodified.h) (solutions/s10/s10all3modified.cpp
+[41]) (solutions/s10/headermodified.h) (solutions/s10/s10all3modified.cpp
 
-[45]) (solutions/s10/s10columnIndexmodified.cpp)
+[42]) (solutions/s10/s10columnIndexmodified.cpp)
 (solutions/s10/s10valuesmodified.cpp) (solutions/s10/s10xmodified.cpp)
 
-[46]
+[43]
 Overfull \hbox (12.87212pt too wide) in paragraph at lines 69--87
  [][] 
  []
 
 
 
-[47]
-<solutions/s10/s10analysis.png, id=1247, 1437.87187pt x 730.22812pt>
+[44]
+<solutions/s10/s10analysis.png, id=1206, 1437.87187pt x 730.22812pt>
 File: solutions/s10/s10analysis.png Graphic file (type png)
 <use solutions/s10/s10analysis.png>
 Package pdftex.def Info: solutions/s10/s10analysis.png  used on input line 114.
@@ -1270,52 +1244,55 @@ Overfull \hbox (39.62991pt too wide) in paragraph at lines 148--164
 
 
 
-[48 <./solutions/s10/s10analysis.png>])
+[45 <./solutions/s10/s10analysis.png>])
 
-[49] (solutions/s11/S11.tex (solutions/s11/definitions.h)
+[46] (solutions/s11/S11.tex (solutions/s11/definitions.h)
 (solutions/s11/s11all3.cpp) (solutions/s11/s11columnIndex.cpp
 
-[50]) (solutions/s11/s11values.cpp) (solutions/s11/s11x.cpp)
+[47]) (solutions/s11/s11values.cpp) (solutions/s11/s11x.cpp)
 (solutions/s11/headermodified.h
 
-[51])
+[48])
 Overfull \hbox (12.87212pt too wide) in paragraph at lines 69--87
  [][] 
  []
 
 
 
-[52]
+[49]
 Overfull \hbox (39.62991pt too wide) in paragraph at lines 134--150
  [][] 
  []
 
 )
 
-[53]) (conclusions/Conclusions.tex
-Overfull \hbox (52.96323pt too wide) in paragraph at lines 90--136
- [][] 
- []
+[50]) (conclusions/Conclusions.tex
 
-
-
-[54]
-
-[55]
-
-LaTeX Info: File `data.csv' already exists on the system.
+LaTeX Info: File `latency.csv' already exists on the system.
             Not generating it from this source.
 
-PGFPlots: reading {data.csv}
-PGFPlots: reading {data.csv}
-PGFPlots: reading {data.csv}
-PGFPlots: reading {data.csv}
-PGFPlots: reading {data.csv}
+PGFPlots: reading {latency.csv}
+PGFPlots: reading {latency.csv}
+PGFPlots: reading {latency.csv}
+
+
+[51]
+
+[52]
+
+LaTeX Info: File `utilization.csv' already exists on the system.
+            Not generating it from this source.
+
+PGFPlots: reading {utilization.csv}
+PGFPlots: reading {utilization.csv}
+PGFPlots: reading {utilization.csv}
+PGFPlots: reading {utilization.csv}
+PGFPlots: reading {utilization.csv}
 )
 
-[56]
+[53]
 
-[57] (main.aux)
+[54] (main.aux)
  ***********
 LaTeX2e <2024-06-01>
 L3 programming layer <2024-05-08>
@@ -1330,10 +1307,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 37325 strings out of 473938
- 844427 string characters out of 5743807
+ 37290 strings out of 473938
+ 843434 string characters out of 5743807
  2332893 words of memory out of 5000000
- 58401 multiletter control sequences out of 15000+600000
+ 58392 multiletter control sequences out of 15000+600000
  564808 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,19n,101p,2677b,2500s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1348,9 +1325,9 @@ blic/amsfonts/cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 c/amsfonts/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
 /MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/MikTex/fonts/type1/public
 /amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (57 pages, 824727 bytes).
+Output written on main.pdf (54 pages, 782180 bytes).
 PDF statistics:
- 1717 PDF objects out of 1728 (max. 8388607)
- 1004 named destinations out of 1200 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1671 PDF objects out of 1728 (max. 8388607)
+ 980 named destinations out of 1000 (max. 500000)
+ 200 words of extra memory for PDF output out of 10000 (max. 10000000)
 

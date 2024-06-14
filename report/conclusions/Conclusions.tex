@@ -23,7 +23,7 @@
 		\tabitem values & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
 		\tabitem x & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
 		\hline
-		7 & VHDL & Pass & 38 & 38 & 38 & NA & NA & NA \\
+		7 & VHDL & Pass & 29 & 29 & 29 & NA & NA & NA \\
 		\hline
 		8 &  &  &  &  &  &  &  &  \\
 		\tabitem columnIndex, values, x & VHDL & Pass & 33 & 33 & 33 & NA & NA & NA \\
@@ -31,7 +31,7 @@
 		\tabitem values & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
 		\tabitem x & VHDL & Pass & 33 & 33 & 33 & NA & NA & NA \\
 		\hline
-		9 & VHDL & Pass & 34 & 34 & 34 & NA & NA & NA \\
+		9 & VHDL & Pass & 30 & 30 & 30 & NA & NA & NA \\
 		\hline
 		10 &  &  &  &  &  &  &  &  \\
 		\tabitem columnIndex, values, x & VHDL & Pass & 61 & 61 & 61 & NA & NA & NA \\
@@ -50,6 +50,32 @@
 	\label{tab:hls-conclusions-cosimulation-report}
 \end{table}
 
+\begin{filecontents*}{latency.csv}
+	Solution,Min,Avg,Max
+	1,58,58,58
+	2,38,38,38
+	3,58,58,58
+	4,56,56,56
+	5,37,37,37
+	6a,37,37,37
+	6b,37,37,37
+	6c,37,37,37
+	6d,37,37,37
+	7,29,29,29
+	8a,33,33,33
+	8b,37,37,37
+	8c,37,37,37
+	8d,33,33,33
+	9,30,30,30
+	10a,61,61,61
+	10b,69,69,69
+	10c,69,69,69
+	10d,61,61,61
+	11a,64,64,64
+	11b,72,72,72
+	11c,72,72,72
+	11d,64,64,64
+\end{filecontents*}
 
 \begin{figure}
 	\begin{tikzpicture}
@@ -62,18 +88,12 @@
 			xlabel={Solution},
 			legend style={at={(0.5,-0.20)}, anchor=north, legend columns=-1},
 			width=1\textwidth,
-			height=0.6\textwidth,
+			height=0.7\textwidth,
 			xticklabel style={rotate=90, anchor=east},
 			]
-			\addplot coordinates {
-				(1,58) (2,38) (3,58) (4,56) (5,37) (6a,37) (6b,37) (6c,37) (6d,37) (7,30) (8a,33) (8b,33) (8c,33) (8d,33) (9,30) (10a,61) (10b,69) (10c,69) (10d,61) (11a,64) (11b,72) (11c,72) (11d,64)
-			};
-			\addplot coordinates {
-				(1,58) (2,38) (3,58) (4,56) (5,37) (6a,37) (6b,37) (6c,37) (6d,37) (7,30) (8a,33) (8b,33) (8c,33) (8d,33) (9,34) (10a,61) (10b,69) (10c,69) (10d,61) (11a,64) (11b,72) (11c,72) (11d,64)
-			};
-			\addplot coordinates {
-				(1,58) (2,38) (3,58) (4,56) (5,37) (6a,37) (6b,37) (6c,37) (6d,37) (7,30) (8a,33) (8b,33) (8c,33) (8d,33) (9,30) (10a,61) (10b,69) (10c,69) (10d,61) (11a,64) (11b,72) (11c,72) (11d,64)
-			};
+			\addplot table [x=Solution, y=Min, col sep=comma] {latency.csv};
+			\addplot table [x=Solution, y=Avg, col sep=comma] {latency.csv};
+			\addplot table [x=Solution, y=Max, col sep=comma] {latency.csv};
 			\legend{Min,Avg,Max}
 		\end{axis}
 	\end{tikzpicture}
@@ -87,87 +107,80 @@
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+	\begin{tabular}{|l|c|c|c|c|c|}
 		\hline
-		\textbf{Solution} & \textbf{SLICE} & \textbf{LUT} & \textbf{FF} & \textbf{DSP} & \textbf{BRAM} & \textbf{CP} & \textbf{CP} & \textbf{CP} \\
-		& & & & & & \textbf{required} & \textbf{achieved} & \textbf{achieved}\\
-		& & & & & & & \textbf{post-} & \textbf{post-}\\
-		& & & & & & & \textbf{synthesis} & \textbf{implementation}\\
+		\textbf{Solution} & \textbf{SLICE} & \textbf{LUT} & \textbf{FF} & \textbf{DSP} & \textbf{BRAM} \\
 		\hline
-		1 & 48 & 93 & 161 & 3 & 0 & 10 & 5.745 & 5.692 \\
+		1 & 48 & 93 & 161 & 3 & 0 \\
 		\hline
-		2 & 38 & 115 & 139 & 3 & 0 & 10 & 5.745 & 5.718 \\
+		2 & 38 & 115 & 139 & 3 & 0 \\
 		\hline
-		3 & 48 & 94 & 161 & 3 & 0 & 10 & 5.745 & 5.692 \\
+		3 & 48 & 94 & 161 & 3 & 0 \\
 		\hline
-		4 & 83 & 186 & 292 & 3 & 0 & 10 & 5.745 & 5.692 \\
+		4 & 83 & 186 & 292 & 3 & 0 \\
 		\hline
-		5 & 69 & 184 & 196 & 6 & 0 & 10 & 7.927 & 7.465 \\
+		5 & 69 & 184 & 196 & 6 & 0 \\
 		\hline
-		6 &  &  &  &  &  &  &  &  \\
-		\tabitem columnIndex, values, x & 113 & 316 & 198 & 6 & 0 & 10 & 7.927 & 7.799 \\
-		\tabitem columnIndex & 84 & 259 & 224 & 6 & 0 & 10 & 7.472 & 7.843 \\
-		\tabitem values & 99 & 327 & 224 & 6 & 0 & 10 & 7.502 & 8.184 \\
-		\tabitem x & 99 & 250 & 198 & 6 & 0 & 10 & 6.541 & 6.931 \\
+		6 &  &  &  &  & \\
+		\tabitem columnIndex, values, x & 113 & 316 & 198 & 6 & 0 \\
+		\tabitem columnIndex & 84 & 259 & 224 & 6 & 0 \\
+		\tabitem values & 99 & 327 & 224 & 6 & 0 \\
+		\tabitem x & 99 & 250 & 198 & 6 & 0 \\
 		\hline
-		7 & 75 & 248 & 131 & 3 & 0 & 10 & 5.745 & 6.120 \\
+		7 & 314 & 915 & 297 & 12 & 0 \\
 		\hline
-		8 &  &  &  &  &  &  &  &  \\
-		\tabitem columnIndex, values, x & 123 & 343 & 315 & 6 & 0 & 10 & 6.540 & 6.571 \\
-		\tabitem columnIndex & 85 & 261 & 226 & 6 & 0 & 10 & 7.496 & 7.654 \\
-		\tabitem values & 92 & 274 & 196 & 6 & 0 & 10 & 7.927 & 7.780 \\
-		\tabitem x & 104 & 248 & 313 & 6 & 0 & 10 & 6.540 & 6.844 \\
+		8 &  &  &  &  &  \\
+		\tabitem columnIndex, values, x & 123 & 343 & 315 & 6 & 0 \\
+		\tabitem columnIndex & 85 & 261 & 226 & 6 & 0 \\
+		\tabitem values & 92 & 274 & 196 & 6 & 0 \\
+		\tabitem x & 104 & 248 & 313 & 6 & 0 \\
 		\hline
-		9 & 75 & 248 & 131 & 3 & 0 & 10 & 5.745 & 6.120 \\
+		9 & 75 & 248 & 131 & 3 & 0 \\
 		\hline
-		10 &  &  &  &  &  &  &  &  \\
-		\tabitem columnIndex, values, x & 204 & 558 & 449 & 6 & 0 & 10 & 6.540 & 6.840 \\
-		\tabitem columnIndex & 83 & 268 & 230 & 6 & 0 & 10 & 7.496 & 8.115 \\
-		\tabitem values & 117 & 342 & 199 & 6 & 0 & 10 & 7.927 & 7.603 \\
-		\tabitem x & 143 & 311 & 444 & 6 & 0 & 10 & 6.540 & 6.790 \\
+		10 &  &  &  &  &  \\
+		\tabitem columnIndex, values, x & 204 & 558 & 449 & 6 & 0 \\
+		\tabitem columnIndex & 83 & 268 & 230 & 6 & 0 \\
+		\tabitem values & 117 & 342 & 199 & 6 & 0 \\
+		\tabitem x & 143 & 311 & 444 & 6 & 0 \\
 		\hline
-		11 &  &  &  &  &  &  &  &  \\
-		\tabitem columnIndex, values, x & 179 & 454 & 450 & 6 & 0 & 10 & 6.541 & 6.677 \\
-		\tabitem columnIndex & 90 & 267 & 227 & 6 & 0 & 10 & 7.489 & 7.664 \\
-		\tabitem values & 122 & 391 & 232 & 6 & 0 & 10 & 7.506 & 7.768 \\
-		\tabitem x & 143 & 311 & 444 & 6 & 0 & 10 & 6.540 & 6.790 \\
+		11 &  &  &  &  &  \\
+		\tabitem columnIndex, values, x & 179 & 454 & 450 & 6 & 0 \\
+		\tabitem columnIndex & 90 & 267 & 227 & 6 & 0 \\
+		\tabitem values & 122 & 391 & 232 & 6 & 0 \\
+		\tabitem x & 143 & 311 & 444 & 6 & 0 \\
 		\hline
 	\end{tabular}
 	\caption{HLS Conclusions Export RTL Report}
 	\label{tab:hls-conclusions-export-rtl-report}
 \end{table}
 
-
-
-
-\begin{filecontents}{data.csv}
-	Solution,SLICE,LUT,FF,DSP,BRAM,CP\_required,CP\_achieved\_post\_synthesis,CP\_achieved\_post\_implementation
-	1,48,93,161,3,0,10,5.745,5.692
-	2,38,115,139,3,0,10,5.745,5.718
-	3,48,94,161,3,0,10,5.745,5.692
-	4,83,186,292,3,0,10,5.745,5.692
-	5,69,184,196,6,0,10,7.927,7.465
-	6a,113,316,198,6,0,10,7.927,7.799
-	6b,84,259,224,6,0,10,7.472,7.843
-	6c,99,327,224,6,0,10,7.502,8.184
-	6d,99,250,198,6,0,10,6.541,6.931
-	7,75,248,131,3,0,10,5.745,6.120
-	8a,123,343,315,6,0,10,6.540,6.571
-	8b,85,261,226,6,0,10,7.496,7.654
-	8c,92,274,196,6,0,10,7.927,7.780
-	8d,104,248,313,6,0,10,6.540,6.844
-	9,75,248,131,3,0,10,5.745,6.120
-	10a,204,558,449,6,0,10,6.540,6.840
-	10b,83,268,230,6,0,10,7.496,8.115
-	10c,117,342,199,6,0,10,7.927,7.603
-	10d,143,311,444,6,0,10,6.540,6.790
-	11a,179,454,450,6,0,10,6.541,6.677
-	11b,90,267,227,6,0,10,7.489,7.664
-	11c,122,391,232,6,0,10,7.506,7.768
-	11d,143,311,444,6,0,10,6.540,6.790
+\begin{filecontents}{utilization.csv}
+	Solution,SLICE,LUT,FF,DSP,BRAM
+	1,48,93,161,3,0
+	2,38,115,139,3,0
+	3,48,94,161,3,0
+	4,83,186,292,3,0
+	5,69,184,196,6,0
+	6a,113,316,198,6,0
+	6b,84,259,224,6,0
+	6c,99,327,224,6,0
+	6d,99,250,198,6,0
+	7,314,915,297,12,0
+	8a,123,343,315,6,0
+	8b,85,261,226,6,0
+	8c,92,274,196,6,0
+	8d,104,248,313,6,0
+	9,75,248,131,3,0
+	10a,204,558,449,6,0
+	10b,83,268,230,6,0
+	10c,117,342,199,6,0
+	10d,143,311,444,6,0
+	11a,179,454,450,6,0
+	11b,90,267,227,6,0
+	11c,122,391,232,6,0
+	11d,143,311,444,6,0
 \end{filecontents}
 
-	
 \begin{figure}
 	\centering
 	\begin{tikzpicture}
@@ -178,21 +191,19 @@
 			ylabel={\#},
 			xticklabel style={rotate=90, anchor=east},
 			width=1\textwidth,
-			height=0.6\textwidth,
+			height=0.7\textwidth,
 			enlarge x limits=0.05,
 			legend style={at={(0.5,-0.15)}, anchor=north,legend columns=-1}
 			]
-			\addplot table [x=Solution, y=SLICE, col sep=comma] {data.csv};
-			\addplot table [x=Solution, y=LUT, col sep=comma] {data.csv};
-			\addplot table [x=Solution, y=FF, col sep=comma] {data.csv};
-			\addplot table [x=Solution, y=DSP, col sep=comma] {data.csv};
-			\addplot table [x=Solution, y=BRAM, col sep=comma] {data.csv};
+			\addplot table [x=Solution, y=SLICE, col sep=comma] {utilization.csv};
+			\addplot table [x=Solution, y=LUT, col sep=comma] {utilization.csv};
+			\addplot table [x=Solution, y=FF, col sep=comma] {utilization.csv};
+			\addplot table [x=Solution, y=DSP, col sep=comma] {utilization.csv};
+			\addplot table [x=Solution, y=BRAM, col sep=comma] {utilization.csv};
 			\legend{SLICE, LUT, FF, DSP, BRAM}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Utilization Export RTL Plot}
 	\label{fig:utilization-export-rtl-plot}
 \end{figure}
-
-
 	
