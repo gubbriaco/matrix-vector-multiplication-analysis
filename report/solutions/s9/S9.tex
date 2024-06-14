@@ -81,7 +81,7 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 	\label{tab:hls-solution-9-columnindex-partitioning-loop-summary}
 \end{table}
 
-Si può notare come in questo caso il warning sia relativo all'array \textit{values}. In particolare, la tipologia di warning è la medesima facendo presupporre che il tool non riesca a schedulare correttamente, secondo le direttive imposte dall'architetture, gli accessi in parallello all'array \textit{values}. Infatti, il valore di Iteration Latency raggiunto risulta essere ancora maggiore di quello di quello target. 
+Si può notare come in questo caso il warning sia relativo all'array \textit{values}. In particolare, la tipologia di warning è la medesima facendo presupporre che il tool non riesca a schedulare correttamente, secondo le direttive imposte dall'architetture, gli accessi in parallello all'array \textit{values}. Infatti, il valore di Initiation Interval raggiunto risulta essere ancora maggiore di quello di quello target. 
 \\
 Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{values}.
 
@@ -106,7 +106,7 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
 \end{table}
 
-Si può notare come in questo caso il warning sia relativo all'array \textit{x}. In particolare, la tipologia di warning è la medesima della precedente. Anche in questo caso il valore di Iteration Latency raggiunto risulta essere ancora maggiore di quello di quello target. 
+Si può notare come in questo caso il warning sia relativo all'array \textit{x}. In particolare, la tipologia di warning è la medesima della precedente. Anche in questo caso il valore di Initiation Interval raggiunto risulta essere ancora maggiore di quello di quello target. 
 \\
 Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{x}.
 
@@ -205,7 +205,7 @@ Nello specifico, si riscontrano nuovamente i medesimi warning allegati precedent
 	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
 \end{table}
 
-Pertanto, dal momento che i warning sono ancora presenti e il valore di Initiation Latency non tende a diminuire, si potrebbe provare effettuando anche il pipelining del loop1.
+Pertanto, dal momento che i warning sono ancora presenti e il valore di Initiation Interval non tende a diminuire, si potrebbe provare effettuando anche il pipelining del loop1.
 
 \lstinputlisting[language=C++]{solutions/s9/s9pipelineloop1.cpp}
 
@@ -252,7 +252,7 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il
 	\label{tab:hls-solution-7-loop1-pipeline-utilization-estimates-summary}
 \end{table}
 
-Si può notare come i warning relativi a ytmp non sono più presenti all'interno della console e che, inoltre, l'Initiation Interval relativo al loop2 presenta un valore raggiunto uguale a quello target, cioè pari a 1. In aggiunta, si possono evidenziare ulteriori warning all'interno della console. Essi sono i medesimi di quelli riscontrati nella solution 7, in cui veniva effettuato un unrolling di fattore pari a 4 nel loop2, dopo aver applicato il pipeline al loop1. Anche in questo caso, il tool non è riuscito a soddisfare la richiesta di pipeline a causa dei bound non noti e, pertanto, non riuscendo nemmeno a soddisfare la direttiva di unrolling all'interno del loop2. Infatti, si può notare come i valori di Initiation Interval (achieved e target) risultano essere non definiti, mentre il trip count relativo relativo al loop2 risulta essere il medesimo di quello della solution2 dove non era presente alcun pragma di parallelismo nel ciclo 2.
+Si può notare come i warning relativi a ytmp non sono più presenti all'interno della console e che, inoltre, l'Initiation Interval, relativo al loop2, presenta un valore raggiunto uguale a quello target, cioè pari a 1. In aggiunta, si possono evidenziare ulteriori warning all'interno della console. In particolare, il tool non è riuscito a soddisfare la richiesta di pipeline a causa dei bound non noti e, pertanto, non riuscendo nemmeno a soddisfare la direttiva di unrolling all'interno del loop2. Infatti, si può notare come i valori di Initiation Interval (achieved e target) del loop1 risultano essere non definiti, mentre il trip count relativo relativo al loop2 risulta essere il medesimo di quello della solution2 dove non era presente alcun pragma di parallelismo nel ciclo 2.
 \\
 Pertanto, considerando l'implementazione finale ottenuta in corrispondenza della solution in questione, si effettua la C/RTL Cosimulation e l'Export RTL e si analizzano, di conseguenza, i report corrispondenti.
 

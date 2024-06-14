@@ -81,7 +81,7 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 	\label{tab:hls-solution-7-columnindex-partitioning-loop-summary}
 \end{table}
 
-Si può notare come in questo caso il warning sia relativo all'array \textit{values}. In particolare, la tipologia di warning è la medesima facendo presupporre che il tool non riesca a schedulare correttamente, secondo le direttive imposte dall'architetture, gli accessi in parallello all'array \textit{values}. Infatti, il valore di Iteration Latency raggiunto risulta essere ancora maggiore di quello di quello target. 
+Si può notare come in questo caso il warning sia relativo all'array \textit{values}. In particolare, la tipologia di warning è la medesima facendo presupporre che il tool non riesca a schedulare correttamente, secondo le direttive imposte dall'architettura, gli accessi in parallello all'array \textit{values}. Infatti, il valore di Initiation Interval raggiunto risulta essere ancora maggiore di quello di quello target. 
 \\
 Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{values}.
 
@@ -106,7 +106,7 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e i 
 	\label{tab:hls-solution-7-columnindex-values-partitioning-loop-summary}
 \end{table}
 
-Si può notare come in questo caso il warning sia relativo all'array \textit{x}. In particolare, la tipologia di warning è la medesima della precedente. Anche in questo caso il valore di Iteration Latency raggiunto risulta essere ancora maggiore di quello di quello target. 
+Si può notare come in questo caso il warning sia relativo all'array \textit{x}. In particolare, la tipologia di warning è la medesima della precedente. Anche in questo caso il valore di Initiation Interval raggiunto risulta essere ancora maggiore di quello di quello target. 
 \\
 Pertanto, si potrebbe aggiungere una direttiva di partizionamento relativa all'array menzionato all'interno del log, cioè \textit{x}.
 
@@ -172,9 +172,9 @@ Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il
 	\label{tab:hls-solution-7-columnindex-values-x-partitioning-loop-summary}
 \end{table}
 
-Quello che si può notare è che all'interno della console viene visualizzato un warning indicante un periodo di clock stimato maggiore di quello target. In particolare, viene stimato un timing per ogni operazione in maniera dettagliata: $2.55 ns$ per \textit{add operation ytmp\_1\_3}, $0 ns$ per \textit{phi operation ytmp}, $2.55 ns$ per \textit{add operation ytmp\_1}, $2.55 ns$ per \textit{add operation ytmp\_1\_1} e $2.55 ns$ per \textit{add operation ytmp\_1\_2}. Pertanto, calcolando la somma di tutti questi timing stimati si ottiene un periodo di clock stimato pari a $10.2 ns$. Nello specifico, il periodo di clock rimanente, cioè $0.008 ns$, evidentemente corrisponde al valore di timing relativo a \textit{phi operation ytmp} che viene approssimato all'interno del report a $0 ns$. 
+Si può evidenziare come, in questo caso, il valore di Initiation Interval raggiunto sia il medesimo di quello target, cioè pari a 1. Inoltre, quello che si può notare è che all'interno della console viene visualizzato un warning indicante un periodo di clock stimato maggiore di quello target. In particolare, viene stimato un timing per ogni operazione in maniera dettagliata: $2.55 ns$ per \textit{add operation ytmp\_1\_3}, $0 ns$ per \textit{phi operation ytmp}, $2.55 ns$ per \textit{add operation ytmp\_1}, $2.55 ns$ per \textit{add operation ytmp\_1\_1} e $2.55 ns$ per \textit{add operation ytmp\_1\_2}. Pertanto, calcolando la somma di tutti questi timing stimati si ottiene un periodo di clock stimato pari a $10.2 ns$. Nello specifico, il periodo di clock rimanente, cioè $0.008 ns$, evidentemente corrisponde al valore di timing relativo a \textit{phi operation ytmp} che viene approssimato all'interno del report a $0 ns$. 
 \\
-Inoltre, si può notare come l'utilizzazione delle risorse sia notevolmente aumentata. In particolare, l'utilizzazione delle risorse, rispetto alle risorse disponibili della scheda, risultano essere pari al $5\%$ per i DSP, all'$1\%$ per i FF e al $2\%$ per le LUT.
+Inoltre, si può notare come l'utilizzazione delle risorse sia notevolmente aumentata. In particolare, l'utilizzazione delle risorse, rispetto alle risorse disponibili della scheda, risultano essere pari al $5\%$ per i DSP e al $2\%$ per le LUT.
 
 \begin{table}[H]
 	\centering
@@ -212,7 +212,7 @@ Si procede con successivi passi così da verificare se tale problematica, riguar
 	\label{tab:hls-solution-7-columnindex-values-x-partitioning-cosimulation-summary}
 \end{table}
 
-Si può notare come il tool sia riuscito a risolvere la problematica riguardante il periodo di clock stimato superiore a quello target. Infatti, si evidenzia come quello raggiunto post-implementation risulta essere pari a $7.974 ns$. Bisogna notare, però, che l'utilizzazione delle risorse risulta essere notevolmente alta dal momento che il tool ha attuato i partizionamenti di fattore pari a 4 su tutti e tre gli array precedentemente citati.
+Si può notare come il tool sia riuscito a risolvere la problematica riguardante il periodo di clock stimato superiore a quello target. Infatti, si evidenzia come quello raggiunto post-implementation risulta essere pari a $8.110 ns$. Bisogna notare, però, che l'utilizzazione delle risorse risulta essere notevolmente alta dal momento che il tool è riuscito ad attuare i partizionamenti di fattore pari a 4 su tutti e tre gli array precedentemente citati.
 
 \begin{table}[H]
 	\centering
@@ -256,145 +256,3 @@ Si può notare come il tool sia riuscito a risolvere la problematica riguardante
 		\label{tab:hls-solution-7-columnindex-values-x-partitioning-export-rtl-final-timing}
 	\end{minipage}
 \end{table}
-
-Anche se le problematiche precedentemente citate sono state risolte, si potrebbe pensare di adottare un approccio differente così da cercare di ottenere una diminuzione delle risorse. In particolare, si potrebbero non considerare i tre partizionamenti all'interno del loop2 e aggiungere, invece, la direttiva di pipelining all'interno del loop1.
-
-\lstinputlisting[language=C++]{solutions/s7/s7loop1pipeline.cpp}
-
-Effettuando la sintesi, si possono evidenziare i seguenti log nella console e i seguenti report.
-\\
-\textcolor{blue}{WARNING: [XFORM 203-503] Ignored partial unroll directive for loop 'loop2' (smvmProject/smvm.cpp:21) because its parent loop or function is pipelined.}
-\\
-\textcolor{blue}{WARNING: [XFORM 203-503] Cannot unroll loop 'loop2' (smvmProject/smvm.cpp:21) in function 'smvm' completely: variable loop bound.}
-\\
-\textcolor{blue}{WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Loop contains subloop(s) not being unrolled or flattened.}
-\\
-In particolare, si può notare come il primo warning segnali, tramite console, che la direttiva di unroll all'interno del loop2 è stata ignorata dal momento che all'interno del parent loop, cioè il loop1, è presente una direttiva di pipeline. Invece, per quanto riguarda il secondo warning, segnala che il tool non riesce a soddisfare la direttiva di pipeline senza però specificare quale loop. Nello specifico, lo si può capire dal report di sintesi generato. Infatti, si può notare come non sia stata attuata la direttiva di pipeline nel loop1 dal momento che l'Initiation Interval associato risulta essere non definito. Inoltre, si può evidenziare come il trip count associato al loop2 sia pari a 4, cioè questo valore dimostra che effettivamente la direttiva di unrolling di fattore pari a 4 non è stata attuata. Tanto è vero che, altrimenti, si troverebbe un numero di iterazioni pari a 1 come precedentemente mostrato. In particolare, questo approccio del tool è dovuto al fatto che non riesce ad effettuare il pipeline del loop1 dal momento che non ci sono bound al loop in questione, cioè il tutto corrisponderebbe ad un'architettura che non è nota perchè i bound non sono noti.
-\\
-Pertanto, è come se il tool riconducesse la soluzione hardware implementata ad una solution dove nel loop1 non è presente alcun pragma e nel loop2 sono presenti soltanto le direttive di trip count e pipeline. Praticamente è come se riconducesse il tutto alla solution 2.
-
-\begin{table}[H]
-	\centering
-	\begin{minipage}[t]{0.45\linewidth}
-		\centering
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			\textbf{Clock} & \textbf{Target} & \textbf{Estimated} & \textbf{Uncertainty} \\
-			\hline
-			ap\_clk & 10.00 & 10.208 & 1.25 \\
-			\hline
-		\end{tabular}
-		\caption{HLS Solution 7 with loop1 pipelined Timing Summary (ns)}
-		\label{tab:hls-solution-7-loop1-pipelined-timing-summary}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{0.45\linewidth}
-		\centering
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			\multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{2}{|c|}{\textbf{Interval}} \\
-			min & max & min & max \\
-			\hline
-			17 & 37 & 17 & 37 \\
-			\hline
-		\end{tabular}
-		\caption{HLS Solution 7 with loop1 pipelined Latency Summary (clock cycles)}
-		\label{tab:hls-solution-7-loop1-pipeline-latency-summary}
-	\end{minipage}
-\end{table}
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-		\hline
-		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
-		Name & min & max &  & achieved & target &  \\
-		\hline
-		- loop1 & 16 & 36 & 4$\sim$9 & - & - & 4 \\
-		+ loop2 & 0 & 5 & 3 & 1 & 1 & 0$\sim$4 \\
-		\hline
-	\end{tabular}
-	\caption{HLS Solution 7 with loop1 pipelined Latency Loops Summary}
-	\label{tab:hls-solution-7-loop1-pipeline-loop-summary}
-\end{table}
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|c|c|c|c|}
-		\hline
-		\textbf{Name}    & \textbf{BRAM\_18K} & \textbf{DSP48E} & \textbf{FF} & \textbf{LUT} \\ \hline
-		DSP              & -                   & -               & -           & -            \\ 
-		Expression       & -                   & 3              & 0           & 141          \\ 
-		FIFO             & -                   & -               & -           & -            \\ 
-		Instance         & -                   & -               & -           & 63            \\ 
-		Memory           & 0                   & -               & -          & -            \\ 
-		Multiplexer      & -                   & -               & -           & 78          \\ 
-		Register         & -                   & -               & 211         & -            \\ \hline
-		\textbf{Total}   & 0                   & 3               & 211         & 282          \\ \hline
-		\textbf{Available} & 280               & 220             & 106400      & 53200        \\ \hline
-		\textbf{Utilization (\%)} & 0            & 1               & $\sim$0     & $\sim$0      \\ \hline
-	\end{tabular}
-	\caption{HLS Solution 7 with loop1 pipelined Utilization Estimates Summary}
-	\label{tab:hls-solution-7-loop1-pipeline-utilization-estimates-summary}
-\end{table}
-
-Infatti, si può notare come la latenza e l'utilizzazione delle risorse associate alla solution in questione risultano essere le medesime di quelle ottenute in corrispondenza della soluzione hardware 2.
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c|c|c|c|c|c|c|c|}
-		\hline
-		\multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
-		&  & min & avg & max & min & avg & max \\
-		\hline
-		VHDL & Pass & 30 & 30 & 30 & NA & NA & NA \\
-		\hline
-	\end{tabular}
-	\caption{HLS Solution 7 with loop1 pipelined C/RTL Cosimulation Summary }
-	\label{tab:hls-solution-7-loop1-pipeline-cosimulation-summary}
-\end{table}
-
-\begin{table}[H]
-	\centering
-	\begin{minipage}[t]{0.45\linewidth}
-		\centering
-		\begin{tabular}{|l|r|}
-			\hline
-			\textbf{Resource} & \textbf{VHDL} \\
-			\hline
-			SLICE & 75 \\
-			\hline
-			LUT & 248 \\
-			\hline
-			FF & 131 \\
-			\hline
-			DSP & 3 \\
-			\hline
-			BRAM & 0 \\
-			\hline
-			SRL & 0 \\
-			\hline
-		\end{tabular}
-		\caption{HLS Solution 7 with loop1 pipelined Export RTL Resource Usage}
-		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-resoruce-usage}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{0.45\linewidth}
-		\centering
-		\begin{tabular}{|l|r|}
-			\hline
-			\textbf{Timing} & \textbf{VHDL} \\
-			\hline
-			CP required & 10.000 \\
-			\hline
-			CP achieved post-synthesis & 5.745 \\
-			\hline
-			CP achieved post-implementation & 6.120 \\
-			\hline
-		\end{tabular}
-		\caption{HLS Solution 7 with loop1 pipelined Export RTL Final Timing}
-		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-final-timing}
-	\end{minipage}
-\end{table}
-
-Pertanto, confrontando le due soluzioni hardware implementate, rispettivamente quella associata all'unrolling di fattore 4 del loop2 e del partizionamento dei tre array e quella appena descritta, è possibile fare alcune considerazioni. In particolare, se l'obiettivo dell'ottimizzazione è quello di ottenere un parallelismo del loop2, nello specifico di un fattore pari a 4, allora l'unica implementazione possibile è quella ottenuta tramite partitioning dei tre array (columnIndex, values e x). Ovviamente, come precedentemente citato, tale soluzione presenta un'utilizzazione delle risorse maggiore rispetto alle altre solution presentate dal momento che viene effettuato un partizionamento di fattore 4 su tre array. Invece, se l'obiettivo è quello di ottenere una minore utilizzazione delle risorse, allora la solution si riconduce a quella ottenuta in corrispondenza della soluzione hardware 2 dal momento che i risultati ottenuti sono i medesimi. Bisogna specificare, però, che l'obiettivo della solution in questione, cioè la 7, è quella di poter ottenere un unrolling di fattore pari a 4 in corrispondenza del loop2 e, pertanto, la soluzione hardware ottimale corrisponde a quella ottenuta tramite partizionamento dei tre array.
