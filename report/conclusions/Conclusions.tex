@@ -1,109 +1,4 @@
-
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
-		\hline
-		\multicolumn{1}{|c|}{\textbf{Solution}} & \multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
-		& &  & min & avg & max & min & avg & max \\
-		\hline
-		1 & VHDL & Pass & 58 & 58 & 58 & NA & NA & NA \\
-		\hline
-		2 & VHDL & Pass & 38 & 38 & 38 & NA & NA & NA \\
-		\hline
-		3 & VHDL & Pass & 58 & 58 & 58 & NA & NA & NA \\
-		\hline
-		4 & VHDL & Pass & 56 & 56 & 56 & NA & NA & NA \\
-		\hline
-		5 & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
-		\hline
-		6 &  &  &  &  &  &  &  &  \\
-		\tabitem columnIndex, values, x & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
-		\tabitem columnIndex & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
-		\tabitem values & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
-		\tabitem x & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
-		\hline
-		7 & VHDL & Pass & 29 & 29 & 29 & NA & NA & NA \\
-		\hline
-		8 &  &  &  &  &  &  &  &  \\
-		\tabitem columnIndex, values, x & VHDL & Pass & 33 & 33 & 33 & NA & NA & NA \\
-		\tabitem columnIndex & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
-		\tabitem values & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
-		\tabitem x & VHDL & Pass & 33 & 33 & 33 & NA & NA & NA \\
-		\hline
-		9 & VHDL & Pass & 30 & 30 & 30 & NA & NA & NA \\
-		\hline
-		10 &  &  &  &  &  &  &  &  \\
-		\tabitem columnIndex, values, x & VHDL & Pass & 61 & 61 & 61 & NA & NA & NA \\
-		\tabitem columnIndex & VHDL & Pass & 69 & 69 & 69 & NA & NA & NA \\
-		\tabitem values & VHDL & Pass & 69 & 69 & 69 & NA & NA & NA \\
-		\tabitem x & VHDL & Pass & 61 & 61 & 61 & NA & NA & NA \\
-		\hline
-		11 &  &  &  &  &  &  &  &  \\
-		\tabitem columnIndex, values, x & VHDL & Pass & 64 & 64 & 64 & NA & NA & NA \\
-		\tabitem columnIndex & VHDL & Pass & 72 & 72 & 72 & NA & NA & NA \\
-		\tabitem values & VHDL & Pass & 72 & 72 & 72 & NA & NA & NA \\
-		\tabitem x & VHDL & Pass & 64 & 64 & 64 & NA & NA & NA \\
-		\hline
-	\end{tabular}
-	\caption{HLS Conclusions C/RTL Cosimulation Report }
-	\label{tab:hls-conclusions-cosimulation-report}
-\end{table}
-
-\begin{filecontents*}{latency.csv}
-	Solution,Min,Avg,Max
-	1,58,58,58
-	2,38,38,38
-	3,58,58,58
-	4,56,56,56
-	5,37,37,37
-	6a,37,37,37
-	6b,37,37,37
-	6c,37,37,37
-	6d,37,37,37
-	7,29,29,29
-	8a,33,33,33
-	8b,37,37,37
-	8c,37,37,37
-	8d,33,33,33
-	9,30,30,30
-	10a,61,61,61
-	10b,69,69,69
-	10c,69,69,69
-	10d,61,61,61
-	11a,64,64,64
-	11b,72,72,72
-	11c,72,72,72
-	11d,64,64,64
-\end{filecontents*}
-
-\begin{figure}
-	\begin{tikzpicture}
-		\begin{axis}[
-			symbolic x coords={1, 2, 3, 4, 5, 6a, 6b, 6c, 6d, 7, 8a, 8b, 8c, 8d, 9, 10a, 10b, 10c, 10d, 11a, 11b, 11c, 11d},
-			xtick=data,
-			ymin=0,
-			ymax=80,
-			ylabel={Latency},
-			xlabel={Solution},
-			legend style={at={(0.5,-0.20)}, anchor=north, legend columns=-1},
-			width=1\textwidth,
-			height=0.7\textwidth,
-			xticklabel style={rotate=90, anchor=east},
-			]
-			\addplot table [x=Solution, y=Min, col sep=comma] {latency.csv};
-			\addplot table [x=Solution, y=Avg, col sep=comma] {latency.csv};
-			\addplot table [x=Solution, y=Max, col sep=comma] {latency.csv};
-			\legend{Min,Avg,Max}
-		\end{axis}
-	\end{tikzpicture}
-	\caption{Latency measurements for different solutions}
-	\label{fig:latency-measurements}
-\end{figure}
-
-
-
-
+Analizzando l'insieme delle soluzioni hardware proposte, è possibile effettuare alcune considerazioni finali riguardo l'utilizzazione delle risorse corrispondente ad ogni solution. 
 
 \begin{table}[H]
 	\centering
@@ -154,6 +49,12 @@
 	\label{tab:hls-conclusions-export-rtl-report}
 \end{table}
 
+In particolare, è possibile notare come la solution 3 prevede la medesima utilizzazione della solution 1. Infatti, come già precedentemente esposto nella sezione corrispondente, tale solution corrisponde alla solution 1 dal momento che la direttiva di pipelining prevista nel loop1 non viene interpretata dal tool a causa dei bound non noti. Pertanto, il tool ignora tale pragma sintetizzando il circuito come se tale direttiva non fosse presente all'interno del loop1. 
+\\
+Inoltre, è possibile evidenziare come nella soluzione hardware 5 è prevista l'utilizzazione di 6 DSP, rispetto alle solution precedenti ad essa in cui ne erano previste 3. Questo incremento è dovuto al fatto che nella solution 5 è previsto un unrolling di fattore pari a 2. Pertanto, se nelle soluzioni base, cioè dove non era presente alcun parallelismo all'interno del loop2, era prevista un'utilizzazione di 3 DSP, allora nella soluzione 5 ne saranno previste il doppio. Analogamente, nella soluzione hardware 7 è previsto un unrolling di fattore pari a 4. Pertanto, come si può evidenziare dalla tabella sopra allegata, si ha un notevole incremento in corrispondenza delle LUT e, inoltre, l'utilizzazione delle DSP risulta essere pari a 12. Invece, per quanto riguarda la soluzione hardware 9, dove è previsto un unrolling di fattore pari a 8, l'utilizzazione di tali risorse risulta essere minore delle solution precedentemente citate. Questo è dovuto al fatto che non è stato possibile implementare la solution in questione dal momento che il tool non riusciva a garantire gli accessi in parallelo alla memoria. In particolare, dopo aver previsto ulteriori direttive di partizionamento all'interno del loop2, il tool ha evidenziato un'ulteriore problematica dovuta a ytmp che si è cercato di risolvere introducendo un pragma di pipeline all'interno del loop1. Tale ulteriore direttiva ha evidenziato i problemi anche citati nella soluzione 3 dove non è stato possibile attuare il pipelining del loop1 a causa dei bound non noti. Per tale motivo, anche nella solution 9 sono stati riscontrati i medesimi warning che hanno portato il tool a sintetizzare l'architettura al netto di unrolling di fattore pari a 8 nel loop2 e di pipelining del loop1. Nel caso in cui, il tool fosse riuscito a sintetizzare tale solution prevedendo un parallelismo di fattore pari a 8, l'utilizzazione delle DSP, secondo i risultati delle solution basate su unrolling precedentemente citate, sarebbe stata pari a 24.
+\\
+
+
 \begin{filecontents}{utilization.csv}
 	Solution,SLICE,LUT,FF,DSP,BRAM
 	1,48,93,161,3,0
@@ -181,7 +82,7 @@
 	11d,143,311,444,6,0
 \end{filecontents}
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[

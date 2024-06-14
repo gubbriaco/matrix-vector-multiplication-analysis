@@ -1,10 +1,9 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces HLS Solution 1 Analysis}}{12}{figure.caption.7}%
-\contentsline {figure}{\numberline {2}{\ignorespaces HLS Loop Pipelining}}{14}{figure.caption.11}%
-\contentsline {figure}{\numberline {3}{\ignorespaces HLS Loop Unrolling}}{18}{figure.caption.22}%
-\contentsline {figure}{\numberline {4}{\ignorespaces HLS Solution 4 Analysis}}{19}{figure.caption.25}%
-\contentsline {figure}{\numberline {5}{\ignorespaces HLS Solution 5 Analysis}}{22}{figure.caption.31}%
-\contentsline {figure}{\numberline {6}{\ignorespaces HLS Array Partitioning}}{24}{figure.caption.35}%
-\contentsline {figure}{\numberline {7}{\ignorespaces HLS Solution 10 Analysis}}{45}{figure.caption.72}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Latency measurements for different solutions}}{52}{figure.caption.82}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Utilization Export RTL Plot}}{54}{figure.caption.84}%
+\contentsline {figure}{\numberline {1}{\ignorespaces HLS Solution 1 Analysis}}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {2}{\ignorespaces HLS Loop Pipelining}}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {3}{\ignorespaces HLS Loop Unrolling}}{19}{figure.caption.22}%
+\contentsline {figure}{\numberline {4}{\ignorespaces HLS Solution 4 Analysis}}{20}{figure.caption.25}%
+\contentsline {figure}{\numberline {5}{\ignorespaces HLS Solution 5 Analysis}}{23}{figure.caption.31}%
+\contentsline {figure}{\numberline {6}{\ignorespaces HLS Array Partitioning}}{25}{figure.caption.35}%
+\contentsline {figure}{\numberline {7}{\ignorespaces HLS Solution 10 Analysis}}{46}{figure.caption.72}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Utilization Export RTL Plot}}{53}{figure.caption.82}%
