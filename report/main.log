@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  14 JUN 2024 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.8)  14 JUN 2024 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1269,11 +1269,6 @@ Overfull \hbox (39.62991pt too wide) in paragraph at lines 134--150
 )
 
 [51]) (conclusions/Conclusions.tex
-Underfull \hbox (badness 10000) in paragraph at lines 52--56
-
- []
-
-
 
 [52]
 
@@ -1320,7 +1315,7 @@ blic/amsfonts/cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 c/amsfonts/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
 /MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/MikTex/fonts/type1/public
 /amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (53 pages, 776795 bytes).
+Output written on main.pdf (53 pages, 778155 bytes).
 PDF statistics:
  1662 PDF objects out of 1728 (max. 8388607)
  977 named destinations out of 1000 (max. 500000)
