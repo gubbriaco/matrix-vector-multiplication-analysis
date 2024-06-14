@@ -1,3 +1,4 @@
+Solution 1
 - Soluzione iniziale non ottimizzata
 size=4
 NNZ=9
@@ -7,22 +8,8 @@ Provare prima senza pragma però il report di sintesi presenta dei "?" nei campi
 	#pragma HLS loop_tripcount min=0 max=4 avg=2
 
 
-- Loop1 Pipeline
-size=4
-NNZ=9
-rows=4
-	loop1:
-	#pragma HLS pipeline	
-	loop2:
-	#pragma HLS loop_tripcount min=0 max=4 avg=2
 
-	PROBLEMI:
-	non riesce ad applicare il pipeline al primo loop -> è come se lo ignorasse
-		COME RISOLVERE?
-		aaggiungere pipeline al loop2 per vedere se ora lo considera.
-
-
-
+Solution 2
 - Loop2 Pipeline
 size=4
 NNZ=9
@@ -33,6 +20,22 @@ rows=4
 
 
 
+Solution 3
+- Loop1 Pipeline
+size=4
+NNZ=9
+rows=4
+	loop1:
+	#pragma HLS pipeline	
+	loop2:
+	#pragma HLS loop_tripcount min=0 max=4 avg=2
+		PROBLEMI? (warning pipelining loop1 e warning automatic unrolling loop2)
+		lascia così com'è
+		
+
+
+
+Solution 4
 - Loop1 Unroll=2
 size=4
 NNZ=9
@@ -44,6 +47,7 @@ rows=4
 
 
 
+Solution 5
 - Loop2 Pipeline, Unroll=2
 size=4
 NNZ=9
@@ -55,6 +59,7 @@ rows=4
 
 
 
+Solution 6
 - Loop2 Pipeline, Unroll=2, Cyclic=2
 size=4
 NNZ=9
@@ -88,6 +93,7 @@ rows=4
 
 
 
+Solution 7
 - Loop2 Pipeline, Unroll=4
 size=4
 NNZ=9
@@ -97,25 +103,24 @@ rows=4
 	#pragma HLS pipeline	
 	#pragma HLS unroll factor=4
 
-	PROBLEMI?
+	PROBLEMI? (warning columnIndex e II)
 	- mettere nel loop2:
-	#pragma HLS array_partition variable=columnIndex cyclic factor=4
-		PROBLEMI?
+	#pragma HLS array_partition variable=columnIndex complete
+		PROBLEMI? (warning values e II)
 		- mettere nel loop2:
-		#pragma HLS array_partition variable=columnIndex cyclic factor=4
-		#pragma HLS array_partition variable=values cyclic factor=4
-			PROBLEMI?
+		#pragma HLS array_partition variable=columnIndex complete
+		#pragma HLS array_partition variable=values complete
+			PROBLEMI? (warning x e II)
 			- mettere nel loop2:
-			#pragma HLS array_partition variable=columnIndex cyclic factor=4
-			#pragma HLS array_partition variable=values cyclic factor=4
-			#pragma HLS array_partition variable=x cyclic factor=4
-				PROBLEMI? (MAGGIORI RISORSE E TIMING DI CLOCK NON RISPETTATO)
-				- eliminare i pragma di partitioning dal loop2
-				- mettere nel loop1:
-				#pragma HLS pipeline
+			#pragma HLS array_partition variable=columnIndex complete
+			#pragma HLS array_partition variable=values complete
+			#pragma HLS array_partition variable=x complete
+				PROBLEMI? (PERIODO DI CLOCK STIMATO MAGGIORE DEL PERIODO DI CLOCK TARGET)
+				anche se è presente questo warning non fa niente poiché lo risolve il sintetizzatore effettuando l'Export RTL
 
 
 
+Solution 8
 - Loop2 Pipeline, Unroll=2, Cyclic=4
 size=4
 NNZ=9
@@ -149,6 +154,7 @@ rows=4
 
 
 
+Solution 9
 - Loop2 Pipeline, Unroll=8
 size=4
 NNZ=9
@@ -157,24 +163,46 @@ rows=4
 	#pragma HLS loop_tripcount min=0 max=4 avg=2
 	#pragma HLS pipeline	
 	#pragma HLS unroll factor=8
-		PROBLEMI?
+		PROBLEMI? (warning columnIndex e II)
 		- mettere nel loop2:
-		#pragma HLS array_partition variable=columnIndex cyclic factor=8
-			PROBLEMI?
+		#pragma HLS array_partition variable=columnIndex complete
+			PROBLEMI? (warning values e II)
 			- mettere nel loop2:
-			#pragma HLS array_partition variable=columnIndex cyclic factor=8
-			#pragma HLS array_partition variable=values cyclic factor=8
-				PROBLEMI?
+			#pragma HLS array_partition variable=columnIndex complete
+			#pragma HLS array_partition variable=values complete
+				PROBLEMI? (warning x e II)
 				- mettere nel loop2:
-				#pragma HLS array_partition variable=columnIndex cyclic factor=8
-				#pragma HLS array_partition variable=values cyclic factor=8
-				#pragma HLS array_partition variable=x cyclic factor=8
-					PROBLEMI? (MAGGIORI RISORSE E TIMING DI CLOCK NON RISPETTATO)
-					- eliminare i pragma di partitioning dal loop2
-					- mettere nel loop1:
-					#pragma HLS pipeline
+				#pragma HLS array_partition variable=columnIndex complete
+				#pragma HLS array_partition variable=values complete
+				#pragma HLS array_partition variable=x complete
+					PROBLEMI? (warning ytmp e II)
+					- mettere nel loop2:
+					#pragma HLS array_partition variable=columnIndex complete
+					#pragma HLS array_partition variable=values complete
+					#pragma HLS array_partition variable=x complete
+					#pragma HLS array_partition variable=rowPtr complete
+						PROBLEMI? (warning ytmp e II)
+						- mettere nel loop2:
+						#pragma HLS array_partition variable=columnIndex complete
+						#pragma HLS array_partition variable=values complete
+						#pragma HLS array_partition variable=x complete
+						#pragma HLS array_partition variable=rowPtr complete
+						#pragma HLS array_partition variable=y complete
+							PROBLEMI? (warning ytmp e II)
+							-mettere nel loop1:
+							#pragma HLS pipeline
+							- mettere nel loop2:
+							#pragma HLS array_partition variable=columnIndex complete
+							#pragma HLS array_partition variable=values complete
+							#pragma HLS array_partition variable=x complete
+							#pragma HLS array_partition variable=rowPtr complete
+							#pragma HLS array_partition variable=y complete
+								PROBLEMI? (warning pipelining loop1 e warning unrolling loop2)
+								lascia così com'è
 
 
+
+Solution 10
 - Loop2 Pipeline, Unroll=2, Cyclic=8
 prova prima con size=4, NNZ=9, rows=4 e far vedere l'errore che esce. Quindi per risolvere:
 size=8
@@ -205,10 +233,11 @@ rows=8
 		#pragma HLS loop_tripcount min=0 max=8 avg=4
 		#pragma HLS pipeline	
 		#pragma HLS unroll factor=2
-		#pragma HLS array_partition variable=x block factor=4
+		#pragma HLS array_partition variable=x cyclic factor=8
 
 
 
+Solution 11
 - Loop2 Pipeline, Unroll=2, block=8
 prova prima con size=8, NNZ=9, rows=8 e far vedere l'errore che esce. Quindi per risolvere:
 size=8
@@ -239,6 +268,6 @@ rows=8
 		#pragma HLS loop_tripcount min=0 max=8 avg=4
 		#pragma HLS pipeline	
 		#pragma HLS unroll factor=2
-		#pragma HLS array_partition variable=x block factor=4
+		#pragma HLS array_partition variable=x block factor=8
 
 
