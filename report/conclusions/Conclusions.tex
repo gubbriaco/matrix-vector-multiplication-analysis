@@ -1,4 +1,11 @@
-Analizzando l'insieme delle soluzioni hardware proposte, è possibile effettuare alcune considerazioni finali riguardo l'utilizzazione delle risorse corrispondente ad ogni solution. 
+Analizzando l'insieme delle soluzioni hardware proposte, è possibile effettuare alcune considerazioni finali riguardo l'utilizzazione delle risorse corrispondente ad ogni solution. Bisogna specificare che nel plot sotto allegato, le solution che fanno riferimento al partizionamento degli array columnIndex, values e x saranno definite, per semplicità, nella seguente maniera:
+\begin{itemize}
+	\item (columnIndex, values, x) $\rightarrow$ a
+	\item columnIndex $\rightarrow$ b
+	\item values $\rightarrow$ c
+	\item x $\rightarrow$ d
+\end{itemize} 
+Ad esempio, la solution 10 basata sul partitioning di columnIndex, values e x verrà identificata all'interno del plot come "s10a" mentre la solution 8 basata sul partitioning di values verrà identificata all'interno del plot come "s8c".
 
 \begin{table}[H]
 	\centering
@@ -92,9 +99,9 @@ Inoltre, si può notare come, in corrispondenza della soluzione hardware 10 che 
 			ylabel={\#},
 			xticklabel style={rotate=90, anchor=east},
 			width=1\textwidth,
-			height=0.65\textwidth,
+			height=0.4\textwidth,
 			enlarge x limits=0.05,
-			legend style={at={(0.5,-0.15)}, anchor=north,legend columns=-1}
+			legend style={at={(0.5,-0.2)}, anchor=north,legend columns=-1}
 			]
 			\addplot table [x=Solution, y=SLICE, col sep=comma] {utilization.csv};
 			\addplot table [x=Solution, y=LUT, col sep=comma] {utilization.csv};
