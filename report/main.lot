@@ -81,11 +81,12 @@
 \contentsline {table}{\numberline {80}{\ignorespaces HLS Solution 10 Latency Loops Summary }}{44}{table.caption.70}%
 \contentsline {table}{\numberline {81}{\ignorespaces HLS Solution 10 Utilization Estimates [\#]}}{44}{table.caption.71}%
 \contentsline {table}{\numberline {82}{\ignorespaces HLS Solution 10 C/RTL Cosimulation Report }}{45}{table.caption.73}%
-\contentsline {table}{\numberline {83}{\ignorespaces HLS Solution 10 Export RTL Report}}{46}{table.caption.74}%
-\contentsline {table}{\numberline {84}{\ignorespaces HLS Solution 11 Timing Summary (ns)}}{49}{table.caption.75}%
-\contentsline {table}{\numberline {85}{\ignorespaces HLS Solution 11 Latency Summary (clock cycles)}}{49}{table.caption.76}%
-\contentsline {table}{\numberline {86}{\ignorespaces HLS Solution 11 Latency Loops Summary }}{49}{table.caption.77}%
-\contentsline {table}{\numberline {87}{\ignorespaces HLS Solution 11 Utilization Estimates [\#]}}{49}{table.caption.78}%
-\contentsline {table}{\numberline {88}{\ignorespaces HLS Solution 11 C/RTL Cosimulation Report }}{50}{table.caption.79}%
-\contentsline {table}{\numberline {89}{\ignorespaces HLS Solution 11 Export RTL Report}}{50}{table.caption.80}%
-\contentsline {table}{\numberline {90}{\ignorespaces HLS Conclusions Export RTL Report}}{51}{table.caption.81}%
+\contentsline {table}{\numberline {83}{\ignorespaces HLS Solution 10 Export RTL Report}}{45}{table.caption.74}%
+\contentsline {table}{\numberline {84}{\ignorespaces HLS Solution 11 Timing Summary (ns)}}{48}{table.caption.75}%
+\contentsline {table}{\numberline {85}{\ignorespaces HLS Solution 11 Latency Summary (clock cycles)}}{48}{table.caption.76}%
+\contentsline {table}{\numberline {86}{\ignorespaces HLS Solution 11 Latency Loops Summary }}{48}{table.caption.77}%
+\contentsline {table}{\numberline {87}{\ignorespaces HLS Solution 11 Utilization Estimates [\#]}}{48}{table.caption.78}%
+\contentsline {table}{\numberline {88}{\ignorespaces HLS Solution 11 C/RTL Cosimulation Report }}{49}{table.caption.79}%
+\contentsline {table}{\numberline {89}{\ignorespaces HLS Solution 11 Export RTL Report}}{49}{table.caption.80}%
+\contentsline {table}{\numberline {90}{\ignorespaces HLS Conclusions C/RTL Cosimulation Report}}{51}{table.caption.82}%
+\contentsline {table}{\numberline {91}{\ignorespaces HLS Conclusions Export RTL Report}}{52}{table.caption.83}%

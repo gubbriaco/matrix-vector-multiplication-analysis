@@ -1,4 +1,4 @@
-Analizzando l'insieme delle soluzioni hardware proposte, è possibile effettuare alcune considerazioni finali riguardo l'utilizzazione delle risorse corrispondente ad ogni solution. Bisogna specificare che nel plot sotto allegato, le solution che fanno riferimento al partizionamento degli array columnIndex, values e x saranno definite, per semplicità, nella seguente maniera:
+Analizzando l'insieme delle soluzioni hardware proposte, è possibile effettuare alcune considerazioni finali riguardo la latenza e l'utilizzazione delle risorse corrispondente ad ogni solution. Bisogna specificare che nel plot sotto allegato, le solution che fanno riferimento al partizionamento degli array columnIndex, values e x saranno definite, per semplicità, nella seguente maniera:
 \begin{itemize}
 	\item (columnIndex, values, x) $\rightarrow$ a
 	\item columnIndex $\rightarrow$ b
@@ -6,6 +6,117 @@ Analizzando l'insieme delle soluzioni hardware proposte, è possibile effettuare
 	\item x $\rightarrow$ d
 \end{itemize} 
 Ad esempio, la solution 10 basata sul partitioning di columnIndex, values e x verrà identificata all'interno del plot come "10a" mentre la solution 8 basata sul partitioning di values verrà identificata all'interno del plot come "8c".
+\\
+In particolare, è possibile notare come la soluzione 1 iniziale, dove non è stata considerata alcuna direttiva, prevede un valore pari a 58. Tale valore è possibile ottimizzarlo considerando, ad esempio, un approccio pipeline sul loop2. Infatti, in corrispondenza della soluzione hardware 2 è stato previsto un pragma di pipeline all'interno del ciclo 2 permettendo all'architettura di lavorare su dati temporalmente differenti e, quindi, permettendo una diminuzione della latenza totale. Invece, per quanto riguarda la soluzione 3, dal momento che il tool non è riuscito a sintetizzare la direttiva di pipelining nel loop1, la latenza associata risulta essere la medesima di quella ottenuta nella soluzione 1. Invece, in corrispondenza della soluzione 4, dove si è considerato un parallelismo di fattore pari a 2, cioè che ci aspetta è una diminuzione della latenza. Purtroppo questo non accade dal momento che il tool effettua una sintesi tale per cui le due istanze di loop2, previste in parallelo all'interno del loop1, vengono eseguite in maniera sequenziale. Pertanto, il valore del trip count associato al loop1 viene dimezzato mentre il valore di latenza associato all'architettura rimane quasi il medesimo. Per quanto riguarda, invece, la soluzione hardware 5 in corrispondenza della quale vengono considerate le direttive di pipeline e unrolling di fattore pari a 2 nel loop2, si ha sia un dimezzamento del valore di trip count sia una diminuzione della latenza totale.
+
+\begin{filecontents*}{latency.csv}
+	Solution,Min,Avg,Max
+	1,58,58,58
+	2,38,38,38
+	3,58,58,58
+	4,56,56,56
+	5,37,37,37
+	6a,37,37,37
+	6b,37,37,37
+	6c,37,37,37
+	6d,37,37,37
+	7,29,29,29
+	8a,33,33,33
+	8b,37,37,37
+	8c,37,37,37
+	8d,33,33,33
+	9,30,30,30
+	10a,61,61,61
+	10b,69,69,69
+	10c,69,69,69
+	10d,61,61,61
+	11a,64,64,64
+	11b,72,72,72
+	11c,72,72,72
+	11d,64,64,64
+\end{filecontents*}
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+			symbolic x coords={1, 2, 3, 4, 5, 6a, 6b, 6c, 6d, 7, 8a, 8b, 8c, 8d, 9, 10a, 10b, 10c, 10d, 11a, 11b, 11c, 11d},
+			xtick=data,
+			ymin=0,
+			ymax=80,
+			ylabel={Latency},
+			xlabel={Solution},
+			legend style={at={(0.5,-0.3)}, anchor=north, legend columns=-1},
+			width=1\textwidth,
+			height=0.34\textwidth,
+			xticklabel style={rotate=90, anchor=east},
+			]
+			\addplot table [x=Solution, y=Min, col sep=comma] {latency.csv};
+			\addplot table [x=Solution, y=Avg, col sep=comma] {latency.csv};
+			\addplot table [x=Solution, y=Max, col sep=comma] {latency.csv};
+			\legend{Min,Avg,Max}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{HLS Conclusions C/RTL Cosimulation Plot}
+	\label{fig:hls-conclusions-cosimulation-plot}
+\end{figure}
+
+Per quanto riguarda, la soluzione hardware 7, dove è stata prevista una direttiva di parallelismo di fattore pari a 4 all'interno del loop2, si può notare come la latenza associata risulta essere la minore di quelle ottenute tra le varie solution. Pertanto, in corrispondenza della soluzione hardware 9, ci si aspetta una latenza ancora minore dal momento che è stato considerato un unrolling di fattore pari a 8. Invece, ciò che succede è che la latenza associata risulta essere di un'unità maggiore rispetto a quella precedentemente citata. Tanto è vero che il tool, tramite log all'interno della console, segnala l'impossibilità di applicare l'unrolling all'interno del loop2 e ottenendo, di conseguenza, un valore di trip count uguale a quello ottenuto in corrispondenza della solution 1. 
+\\
+Per quanto riguarda la solution 6, dove è stato considerato all'interno del loop2 sia un parallelismo di fattore pari a 2 sia le varie configurazioni partitioning dei tre array, si può notare come la latenza corrispondente alle 4 configurazioni considerate risulta essere la medesimo, cioè pari a 37. Inoltre, tale valore risulta essere il medesimo di quello ottenuto in corrispondenza della soluzione hardware 5 dove è stato considerato all'interno del loop2 la direttiva di unrolling di fattore 2 senza considerare quelle relative al partitioning. Pertanto, sarebbe opportuno, nella successiva analisi conclusiva dell'utilizzazione delle risorse, comprendere se effettivamente ha senso considerare i partitioning ulteriori. Inoltre, si può notare come, in corrrispondenza, delle configurazioni proposte nella solution 8, si ottiene la medesima latenza tranne per le configurazioni dove si considera il partizionamento di fattore pari a 4 di tutti e tre gli array contemporaneamente e dove si considera soltanto il partitioning di fattore pari a 4 dell'array x. Infatti, in corrispondenza di tali configurazioni si ottiene una latenza pari a 33. Pertanto, analizzando successivamente l'utilizzazione delle risorse, nel caso in cui tale utilizzazione risulti essere maggiore rispetto alla solution 5, si potrebbe individuare un trade-off tra risorse e latenza.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Solution}} & \multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
+		& &  & min & avg & max & min & avg & max \\
+		\hline
+		1 & VHDL & Pass & 58 & 58 & 58 & NA & NA & NA \\
+		\hline
+		2 & VHDL & Pass & 38 & 38 & 38 & NA & NA & NA \\
+		\hline
+		3 & VHDL & Pass & 58 & 58 & 58 & NA & NA & NA \\
+		\hline
+		4 & VHDL & Pass & 56 & 56 & 56 & NA & NA & NA \\
+		\hline
+		5 & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
+		\hline
+		6 &  &  &  &  &  &  &  &  \\
+		\tabitem columnIndex, values, x & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
+		\tabitem columnIndex & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
+		\tabitem values & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
+		\tabitem x & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
+		\hline
+		7 & VHDL & Pass & 29 & 29 & 29 & NA & NA & NA \\
+		\hline
+		8 &  &  &  &  &  &  &  &  \\
+		\tabitem columnIndex, values, x & VHDL & Pass & 33 & 33 & 33 & NA & NA & NA \\
+		\tabitem columnIndex & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
+		\tabitem values & VHDL & Pass & 37 & 37 & 37 & NA & NA & NA \\
+		\tabitem x & VHDL & Pass & 33 & 33 & 33 & NA & NA & NA \\
+		\hline
+		9 & VHDL & Pass & 30 & 30 & 30 & NA & NA & NA \\
+		\hline
+		10 &  &  &  &  &  &  &  &  \\
+		\tabitem columnIndex, values, x & VHDL & Pass & 61 & 61 & 61 & NA & NA & NA \\
+		\tabitem columnIndex & VHDL & Pass & 69 & 69 & 69 & NA & NA & NA \\
+		\tabitem values & VHDL & Pass & 69 & 69 & 69 & NA & NA & NA \\
+		\tabitem x & VHDL & Pass & 61 & 61 & 61 & NA & NA & NA \\
+		\hline
+		11 &  &  &  &  &  &  &  &  \\
+		\tabitem columnIndex, values, x & VHDL & Pass & 64 & 64 & 64 & NA & NA & NA \\
+		\tabitem columnIndex & VHDL & Pass & 72 & 72 & 72 & NA & NA & NA \\
+		\tabitem values & VHDL & Pass & 72 & 72 & 72 & NA & NA & NA \\
+		\tabitem x & VHDL & Pass & 64 & 64 & 64 & NA & NA & NA \\
+		\hline
+	\end{tabular}
+	\caption{HLS Conclusions C/RTL Cosimulation Report}
+	\label{tab:hls-conclusions-cosimulation-report}
+\end{table}
+
+Inoltre, si può notare come all'aumentare del fattore di partitioning, si ha un notevole aumento della latenza associata all'architettura. Infatti, in corrispondenza della solution 10, dove è stato considerato un unrolling di fattore pari a 2 e un partitioning di fattore pari a 8, si può notare come la latenza sia pari a 61 per le configurazioni basate su partizionamento dei tre array e partizionamento di x mentre pari a 69 per le rimanenti. Analogamente, in corrispondenza delle configurazioni associate alla solution 11, si può notare come la latenza sia pari a 64 in corrispondenza delle configurazioni basate su partizionamento dei tre array e partizionamento di x mentre pari a 72 per le rimanenti.
+
+
 
 \begin{table}[H]
 	\centering
@@ -60,7 +171,9 @@ In particolare, è possibile notare come la solution 3 prevede la medesima utili
 \\
 Inoltre, è possibile evidenziare come nella soluzione hardware 5 è prevista l'utilizzazione di 6 DSP, rispetto alle solution precedenti ad essa in cui ne erano previste 3. Questo incremento è dovuto al fatto che nella solution 5 è previsto un unrolling di fattore pari a 2. Pertanto, se nelle soluzioni base, cioè dove non era presente alcun parallelismo all'interno del loop2, era prevista un'utilizzazione di 3 DSP, allora nella soluzione 5 ne saranno previste il doppio. Analogamente, nella soluzione hardware 7 è previsto un unrolling di fattore pari a 4. Pertanto, come si può evidenziare dalla tabella sopra allegata, si ha un notevole incremento in corrispondenza delle LUT e, inoltre, l'utilizzazione delle DSP risulta essere pari a 12. Invece, per quanto riguarda la soluzione hardware 9, dove è previsto un unrolling di fattore pari a 8, l'utilizzazione di tali risorse risulta essere minore delle solution precedentemente citate. Questo è dovuto al fatto che non è stato possibile implementare la solution in questione dal momento che il tool non riusciva a garantire gli accessi in parallelo alla memoria. In particolare, dopo aver previsto ulteriori direttive di partizionamento all'interno del loop2, il tool ha evidenziato un'ulteriore problematica dovuta a ytmp che si è cercato di risolvere introducendo un pragma di pipeline all'interno del loop1. Tale ulteriore direttiva ha evidenziato i problemi anche citati nella soluzione 3 dove non è stato possibile attuare il pipelining del loop1 a causa dei bound non noti. Per tale motivo, anche nella solution 9 sono stati riscontrati i medesimi warning che hanno portato il tool a sintetizzare l'architettura senza considerare l'unrolling di fattore pari a 8 nel loop2 e il pipelining del loop1. Nel caso in cui, il tool fosse riuscito a sintetizzare tale solution prevedendo un parallelismo di fattore pari a 8, l'utilizzazione delle DSP, secondo i risultati delle solution basate su unrolling precedentemente citate, sarebbe stata pari a 24.
 \\
-Inoltre, si può notare come, in corrispondenza della soluzione hardware 10, la quale prevede quattro solution in base al partizionamento effettuato, si ha un incremento dell'utilizzazione delle risorse rispetto alla solution 8 dove l'approccio risulta essere il medesimo tranne che per il fattore di partitioning utilizzato che nel caso delle soluzioni 10 risulta essere il doppio. In particolare, per le soluzioni 10 è stato previsto un valore di rows e size pari al doppio di quelli previsti per le soluzioni 8. Pertanto, il numero di risorse previste risulta essere maggiore. Tanto è vero che, per la solution 10 (columnIndex, values, x) si ha un incremento di FF di circa il $43\%$, un incremento di LUT di circa il $63\%$ e un incremento di slice di circa il $66\%$. Per quanto riguarda, invece, il numero di DSP utilizzati, questo risulta essere il medesimo tra le soluzioni 10 e le soluzioni 8 dal momento che in entrambe è previsto un fattore di unrolling pari a 2. Riguardo, invece, le soluzioni 11 nelle quali è stato previsto un partizionamento di tipologia block e di fattore pari a 8, l'utilizzazione delle risorse risulta essere quasi la medesima delle soluzioni 10. In particolare, per l'attuazione di tale direttiva è stata prevista, come precedentemente citato nell'apposita sezione, la variazione del valore della variabile nnz da 8 a 16. Infatti, tale valore nelle soluzioni 10 risulta essere pari a 8 mentre nelle soluzioni 11 risulta essere pari a 16. Tanto è vero che, le variazioni di utilizzazione di risorse tra le due categorie di solution si ha principalmente in corrispondenza dei partizionamenti degli array che prevedono un dimensionamento basato sulla variabile nnz (columnIndex e values). Infatti, in corrispondenza del partizionamento dell'array x, sia nella solution 10 che nella solution 11, l'utilizzazione delle risorse risulta essere la medesima. 
+Inoltre, si può notare come, in corrispondenza della soluzione hardware 10, la quale prevede quattro solution in base al partizionamento effettuato, si ha un incremento dell'utilizzazione delle risorse rispetto alla solution 8 dove l'approccio risulta essere il medesimo tranne che per il fattore di partitioning utilizzato che nel caso delle soluzioni 10 risulta essere il doppio. In particolare, per le soluzioni 10 è stato previsto un valore di rows e size pari al doppio di quelli previsti per le soluzioni 8. Pertanto, il numero di risorse previste risulta essere maggiore. Tanto è vero che, per la solution 10 (columnIndex, values, x) si ha un incremento di FF di circa il $43\%$, un incremento di LUT di circa il $63\%$ e un incremento di slice di circa il $66\%$. Per quanto riguarda, invece, il numero di DSP utilizzati, questo risulta essere il medesimo tra le soluzioni 10 e le soluzioni 8 dal momento che in entrambe è previsto un fattore di unrolling pari a 2. Riguardo, invece, le soluzioni 11 nelle quali è stato previsto un partizionamento di tipologia block e di fattore pari a 8, l'utilizzazione delle risorse risulta essere quasi la medesima delle soluzioni 10. In particolare, per l'attuazione di tale direttiva è stata prevista, come precedentemente citato nell'apposita sezione, la variazione del valore della variabile nnz da 8 a 16. Infatti, tale valore nelle soluzioni 10 risulta essere pari a 8 mentre nelle soluzioni 11 risulta essere pari a 16. Tanto è vero che, le variazioni di utilizzazione di risorse tra le due categorie di solution si ha principalmente in corrispondenza dei partizionamenti degli array che prevedono un dimensionamento basato sulla variabile nnz (columnIndex e values). Infatti, in corrispondenza del partizionamento dell'array x, sia nella solution 10 che nella solution 11, l'utilizzazione delle risorse risulta essere la medesima.
+
+
 
 \begin{filecontents}{utilization.csv}
 	Solution,SLICE,LUT,FF,DSP,BRAM
@@ -99,9 +212,9 @@ Inoltre, si può notare come, in corrispondenza della soluzione hardware 10, la 
 			ylabel={\#},
 			xticklabel style={rotate=90, anchor=east},
 			width=1\textwidth,
-			height=0.4\textwidth,
+			height=0.34\textwidth,
 			enlarge x limits=0.05,
-			legend style={at={(0.5,-0.2)}, anchor=north,legend columns=-1}
+			legend style={at={(0.5,-0.3)}, anchor=north,legend columns=-1}
 			]
 			\addplot table [x=Solution, y=SLICE, col sep=comma] {utilization.csv};
 			\addplot table [x=Solution, y=LUT, col sep=comma] {utilization.csv};
@@ -114,4 +227,6 @@ Inoltre, si può notare come, in corrispondenza della soluzione hardware 10, la 
 	\caption{Utilization Export RTL Plot}
 	\label{fig:utilization-export-rtl-plot}
 \end{figure}
-	
+
+
+Pertanto, 

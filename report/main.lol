@@ -36,9 +36,9 @@
 \contentsline {lstlisting}{solutions/s10/s10columnIndexmodified.cpp}{43}{lstlisting.-36}%
 \contentsline {lstlisting}{solutions/s10/s10valuesmodified.cpp}{43}{lstlisting.-37}%
 \contentsline {lstlisting}{solutions/s10/s10xmodified.cpp}{43}{lstlisting.-38}%
-\contentsline {lstlisting}{solutions/s11/definitions.h}{47}{lstlisting.-39}%
-\contentsline {lstlisting}{solutions/s11/s11all3.cpp}{47}{lstlisting.-40}%
-\contentsline {lstlisting}{solutions/s11/s11columnIndex.cpp}{47}{lstlisting.-41}%
-\contentsline {lstlisting}{solutions/s11/s11values.cpp}{48}{lstlisting.-42}%
-\contentsline {lstlisting}{solutions/s11/s11x.cpp}{48}{lstlisting.-43}%
-\contentsline {lstlisting}{solutions/s11/headermodified.h}{48}{lstlisting.-44}%
+\contentsline {lstlisting}{solutions/s11/definitions.h}{46}{lstlisting.-39}%
+\contentsline {lstlisting}{solutions/s11/s11all3.cpp}{46}{lstlisting.-40}%
+\contentsline {lstlisting}{solutions/s11/s11columnIndex.cpp}{46}{lstlisting.-41}%
+\contentsline {lstlisting}{solutions/s11/s11values.cpp}{47}{lstlisting.-42}%
+\contentsline {lstlisting}{solutions/s11/s11x.cpp}{47}{lstlisting.-43}%
+\contentsline {lstlisting}{solutions/s11/headermodified.h}{47}{lstlisting.-44}%
