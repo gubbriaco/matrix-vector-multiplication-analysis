@@ -205,7 +205,7 @@ Nello specifico, si riscontrano nuovamente i medesimi warning allegati precedent
 	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
 \end{table}
 
-Pertanto, dal momento che i warning sono ancora presenti e che il valore di Initiation Interval non tende a diminuire, si potrebbe provare effettuando anche il pipelining del loop1.
+Pertanto, dal momento che i warning sono ancora presenti e che il valore di Initiation Interval non tende a diminuire, si potrebbe provare effettuando anche il pipelining del loop1. In particolare, dal momento che i warning sono i medesimi, la solution verrà considerata senza la direttiva di partitioning su rowPtr e y.
 
 \lstinputlisting[language=C++]{solutions/s9/s9pipelineloop1.cpp}
 
@@ -267,7 +267,7 @@ Pertanto, considerando l'implementazione finale ottenuta in corrispondenza della
 		\hline
 	\end{tabular}
 	\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined C/RTL Cosimulation Summary }
-	\label{tab:hls-solution-7-loop1-pipeline-cosimulation-summary}
+	\label{tab:hls-solution-9-loop1-pipeline-cosimulation-summary}
 \end{table}
 
 \begin{table}[H]
@@ -292,7 +292,7 @@ Pertanto, considerando l'implementazione finale ottenuta in corrispondenza della
 			\hline
 		\end{tabular}
 		\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Export RTL Resource Usage}
-		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-resoruce-usage}
+		\label{tab:hls-solution-9-loop1-pipeline-export-rtl-resoruce-usage}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.45\linewidth}
@@ -309,6 +309,115 @@ Pertanto, considerando l'implementazione finale ottenuta in corrispondenza della
 			\hline
 		\end{tabular}
 		\caption{HLS Solution 9 with columnIndex, values and x partitioning and loop1 pipelined Export RTL Final Timing}
-		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-final-timing}
+		\label{tab:hls-solution-9-loop1-pipeline-export-rtl-final-timing}
 	\end{minipage}
 \end{table}
+
+
+Inoltre, si potrebbe provare a considerare il pipeline all'interno del loop1 e il partitioning anche per gli array rowPtr e y così da verificare se è possibile ottenere ulteriori ottimizzazioni.
+
+\lstinputlisting[language=C++]{solutions/s9/s9pipelineloop1rowPtry.cpp}
+
+Effettuando nuovamente la sintesi, si ottiene il seguente log nella console e il seguente report.
+\\
+\textcolor{blue}{WARNING: [XFORM 203-503] Ignored partial unroll directive for loop 'loop2' (smvmProject/smvm.cpp:21) because its parent loop or function is pipelined.}
+\\
+\textcolor{blue}{WARNING: [XFORM 203-503] Cannot unroll loop 'loop2' (smvmProject/smvm.cpp:21) in function 'smvm' completely: variable loop bound.}
+\\
+\textcolor{blue}{WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Loop contains subloop(s) not being unrolled or flattened.}
+\\
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Loop} & \multicolumn{2}{|c|}{\textbf{Latency}} & \multicolumn{1}{c|}{\textbf{Iteration Latency}} & \multicolumn{2}{c|}{\textbf{Initiation Interval}} & \multicolumn{1}{c|}{\textbf{Trip Count}}  \\
+		Name & min & max &  & achieved & target &  \\
+		\hline
+		- loop1 & 12 & 32 & 3$\sim$8 & - & - & 4 \\
+		+ loop2 & 0 & 5 & 3 & 1 & 1 & 0$\sim$4 \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex, values, x, rowPtr and y partitioning and loop1 pipelined Latency Loops Summary}
+	\label{tab:hls-solution-9-columnindex-values-partitioning-loop-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		\textbf{Name}    & \textbf{BRAM\_18K} & \textbf{DSP48E} & \textbf{FF} & \textbf{LUT} \\ \hline
+		DSP              & -                   & -               & -           & -            \\ 
+		Expression       & -                   & 3              & 0           & 143          \\ 
+		FIFO             & -                   & -               & -           & -            \\ 
+		Instance         & -                   & -               & -           & 84            \\ 
+		Memory           & 0                   & -               & -          & -            \\ 
+		Multiplexer      & -                   & -               & -           & 99          \\ 
+		Register         & -                   & -               & 175         & -            \\ \hline
+		\textbf{Total}   & 0                   & 3               & 175         & 326          \\ \hline
+		\textbf{Available} & 280               & 220             & 106400      & 53200        \\ \hline
+		\textbf{Utilization (\%)} & 0            & 1               & $\sim$0     & $\sim$0      \\ \hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex, values, x, rowPtr and y partitioning and loop1 pipelined Utilization Estimates Summary}
+	\label{tab:hls-solution-9-loop1-pipeline-utilization-estimates-summary}
+\end{table}
+
+Pertanto, si effettua la C/RTL Cosimulation e l'Export RTL e si analizzano, di conseguenza, i report corrispondenti.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{RTL} & \multicolumn{1}{|c|}{Status} & \multicolumn{3}{c|}{\textbf{Latency}} & \multicolumn{3}{c|}{\textbf{Interval}} \\
+		&  & min & avg & max & min & avg & max \\
+		\hline
+		VHDL & Pass & 26 & 26 & 26 & NA & NA & NA \\
+		\hline
+	\end{tabular}
+	\caption{HLS Solution 9 with columnIndex, values, x, rowPtr and y partitioning and loop1 pipelined C/RTL Cosimulation Summary }
+	\label{tab:hls-solution-9-loop1-pipeline-cosimulation-summary}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|l|r|}
+			\hline
+			\textbf{Resource} & \textbf{VHDL} \\
+			\hline
+			SLICE & 101 \\
+			\hline
+			LUT & 345 \\
+			\hline
+			FF & 96 \\
+			\hline
+			DSP & 3 \\
+			\hline
+			BRAM & 0 \\
+			\hline
+			SRL & 0 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 9 with columnIndex, values, x, rowPtr and y partitioning and loop1 pipelined Export RTL Resource Usage}
+		\label{tab:hls-solution-7-loop1-pipeline-export-rtl-resoruce-usage}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|l|r|}
+			\hline
+			\textbf{Timing} & \textbf{VHDL} \\
+			\hline
+			CP required & 10.000 \\
+			\hline
+			CP achieved post-synthesis & 7.603 \\
+			\hline
+			CP achieved post-implementation & 7.530 \\
+			\hline
+		\end{tabular}
+		\caption{HLS Solution 9 with columnIndex, values, x, rowPtr and y partitioning and loop1 pipelined Export RTL Final Timing}
+		\label{tab:hls-solution-9-loop1-pipeline-export-rtl-final-timing}
+	\end{minipage}
+\end{table}
+
+Si può notare come la latenza ottenuta risulta essere minore rispetto a quella ottenuta considerando soltanto i partitioning degli array columnIndex, values e x. Inoltre, l'utilizzazione delle risorse risulta essere leggermente maggiore. In particolare, si ha un aumento di circa il $35\%$ delle slice, un aumento di circa il $39\%$ delle LUT e una diminuzione di circa il $27\%$ dei FF. Ovviamente il numero di DSP rimane il medesimo a causa dei warning precedentemente citati. Pertanto, dal momento che l'utilizzazione delle risorse è leggermente aumentata e la latenza è diminuita, come risultato della solution 9 verrà considerata quest'ultima soluzione hardware dove è stato considerato anche il partitioning degli array rowPtr e y.
